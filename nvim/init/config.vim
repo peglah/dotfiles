@@ -1,5 +1,8 @@
 " This file can be loaded by calling `source init\config.vim` from your init.vim
 
+" Force language to english
+  language en_US
+
 " Highlight column after 'textwidth' in the help
   autocmd FileType help setlocal colorcolumn=+3
 " Enable relative line numbers in the help
