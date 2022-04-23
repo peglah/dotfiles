@@ -167,6 +167,9 @@ return require('packer').startup({function()
     requires = {{'nvim-lua/popup.nvim'},
                 {'nvim-lua/plenary.nvim'}}}
   use 'kshenoy/vim-signature'
+  use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   end,
   config = {
