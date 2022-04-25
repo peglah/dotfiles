@@ -1,4 +1,4 @@
-GuiFont Fira Mono for Powerline:h12:b
+GuiFont FiraMono NF:h12:b
 GuiTabline 0
 
 " Allows for font size to inc-/decrement and go back to normal
