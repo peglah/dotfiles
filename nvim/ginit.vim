@@ -5,10 +5,10 @@ GuiTabline 0
 let s:fontsize = 12
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
-  :execute "GuiFont Fira Mono for Powerline:h" . s:fontsize . ":b"
+  :execute "GuiFont FiraMono NF:h" . s:fontsize . ":b"
 endfunction
 
 function! NormalFontSize()
   let s:fontsize = 12
-  :execute "GuiFont Fira Mono for Powerline:h" . s:fontsize . ":b"
+  :execute "GuiFont FiraMono NF:h" . s:fontsize . ":b"
 endfunction
