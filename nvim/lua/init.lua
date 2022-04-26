@@ -1,4 +1,6 @@
--- TODO --
+require('plugins')
+
+-- aTODO --
 --print(vim.loop.os_uname().sysname)
 
 --if(vim.fn.has('windows')){
@@ -63,97 +65,40 @@ require('lualine').setup()
 require('colorizer').setup()
 require('neoscroll').setup()
 
-require('nvim-lsp-setup').setup({
-    -- Default mappings
-    -- gD = 'lua vim.lsp.buf.declaration()',
-    -- gd = 'lua vim.lsp.buf.definition()',
-    -- gt = 'lua vim.lsp.buf.type_definition()',
-    -- gi = 'lua vim.lsp.buf.implementation()',
-    -- gr = 'lua vim.lsp.buf.references()',
-    -- K = 'lua vim.lsp.buf.hover()',
-    -- ['<C-k>'] = 'lua vim.lsp.buf.signature_help()',
-    -- ['<space>rn'] = 'lua vim.lsp.buf.rename()',
-    -- ['<space>ca'] = 'lua vim.lsp.buf.code_action()',
-    -- ['<space>f'] = 'lua vim.lsp.buf.formatting()',
-    -- ['<space>e'] = 'lua vim.lsp.diagnostic.show_line_diagnostics()',
-    -- ['[d'] = 'lua vim.lsp.diagnostic.goto_prev()',
-    -- [']d'] = 'lua vim.lsp.diagnostic.goto_next()',
-    default_mappings = true,
-    -- Custom mappings
-    -- Example mappings for telescope pickers:
-    -- gd = 'lua require"telescope.builtin".lsp_definitions()',
-    -- gi = 'lua require"telescope.builtin".lsp_implementations()',
-    -- gr = 'lua require"telescope.builtin".lsp_references()',
-    mappings = {},
-    -- Global on_attach
-    -- on_attach = function(client, bufnr) {
-    --     utils.format_on_save(client)
-    -- },
-    servers = {
-        -- Install LSP servers automatically
-        -- LSP server configuration please see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        powershell_es = {
-          settings = {
-            ['powershell_es'] = {
-              bundle_path = 'C:/Users/z002d6kr/PowerShellEditorServices',
-              cmd = {'pwsh', '-NoLogo', '-NoProfile', '-Command', "C:/Users/z002d6kr/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1 ..."}
-            },
-          },
-        },
-    },
-})
-
--- Plugins config --
--- gruvbox-community/gruvbox
+--  Plugins config  --
+--  ellisonleao/gruvbox.nvim
 vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 
 -- kien/rainbow_parentheses.vim
 vim.api.nvim_exec([[ autocmd VimEnter * RainbowParenthesesToggleAll ]], false)
 
--- Plugins --
--- Install Packer if missing
-local execute = vim.api.nvim_command
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
-end
+-- nvim-treesitter/nvim-treesitter
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+--  ensure_installed = { "c", "lua", "rust" },
+  ensure_installed = { "lua" },
 
-return require('packer').startup({function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
 
-  -- Eye candy
-  use 'gruvbox-community/gruvbox'     -- Theme
-  use 'karb94/neoscroll.nvim'         -- Smooth scrolling
-  --use 'vim-airline/vim-airline'       -- Status/tabline
-  use {'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = { "javascript" },
 
-  -- Editing supports
-  use 'kien/rainbow_parentheses.vim'  -- Colorful parentheses
-  use 'norcalli/nvim-colorizer.lua'   -- Color highlighter
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
 
-  --  Utility
-  use {'sudormrfbin/cheatsheet.nvim', -- Hit <leader>? to invoke cheatsheet telescope
-      requires = {{'nvim-telescope/telescope.nvim'},
-                  {'nvim-lua/popup.nvim'},
-                  {'nvim-lua/plenary.nvim'},}}
-  use 'tversteeg/registers.nvim'      -- Press -- in normal or visual mode or Ctrl-R in insert mode
---  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
-  use {'junnplus/nvim-lsp-setup',     -- Wrapper for nvim-lspconfig and nvim-lsp-installer to setup LSP servers
-      requires = {'neovim/nvim-lspconfig',
-                  'williamboman/nvim-lsp-installer',}}
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
 
-  end,
-  config = {
-    display = {
-      open_fn = function()
-        -- Using a floating window
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
-  }
-})
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
