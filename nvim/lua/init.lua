@@ -26,7 +26,7 @@ vim.opt.showmode = false
 -- Use system clipboard
 vim.o.clipboard = 'unnamedplus'
 -- Enable autocompletion
-vim.opt.wildmode = {'longest:list', 'full'}
+vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
 
@@ -74,10 +74,10 @@ vim.cmd([[colorscheme gruvbox]])
 vim.api.nvim_exec([[ autocmd VimEnter * RainbowParenthesesToggleAll ]], false)
 
 -- nvim-treesitter/nvim-treesitter
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
---  ensure_installed = { "c", "lua", "rust" },
-  ensure_installed = { "lua" },
+  --  ensure_installed = { "c", "lua", "rust" },
+  ensure_installed = { "c", "cpp", "lua" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -101,4 +101,61 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+
+-- junnplus/nvim-lsp-setup
+require('nvim-lsp-setup').setup({
+  -- Default mappings
+  -- gD = 'lua vim.lsp.buf.declaration()',
+  -- gd = 'lua vim.lsp.buf.definition()',
+  -- gt = 'lua vim.lsp.buf.type_definition()',
+  -- gi = 'lua vim.lsp.buf.implementation()',
+  -- gr = 'lua vim.lsp.buf.references()',
+  -- K = 'lua vim.lsp.buf.hover()',
+  -- ['<C-k>'] = 'lua vim.lsp.buf.signature_help()',
+  -- ['<space>rn'] = 'lua vim.lsp.buf.rename()',
+  -- ['<space>ca'] = 'lua vim.lsp.buf.code_action()',
+  -- ['<space>f'] = 'lua vim.lsp.buf.formatting()',
+  -- ['<space>e'] = 'lua vim.lsp.diagnostic.show_line_diagnostics()',
+  -- ['[d'] = 'lua vim.lsp.diagnostic.goto_prev()',
+  -- [']d'] = 'lua vim.lsp.diagnostic.goto_next()',
+  default_mappings = true,
+  -- Custom mappings, will overwrite the default mappings for the same key
+  -- Example mappings for telescope pickers:
+  -- gd = 'lua require"telescope.builtin".lsp_definitions()',
+  -- gi = 'lua require"telescope.builtin".lsp_implementations()',
+  -- gr = 'lua require"telescope.builtin".lsp_references()',
+  mappings = {},
+  -- Global on_attach
+  -- on_attach = function(client, bufnr)
+  --     require('nvim-lsp-setup.utils').format_on_save(client)
+  -- end,
+  -- Global capabilities
+  -- capabilities = vim.lsp.protocol.make_client_capabilities(),
+  -- Configuration of LSP servers
+  servers = {
+    -- Install LSP servers automatically
+    -- LSP server configuration please see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    ccls = {},
+    sumneko_lua = {},
+  },
+})
+
+-- hrsh7th/cmp-nvim-lsp
+require 'cmp'.setup {
+  sources = {
+    { name = 'nvim_lsp' }
+  }
+}
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- The following example advertise capabilities to `clangd`.
+require 'lspconfig'.ccls.setup {
+  capabilities = capabilities,
+}
+require 'lspconfig'.sumneko_lua.setup {
+  capabilities = capabilities,
 }
