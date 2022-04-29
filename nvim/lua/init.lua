@@ -29,6 +29,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
+-- Set font for Neovide
+vim.api.nvim_exec([[ set guifont=FiraMono\ NF:h15 ]], false)
 
 -- Ignoring case in a pattern
 vim.opt.ignorecase = true
@@ -63,7 +65,9 @@ vim.api.nvim_exec([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
 -- Load plugins --
 require('lualine').setup()
 require('colorizer').setup()
-require('neoscroll').setup()
+--require('neoscroll').setup()
+require("twilight").setup()
+require("zen-mode").setup()
 
 --  Plugins config  --
 --  ellisonleao/gruvbox.nvim
@@ -102,6 +106,8 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- Lsp setup
 
 -- junnplus/nvim-lsp-setup
 require('nvim-lsp-setup').setup({
@@ -152,10 +158,43 @@ require 'cmp'.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- The following example advertise capabilities to `clangd`.
-require 'lspconfig'.ccls.setup {
-  capabilities = capabilities,
-}
-require 'lspconfig'.sumneko_lua.setup {
-  capabilities = capabilities,
-}
+---- The following example advertise capabilities to `clangd`.
+--require 'lspconfig'.ccls.setup {
+--  capabilities = capabilities,
+--}
+--require 'lspconfig'.sumneko_lua.setup {
+--  capabilities = capabilities,
+--}
+
+---- set the path to the sumneko installation
+----  local system_name = "Windows" -- (Linux, macOS, or Windows)
+--local sumneko_root_path = 'C:\\Users\\z002d6kr\\AppData\\Local\\nvim-data\\lsp_servers\\sumneko_lua\\extension\\server'
+--local sumneko_binary = sumneko_root_path .. "\\bin\\lua-language-server"
+--require('lspconfig').sumneko_lua.setup({
+--  cmd = { sumneko_binary, "-E", sumneko_root_path .. "\\main.lua" };
+--  -- An example of settings for an LSP server.
+--  --    For more options, see nvim-lspconfig
+--  settings = {
+--    Lua = {
+--      runtime = {
+--        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--        version = 'LuaJIT',
+--        -- Setup your lua path
+--        path = vim.split(package.path, ';'),
+--      },
+--      diagnostics = {
+--        -- Get the language server to recognize the `vim` global
+--        globals = { 'vim' },
+--      },
+--      workspace = {
+--        -- Make the server aware of Neovim runtime files
+--        library = {
+--          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+--          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+--        },
+--      },
+--    }
+--  },
+--
+--  on_attach = custom_lsp_attach
+--})

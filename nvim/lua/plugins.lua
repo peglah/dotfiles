@@ -14,15 +14,22 @@ return require('packer').startup({ function(use)
   use { 'nvim-lualine/lualine.nvim', -- Status/tabline
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
+  -- Distraction-free editing
+  use 'folke/zen-mode.nvim' -- Distraction-free coding
+  use 'folke/twilight.nvim' -- Dims inactive portions of the code you're editing
+
   -- Editing supports
   use 'kien/rainbow_parentheses.vim' -- Colorful parentheses
   use 'norcalli/nvim-colorizer.lua' -- Color highlighter
   use 'nvim-treesitter/nvim-treesitter'
-  use { 'hrsh7th/cmp-nvim-lsp',
-    requires = { 'junnplus/nvim-lsp-setup',
-      'neovim/nvim-lspconfig',
-      'williamboman/nvim-lsp-installer', } }
-  use { 'hrsh7th/nvim-cmp' }
+  -- LSP stuff
+  use 'junnplus/nvim-lsp-setup'
+  use 'williamboman/nvim-lsp-installer' -- Allows you to seamlessly install LSP servers locally
+  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
   --  Utility
   use { 'sudormrfbin/cheatsheet.nvim', -- Hit <leader>? to invoke cheatsheet telescope
