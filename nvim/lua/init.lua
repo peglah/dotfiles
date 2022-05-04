@@ -29,7 +29,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
--- Set font for Neovide
+-- Set font
 vim.api.nvim_exec([[ set guifont=FiraMono\ NF:h15 ]], false)
 
 -- Ignoring case in a pattern
@@ -74,9 +74,6 @@ require("zen-mode").setup()
 vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 
--- kien/rainbow_parentheses.vim
-vim.api.nvim_exec([[ autocmd VimEnter * RainbowParenthesesToggleAll ]], false)
-
 -- nvim-treesitter/nvim-treesitter
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
@@ -105,6 +102,15 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  -- p00f/nvim-ts-rainbow
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
 }
 
 -- Lsp setup

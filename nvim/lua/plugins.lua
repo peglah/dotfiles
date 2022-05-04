@@ -19,9 +19,10 @@ return require('packer').startup({ function(use)
   use 'folke/twilight.nvim' -- Dims inactive portions of the code you're editing
 
   -- Editing supports
-  use 'kien/rainbow_parentheses.vim' -- Colorful parentheses
+  use 'p00f/nvim-ts-rainbow' -- Colorful parentheses
   use 'norcalli/nvim-colorizer.lua' -- Color highlighter
   use 'nvim-treesitter/nvim-treesitter'
+
   -- LSP stuff
   use 'junnplus/nvim-lsp-setup'
   use 'williamboman/nvim-lsp-installer' -- Allows you to seamlessly install LSP servers locally
