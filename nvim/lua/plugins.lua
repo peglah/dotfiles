@@ -1,3 +1,4 @@
+local vim = vim
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -10,17 +11,22 @@ return require('packer').startup({ function(use)
 
   -- Eye candy
   use 'ellisonleao/gruvbox.nvim' -- Theme
-  use 'karb94/neoscroll.nvim' -- Smooth scrolling
+  use { 'karb94/neoscroll.nvim', -- Smooth scrolling
+    config = function() require('neoscroll').setup() end }
   use { 'nvim-lualine/lualine.nvim', -- Status/tabline
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require('lualine').setup() end }
 
   -- Distraction-free editing
-  use 'folke/zen-mode.nvim' -- Distraction-free coding
-  use 'folke/twilight.nvim' -- Dims inactive portions of the code you're editing
+  use { 'folke/zen-mode.nvim', -- Distraction-free coding
+    config = function() require('zen-mode').setup() end }
+  use { 'folke/twilight.nvim', -- Dims inactive portions of the code you're editing
+    config = function() require('twilight').setup() end }
 
   -- Editing supports
   use 'p00f/nvim-ts-rainbow' -- Colorful parentheses
-  use 'norcalli/nvim-colorizer.lua' -- Color highlighter
+  use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
+    config = function() require('colorizer').setup() end }
   use 'nvim-treesitter/nvim-treesitter'
 
   -- LSP stuff

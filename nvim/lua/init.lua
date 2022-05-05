@@ -1,3 +1,4 @@
+local vim = vim
 require('plugins')
 
 -- aTODO --
@@ -61,13 +62,6 @@ vim.api.nvim_exec([[ autocmd FileType * setlocal formatoptions-=c formatoptions-
 vim.api.nvim_exec([[ autocmd BufWritePre * %s/\s\+$//e ]], false)
 vim.api.nvim_exec([[ autocmd BufWritePre * %s/\n\+\%$//e ]], false)
 vim.api.nvim_exec([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
-
--- Load plugins --
-require('lualine').setup()
-require('colorizer').setup()
---require('neoscroll').setup()
-require("twilight").setup()
-require("zen-mode").setup()
 
 --  Plugins config  --
 --  ellisonleao/gruvbox.nvim
