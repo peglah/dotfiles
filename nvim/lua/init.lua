@@ -142,7 +142,7 @@ require('nvim-lsp-setup').setup({
   servers = {
     -- Install LSP servers automatically
     -- LSP server configuration please see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    ccls = {},
+    --ccls = {},
     sumneko_lua = {},
   },
 })
@@ -157,44 +157,3 @@ require 'cmp'.setup {
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
----- The following example advertise capabilities to `clangd`.
---require 'lspconfig'.ccls.setup {
---  capabilities = capabilities,
---}
---require 'lspconfig'.sumneko_lua.setup {
---  capabilities = capabilities,
---}
-
----- set the path to the sumneko installation
-----  local system_name = "Windows" -- (Linux, macOS, or Windows)
---local sumneko_root_path = 'C:\\Users\\z002d6kr\\AppData\\Local\\nvim-data\\lsp_servers\\sumneko_lua\\extension\\server'
---local sumneko_binary = sumneko_root_path .. "\\bin\\lua-language-server"
---require('lspconfig').sumneko_lua.setup({
---  cmd = { sumneko_binary, "-E", sumneko_root_path .. "\\main.lua" };
---  -- An example of settings for an LSP server.
---  --    For more options, see nvim-lspconfig
---  settings = {
---    Lua = {
---      runtime = {
---        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---        version = 'LuaJIT',
---        -- Setup your lua path
---        path = vim.split(package.path, ';'),
---      },
---      diagnostics = {
---        -- Get the language server to recognize the `vim` global
---        globals = { 'vim' },
---      },
---      workspace = {
---        -- Make the server aware of Neovim runtime files
---        library = {
---          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
---          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
---        },
---      },
---    }
---  },
---
---  on_attach = custom_lsp_attach
---})
