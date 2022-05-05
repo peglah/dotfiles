@@ -13,7 +13,7 @@ require('plugins')
 
 -- Config --
 -- Set language
-vim.api.nvim_exec('language en_US', true)
+vim.cmd('language en_US', true)
 -- Set title to: filename [+=-] (path) - NVIM
 vim.opt.title = true
 -- Enable line number and relative line numbers
@@ -31,7 +31,9 @@ vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
 -- Set font
-vim.api.nvim_exec([[ set guifont=FiraMono\ NF:h15 ]], false)
+vim.cmd([[ set guifont=FiraMono\ NF:h15 ]], false)
+-- Fancy colors
+vim.opt.termguicolors = true
 
 -- Ignoring case in a pattern
 vim.opt.ignorecase = true
@@ -52,16 +54,16 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- Highlight column after 'textwidth' in the help
-vim.api.nvim_exec([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
+vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
 -- Enable relative line numbers in the help
-vim.api.nvim_exec([[ autocmd FileType help setlocal relativenumber ]], false)
+vim.cmd([[ autocmd FileType help setlocal relativenumber ]], false)
 
 -- Disables automatic commenting on newline
-vim.api.nvim_exec([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]], false)
+vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]], false)
 -- Automatically deletes all trailing whitespace and newlines at end of file on save.
-vim.api.nvim_exec([[ autocmd BufWritePre * %s/\s\+$//e ]], false)
-vim.api.nvim_exec([[ autocmd BufWritePre * %s/\n\+\%$//e ]], false)
-vim.api.nvim_exec([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
+vim.cmd([[ autocmd BufWritePre * %s/\s\+$//e ]], false)
+vim.cmd([[ autocmd BufWritePre * %s/\n\+\%$//e ]], false)
+vim.cmd([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
 
 --  Plugins config  --
 --  ellisonleao/gruvbox.nvim
@@ -157,3 +159,65 @@ require 'cmp'.setup {
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- Setup nvim-cmp.
+local cmp = require 'cmp'
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
