@@ -145,7 +145,15 @@ require('nvim-lsp-setup').setup({
     -- Install LSP servers automatically
     -- LSP server configuration please see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     --ccls = {},
-    sumneko_lua = {},
+    sumneko_lua = {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          }
+        }
+      }
+    },
   },
 })
 
