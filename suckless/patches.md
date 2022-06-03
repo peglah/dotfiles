@@ -10,6 +10,7 @@ dwm
 [hide_vacant_tags] (https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.3.diff)
 [gridmode] (https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff)
 [three-column] (https://dwm.suckless.org/patches/three-column/tcl.c)
+[useless gap] (https://dwm.suckless.org/patches/uselessgap/dwm-uselessgap-20211119-58414bee958f2.diff)
 
 st
 [anysize] (https://st.suckless.org/patches/anysize/st-anysize-0.8.4.diff)
