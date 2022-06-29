@@ -39,16 +39,21 @@ Reboot
 apt install xrdp
 ln -s .xinitrc .xsession
 
-[fastfetch](https://github.com/LinusDierheimer/fastfetch)
+[fastfetch]
+(https://github.com/LinusDierheimer/fastfetch)
 
-[ly](https://github.com/fairyglade/ly)
+[ly]
+(https://github.com/fairyglade/ly)
 chmod +x .xinitrc
 
-[Ranger](https://github.com/ranger/ranger)
+[Ranger]
+(https://github.com/ranger/ranger)
 apt install ranger
-[Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
+[Ranger preview]
+(https://github.com/ranger/ranger/wiki/Video-Previews)
 
-[Neovim](https://neovim.io/)
+[Neovim]
+(https://neovim.io/)
 
 Network Manager
 networkmanager-dmenu
@@ -62,10 +67,12 @@ Ignore laptop lid
 HandleLidSwitch=ignore
 sudo service systemd-logind restart
 
-[a4term](https://a4term.com/)
+[a4term]
+(https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
-[Ubuntu server disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
+[Ubuntu server disable sleep]
+(https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
 
 Touchpad tap to click
 
