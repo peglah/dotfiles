@@ -1,4 +1,5 @@
 #OS
+
 Download and install Ubuntu Server LTS
 update & upgrade
 timedatectl set-timezone Europe/Stockholm
