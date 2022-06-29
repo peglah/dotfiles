@@ -69,6 +69,8 @@ https://github.com/martanne/dvtm/issues/10
 
 Touchpad tap to click
 
+btop++
+
 
 
 #**TODO**
