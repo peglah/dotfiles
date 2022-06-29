@@ -1,5 +1,4 @@
-#OS
-
+# OS
 Download and install Ubuntu Server LTS
 update & upgrade
 timedatectl set-timezone Europe/Stockholm
@@ -54,7 +53,7 @@ apt install ranger
 Network Manager
 networkmanager-dmenu
 
-Fix NetworkManager-wait-online.service
+Mask NetworkManager-wait-online.service
 
 mosh
 
