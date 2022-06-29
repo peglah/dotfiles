@@ -119,7 +119,7 @@ fi
 PS1="${debian_chroot:+($debian_chroot)}\u@vm:\w\$"
 if [ -f /usr/local/bin/fastfetch ]; then
   #echo "$FILE already exists."
-  fastfetch --structure Title:OS:Host:Kernel:Uptime:Packages:Memory -l ubuntu_small
+  fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l ubuntu_small
 #else
   #echo "$FILE does not exist."
 fi
