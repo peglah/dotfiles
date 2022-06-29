@@ -5,10 +5,10 @@ timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
 Deps for all
 make gcc
-
-#Software setup
-##Terminal management
 git clone https://github.com/Peglah/dotfiles.git
+
+# Software setup
+## Terminal management
 
 abduco
 wget, tar -xf, make, make install
@@ -16,7 +16,7 @@ dvtm
 Deps: libncurses5-dev
 wget, tar -xf, make, make install
 
-##Window manager
+## Window manager
 Suckless
 Suckless deps: libx11-dev libxft-dev libxinerama-dev xinit feh font-manager
 Install fonts with font-manager
@@ -29,13 +29,13 @@ make clean install
 slstatus
 make clean install
 
-#Other
-##change caps lock and esc
+# Other
+## change caps lock and esc
 edit /usr/share/X11/xkb/symbols/pc
 rm -rf /var/lib/xkb/* in your terminal.
 Reboot
 
-##Remote desktop
+## Remote desktop
 apt install xrdp
 ln -s .xinitrc .xsession
 
@@ -73,7 +73,7 @@ btop++
 
 
 
-#**TODO**
+# **TODO**
 music
 Install ALSA
 $ sudo apt-get install libasound2 libasound2-plugins alsa-utils alsa-oss
