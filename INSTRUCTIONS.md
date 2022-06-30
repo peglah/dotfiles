@@ -28,7 +28,10 @@ sudo service systemd-logind restart
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
 
-## Touchpad tap to click
+## [Touchpad tap-to-click](https://askubuntu.com/questions/971517/synaptics-touchpad-tap-to-click-is-not-working-in-ubuntu-16-04-lts-gnome)
+```bash
+apt install xserver-xorg-input-synaptics
+```
 
 ## Change Caps Lock and ESC
 ```bash
