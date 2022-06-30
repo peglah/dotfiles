@@ -4,6 +4,7 @@ Download and install Ubuntu Server LTS
 apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
+chmod +x ~/.xinitrc
 ```
 
 ## Initial setup
@@ -12,6 +13,29 @@ apt install make gcc
 cd ~
 git clone https://github.com/Peglah/dotfiles.git
 ```
+
+## Remote desktop
+
+```bash
+apt install xrdp
+ln -s ~/.xinitrc ~/.xsession
+```
+
+## Ignore laptop lid
+/etc/systemd/logind.conf
+HandleLidSwitch=ignore
+sudo service systemd-logind restart
+
+## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
+
+## Touchpad tap to click
+
+## Change Caps Lock and ESC
+```bash
+vim /usr/share/X11/xkb/symbols/pc
+rm -rf /var/lib/xkb/*
+```
+Reboot
 
 # Software setup
 ## Window manager
@@ -35,15 +59,8 @@ make clean install && cd ../st
 make clean install && cd ../slstatus
 make clean install
 ```
-
-## Remote desktop
-
-```bash
-apt install xrdp
-ln -s ~/.xinitrc ~/.xsession
-```
-
-## [fastfetch](https://github.com/LinusDierheimer/fastfetch)
+## Programs
+### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
 apt install cmake
@@ -60,55 +77,56 @@ cmake --build . --target fastfetch
 cp fastfetch /usr/local/bin/
 ```
 
-## [ly](https://github.com/fairyglade/ly)
+### [ly](https://github.com/fairyglade/ly)
+Dependencies:
 ```bash
-chmod +x .xinitrc
+apt install build-essential libpam0g-dev libxcb-xkb-dev
+```
+Download, compile and install:
+```bash
+cd /tmp
+git clone --recurse-submodules https://github.com/nullgemm/ly
+cd ly
+make
+make run
+make install
+systemctl enable ly.service
+systemctl disable getty@tty2.service
 ```
 
-## [Ranger](https://github.com/ranger/ranger)
-`apt install ranger`
-
+### [Ranger](https://github.com/ranger/ranger)
+```bash
+apt install ranger
+```
 [Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
 
-## [Neovim](https://neovim.io/)
+### [Neovim](https://neovim.io/)
 ```bash
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
 ```
 
-Network Manager
+### Network Manager
+```bash
+apt install network-manager
+```
 networkmanager-dmenu
 
-[Mosh](https://mosh.org/)
+### [Mosh](https://mosh.org/)
 ```bash
 apt install mosh
 ```
 
-Ignore laptop lid
-/etc/systemd/logind.conf
-HandleLidSwitch=ignore
-sudo service systemd-logind restart
-
-[a4term]
-(https://a4term.com/)
+### [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
-[Ubuntu server disable sleep]
-(https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
-
-Touchpad tap to click
-
-btop++
+### [btop++](https://github.com/aristocratos/btop)
+```bash
+apt install btop
+```
 
 # Other
-## change caps lock and esc
-```bash
-vim /usr/share/X11/xkb/symbols/pc
-rm -rf /var/lib/xkb/*
-```
-Reboot
-
 # **TODO**
 music
 Install ALSA
