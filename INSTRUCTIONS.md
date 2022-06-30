@@ -70,6 +70,9 @@ chmod +x .xinitrc
 [Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
 
 ## [Neovim](https://neovim.io/)
+```bash
+curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
+```
 
 Network Manager
 networkmanager-dmenu
