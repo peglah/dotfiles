@@ -6,7 +6,7 @@ timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
 ```
 
-Deps for all:
+## Initial setup
 ```bash
 apt install make gcc
 cd ~
@@ -16,7 +16,7 @@ git clone https://github.com/Peglah/dotfiles.git
 # Software setup
 ## Window manager
 ### [Suckless](https://suckless.org/)
-Suckless deps:
+Dependencies:
 ```bash
 apt install libx11-dev libxft-dev libxinerama-dev xinit
 ```
@@ -25,7 +25,7 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 apt install feh font-manager
 ```
 
-Install fonts with font-manager
+Install fonts with `font-manager`
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
@@ -36,7 +36,6 @@ make clean install && cd ../slstatus
 make clean install
 ```
 
-
 ## Remote desktop
 
 ```bash
@@ -45,9 +44,11 @@ ln -s ~/.xinitrc ~/.xsession
 ```
 
 ## [fastfetch](https://github.com/LinusDierheimer/fastfetch)
-
-Deps: cmake
-
+Dependencies:
+```bash
+apt install cmake
+```
+Download, compile and install:
 ```bash
 cd /tmp
 git clone https://github.com/LinusDierheimer/fastfetch
