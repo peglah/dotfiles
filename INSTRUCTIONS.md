@@ -71,7 +71,9 @@ chmod +x .xinitrc
 
 ## [Neovim](https://neovim.io/)
 ```bash
+cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
+apt install ./nvim-linux64.deb
 ```
 
 Network Manager
