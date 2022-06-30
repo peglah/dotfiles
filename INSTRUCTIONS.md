@@ -74,9 +74,10 @@ chmod +x .xinitrc
 Network Manager
 networkmanager-dmenu
 
-Mask NetworkManager-wait-online.service
-
-mosh
+[Mosh](https://mosh.org/)
+```bash
+apt install mosh
+```
 
 Ignore laptop lid
 /etc/systemd/logind.conf
