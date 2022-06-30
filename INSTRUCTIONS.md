@@ -36,20 +36,30 @@ rm -rf /var/lib/xkb/* in your terminal.
 Reboot
 
 ## Remote desktop
-apt install xrdp
-ln -s .xinitrc .xsession
 
-[fastfetch] (https://github.com/LinusDierheimer/fastfetch)
+`apt install xrdp`
+
+`ln -s .xinitrc .xsession`
+
+[fastfetch](https://github.com/LinusDierheimer/fastfetch)
+
 Deps: cmake
 
-´cd /tmp
-git clone https://github.com/LinusDierheimer/fastfetch
-cd fastfetch/
-mkdir -p build
-cd build
-cmake ..
-cmake --build . --target fastfetch
-cp fastfetch /usr/local/bin/´
+`cd /tmp`
+
+`git clone https://github.com/LinusDierheimer/fastfetch`
+
+`cd fastfetch`
+
+`mkdir -p build`
+
+`cd build`
+
+`cmake ..`
+
+`cmake --build . --target fastfetch`
+
+`cp fastfetch /usr/local/bin/`
 
 
 [ly]
