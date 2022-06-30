@@ -1,79 +1,75 @@
 # OS
 Download and install Ubuntu Server LTS
-update & upgrade
+```bash
+apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
-Deps for all
-make gcc
+```
+
+Deps for all:
+```bash
+apt install make gcc
+cd ~
 git clone https://github.com/Peglah/dotfiles.git
+```
 
 # Software setup
-## Terminal management
-
-abduco
-wget, tar -xf, make, make install
-dvtm
-Deps: libncurses5-dev
-wget, tar -xf, make, make install
-
 ## Window manager
-Suckless
-Suckless deps: libx11-dev libxft-dev libxinerama-dev xinit feh font-manager
-Install fonts with font-manager
-dwm
-make clean install
-dmenu
-make clean install
-st
-make clean install
-slstatus
-make clean install
+### [Suckless](https://suckless.org/)
+Suckless deps:
+```bash
+apt install libx11-dev libxft-dev libxinerama-dev xinit
+```
+[feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
+```bash
+apt install feh font-manager
+```
 
-# Other
-## change caps lock and esc
-edit /usr/share/X11/xkb/symbols/pc
-rm -rf /var/lib/xkb/* in your terminal.
-Reboot
+Install fonts with font-manager
+
+Compile and install dwm, dmenu, st and slstatus
+```bash
+cd ~/dotfiles/suckless/dwm
+make clean install && cd ../dmenu
+make clean install && cd ../st
+make clean install && cd ../slstatus
+make clean install
+```
+
 
 ## Remote desktop
 
-`apt install xrdp`
+```bash
+apt install xrdp
+ln -s ~/.xinitrc ~/.xsession
+```
 
-`ln -s .xinitrc .xsession`
-
-[fastfetch](https://github.com/LinusDierheimer/fastfetch)
+## [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 
 Deps: cmake
 
-`cd /tmp`
+```bash
+cd /tmp
+git clone https://github.com/LinusDierheimer/fastfetch
+cd fastfetch
+mkdir -p build
+cd build
+cmake ..
+cmake --build . --target fastfetch
+cp fastfetch /usr/local/bin/
+```
 
-`git clone https://github.com/LinusDierheimer/fastfetch`
-
-`cd fastfetch`
-
-`mkdir -p build`
-
-`cd build`
-
-`cmake ..`
-
-`cmake --build . --target fastfetch`
-
-`cp fastfetch /usr/local/bin/`
-
-
-[ly]
-(https://github.com/fairyglade/ly)
+## [ly](https://github.com/fairyglade/ly)
+```bash
 chmod +x .xinitrc
+```
 
-[Ranger]
-(https://github.com/ranger/ranger)
-apt install ranger
-[Ranger preview]
-(https://github.com/ranger/ranger/wiki/Video-Previews)
+## [Ranger](https://github.com/ranger/ranger)
+`apt install ranger`
 
-[Neovim]
-(https://neovim.io/)
+[Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
+
+## [Neovim](https://neovim.io/)
 
 Network Manager
 networkmanager-dmenu
@@ -98,7 +94,13 @@ Touchpad tap to click
 
 btop++
 
-
+# Other
+## change caps lock and esc
+```bash
+vim /usr/share/X11/xkb/symbols/pc
+rm -rf /var/lib/xkb/*
+```
+Reboot
 
 # **TODO**
 music
