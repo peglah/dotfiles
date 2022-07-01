@@ -1,4 +1,4 @@
-# OS
+# Install OS
 Download and install Ubuntu Server LTS
 ```bash
 apt update && apt upgrade
@@ -6,7 +6,7 @@ timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
 ```
 
-## Initial setup
+# Initial setup
 ```bash
 apt install make gcc
 cd ~
@@ -21,6 +21,11 @@ chmod +x ~/.xinitrc
 ```bash
 apt install xrdp
 ln -s ~/.xinitrc ~/.xsession
+```
+
+## [Mosh](https://mosh.org/)
+```bash
+apt install mosh
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
@@ -94,6 +99,7 @@ Dependencies:
 ```bash
 apt install build-essential libpam0g-dev libxcb-xkb-dev
 ```
+
 Download, compile and install:
 ```bash
 cd /tmp
@@ -110,6 +116,7 @@ systemctl disable getty@tty2.service
 ```bash
 apt install ranger
 ```
+
 [Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
 
 ### [Neovim](https://neovim.io/)
@@ -124,12 +131,8 @@ cp -r ~/dotfiles/nvim ~/.config/
 ```bash
 apt install network-manager
 ```
-networkmanager-dmenu
 
-### [Mosh](https://mosh.org/)
-```bash
-apt install mosh
-```
+networkmanager-dmenu
 
 ### [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
