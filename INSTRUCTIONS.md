@@ -1,5 +1,5 @@
 # Install OS
-Download and install Ubuntu Server LTS
+Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
 ```bash
 apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
