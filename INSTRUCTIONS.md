@@ -69,6 +69,7 @@ Dependencies:
 ```bash
 apt install libx11-dev libxft-dev libxinerama-dev xinit
 ```
+
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
 apt install feh font-manager
@@ -78,18 +79,19 @@ Install fonts with `font-manager`
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/dotfiles/suckless/dwm
-make clean install && cd ../dmenu
-make clean install && cd ../st
-make clean install && cd ../slstatus
-make clean install
+cd ~/dotfiles/suckless/dwm && make clean install
+cd ~/dotfiles/suckless/dmenu && make clean install
+cd ~/dotfiles/suckless/st && make clean install
+cd ~/dotfiles/suckless/slstatus && make clean install
 ```
+
 ## Programs
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
 apt install cmake
 ```
+
 Download, compile and install:
 ```bash
 cd /tmp
@@ -150,7 +152,6 @@ https://github.com/martanne/dvtm/issues/10
 apt install btop
 ```
 
-# Other
 # **TODO**
 music
 Install ALSA
