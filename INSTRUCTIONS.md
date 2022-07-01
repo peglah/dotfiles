@@ -11,7 +11,9 @@ systemctl mask systemd-networkd-wait-online.service
 apt install make gcc
 cd ~
 git clone https://github.com/Peglah/dotfiles.git
-cp ~/dotfiles/.* ~/
+cp ~/dotfiles/.bash_aliases ~/
+cp ~/dotfiles/.bashrc ~/
+cp ~/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ```
 
@@ -21,7 +23,7 @@ apt install xrdp
 ln -s ~/.xinitrc ~/.xsession
 ```
 
-## Ignore laptop lid
+## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
 /etc/systemd/logind.conf
 HandleLidSwitch=ignore
 sudo service systemd-logind restart
