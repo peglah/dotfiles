@@ -29,7 +29,7 @@ vim /etc/systemd/logind.conf
 HandleLidSwitch=ignore
 service systemd-logind restart
 
-sed -i 's/HandleLidSwitch=/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
+sed -i 's/HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
 ```
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
