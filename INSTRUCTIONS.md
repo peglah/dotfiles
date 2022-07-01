@@ -25,11 +25,8 @@ ln -s ~/.xinitrc ~/.xsession
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
 ```bash
-vim /etc/systemd/logind.conf
-HandleLidSwitch=ignore
+sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
 service systemd-logind restart
-
-sed -i 's/HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
 ```
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
