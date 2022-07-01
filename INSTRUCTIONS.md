@@ -4,7 +4,6 @@ Download and install Ubuntu Server LTS
 apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
-chmod +x ~/.xinitrc
 ```
 
 ## Initial setup
@@ -12,10 +11,11 @@ chmod +x ~/.xinitrc
 apt install make gcc
 cd ~
 git clone https://github.com/Peglah/dotfiles.git
+cp ~/dotfiles/.* ~/
+chmod +x ~/.xinitrc
 ```
 
-## Remote desktop
-
+## [Remote desktop](http://xrdp.org/)
 ```bash
 apt install xrdp
 ln -s ~/.xinitrc ~/.xsession
@@ -27,6 +27,12 @@ HandleLidSwitch=ignore
 sudo service systemd-logind restart
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
+```bash
+systemctl mask sleep.target
+systemctl mask suspend.target
+systemctl mask hibernate.target
+systemctl mask hybrid-sleep.target
+```
 
 ## [Touchpad tap-to-click](https://askubuntu.com/questions/971517/synaptics-touchpad-tap-to-click-is-not-working-in-ubuntu-16-04-lts-gnome)
 ```bash
