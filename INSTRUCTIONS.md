@@ -1,6 +1,7 @@
 # Install OS
 Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
 ```bash
+add-apt-repository universe
 apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
@@ -128,6 +129,14 @@ apt install ranger
 ```
 
 [Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
+```bash
+apt install ffmpegthumbnailer
+cp -r 
+
+### [Mplayer](http://www.mplayerhq.hu/)
+```bash
+apt install mplayer
+```
 
 ### [Neovim](https://neovim.io/)
 ```bash
