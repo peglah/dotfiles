@@ -116,10 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PS1="${debian_chroot:+($debian_chroot)}\u@vm:\w\$"
+#PS1="${debian_chroot:+($debian_chroot)}\u@vm:\w\$"
 if [ -f /usr/local/bin/fastfetch ]; then
-  #echo "$FILE already exists."
+  # File exists
   fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l ubuntu_small
 #else
-  #echo "$FILE does not exist."
+  # Files does not exist
 fi

@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # More wallpapers at https://www.reddit.com/r/wallpaper/comments/kedqme/1920x1080_all_resolutions_available_dark_light/
-feh --bg-fill ~/dotfiles/wallapper/CjByCrG.png
+if [ -f /usr/bin/feh ]; then
+  feh --bg-fill ~/dotfiles/wallapper/CjByCrG.png
+fi
 
 if [ -f /usr/local/bin/slstatus ]; then
   slstatus &

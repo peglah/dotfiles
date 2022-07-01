@@ -42,17 +42,25 @@ systemctl mask hibernate.target
 systemctl mask hybrid-sleep.target
 ```
 
-## [Touchpad tap-to-click](https://askubuntu.com/questions/971517/synaptics-touchpad-tap-to-click-is-not-working-in-ubuntu-16-04-lts-gnome)
+## [Touchpad tap-to-click](https://linux.die.net/man/1/synclient)
 ```bash
 apt install xserver-xorg-input-synaptics
+synclient MaxSpeed=1
+synclient VertEdgeScroll=0
 ```
 
 ## Change Caps Lock and ESC
 ```bash
-vim /usr/share/X11/xkb/symbols/pc
+sed -i '0,/Caps_Lock/s//Escape/' /usr/share/X11/xkb/symbols/pc
+sed -i '0,/Escape/s//Caps_Lock/' /usr/share/X11/xkb/symbols/pc
 rm -rf /var/lib/xkb/*
+reboot
 ```
-Reboot
+
+## [Power management](https://pm-utils.freedesktop.org/wiki/)
+```bash
+apt install pm-utils
+```
 
 # Software setup
 ## Window manager
