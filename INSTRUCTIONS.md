@@ -116,6 +116,7 @@ apt install ranger
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
+cp -r ~/dotfiles/nvim ~/.config/
 ```
 
 ### Network Manager
