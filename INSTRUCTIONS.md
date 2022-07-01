@@ -131,7 +131,8 @@ apt install ranger
 [Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
 apt install ffmpegthumbnailer
-cp -r 
+cp -r ~/dotfiles/ranger ~/.config/
+```
 
 ### [Mplayer](http://www.mplayerhq.hu/)
 ```bash
