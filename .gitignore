@@ -2,10 +2,6 @@
 config.h
 *.o
 
-# brain-dump
-abduco
-dvtm
-
 # suckless
 dmenu
 stest
