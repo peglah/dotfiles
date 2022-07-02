@@ -128,7 +128,6 @@ systemctl disable getty@tty2.service
 apt install ranger
 ```
 
-<<<<<<< HEAD
 [Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
 ```bash
 apt install highlight
@@ -142,17 +141,11 @@ apt install w3m
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
 apt install ffmpegthumbnailer
-=======
-[Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
-```bash
-apt install ffmpegthumbnailer
-cp -r ~/dotfiles/ranger ~/.config/
 ```
 
 ### [Mplayer](http://www.mplayerhq.hu/)
 ```bash
 apt install mplayer
->>>>>>> 5f3368623a89b404c99f5650b7964c79e562b43d
 ```
 
 ### [Neovim](https://neovim.io/)
