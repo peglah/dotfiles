@@ -11,6 +11,7 @@ systemctl mask systemd-networkd-wait-online.service
 apt install make gcc
 cd ~
 git clone https://github.com/Peglah/dotfiles.git
+cp -r ~/dotfiles/.config ~/
 cp ~/dotfiles/.bash_aliases ~/
 cp ~/dotfiles/.bashrc ~/
 cp ~/dotfiles/.xinitrc ~/
@@ -72,9 +73,8 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
 apt install feh font-manager
+font-manager -i ~/dotfiles/fonts/FiraMono/*
 ```
-
-Install fonts with `font-manager`
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
@@ -125,14 +125,26 @@ systemctl disable getty@tty2.service
 apt install ranger
 ```
 
-[Ranger preview](https://github.com/ranger/ranger/wiki/Video-Previews)
+[Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
+```bash
+apt install highlight
+```
+
+[Ranger - Preview for images](https://github.com/ranger/ranger/wiki/Image-Previews)
+```bash
+apt install w3m
+```
+
+[Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
+```bash
+apt install ffmpegthumbnailer
+```
 
 ### [Neovim](https://neovim.io/)
 ```bash
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
-cp -r ~/dotfiles/nvim ~/.config/
 ```
 
 ### Network Manager

@@ -2,7 +2,7 @@
 
 # More wallpapers at https://www.reddit.com/r/wallpaper/comments/kedqme/1920x1080_all_resolutions_available_dark_light/
 if [ -f /usr/bin/feh ]; then
-  feh --bg-fill ~/dotfiles/wallapper/CjByCrG.png
+  feh --bg-fill ~/dotfiles/pictures/wallapper/CjByCrG.png
 fi
 
 if [ -f /usr/local/bin/slstatus ]; then
