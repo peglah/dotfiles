@@ -19,6 +19,30 @@ cp ~/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ```
 
+## [Suckless](https://suckless.org/)
+Dependencies:
+```bash
+apt install libx11-dev libxft-dev libxinerama-dev xinit
+```
+
+[feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
+```bash
+apt install feh font-manager
+```
+
+Compile and install dwm, dmenu, st and slstatus
+```bash
+cd ~/dotfiles/suckless/dwm && make clean install
+cd ~/dotfiles/suckless/dmenu && make clean install
+cd ~/dotfiles/suckless/st && make clean install
+cd ~/dotfiles/suckless/slstatus && make clean install
+```
+
+Reboot and startx
+```bash
+font-manager -i ~/dotfiles/fonts/FiraMono/*
+```
+
 ## [Remote desktop](http://xrdp.org/)
 ```bash
 apt install xrdp
@@ -65,27 +89,6 @@ apt install pm-utils
 ```
 
 # Software setup
-## Window manager
-### [Suckless](https://suckless.org/)
-Dependencies:
-```bash
-apt install libx11-dev libxft-dev libxinerama-dev xinit
-```
-
-[feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
-```bash
-apt install feh font-manager
-font-manager -i ~/dotfiles/fonts/FiraMono/*
-```
-
-Compile and install dwm, dmenu, st and slstatus
-```bash
-cd ~/dotfiles/suckless/dwm && make clean install
-cd ~/dotfiles/suckless/dmenu && make clean install
-cd ~/dotfiles/suckless/st && make clean install
-cd ~/dotfiles/suckless/slstatus && make clean install
-```
-
 ## Programs
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
