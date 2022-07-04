@@ -38,7 +38,7 @@ cd ~/dotfiles/suckless/st && make clean install
 cd ~/dotfiles/suckless/slstatus && make clean install
 ```
 
-Reboot and startx
+`reboot` and `startx`
 ```bash
 font-manager -i ~/dotfiles/fonts/FiraMono/*
 ```
