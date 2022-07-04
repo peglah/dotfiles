@@ -136,11 +136,6 @@ apt install ranger
 apt install highlight
 ```
 
-[Ranger - Preview for images](https://github.com/ranger/ranger/wiki/Image-Previews)
-```bash
-apt install w3m
-```
-
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
 apt install ffmpegthumbnailer
@@ -163,14 +158,17 @@ apt install ./nvim-linux64.deb
 apt install network-manager
 ```
 
-networkmanager-dmenu
-
 ### [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
 ### [btop++](https://github.com/aristocratos/btop)
 ```bash
 apt install btop
+```
+
+### [bat](https://github.com/sharkdp/bat)
+```bash
+apt install bat
 ```
 
 # **TODO**
