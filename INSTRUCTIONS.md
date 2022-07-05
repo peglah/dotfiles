@@ -27,7 +27,7 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-apt install feh font-manager
+apt install feh font-manager unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
