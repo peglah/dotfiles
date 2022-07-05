@@ -8,6 +8,9 @@ fi
 if [ -f /usr/bin/synclient ]; then
   synclient MaxSpeed=1
   synclient VertEdgeScroll=0
+
+if [ -f /usr/bin/unclutter ]; then
+  unclutter &
 fi
 
 if [ -f /usr/local/bin/slstatus ]; then
