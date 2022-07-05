@@ -5,6 +5,11 @@ if [ -f /usr/bin/feh ]; then
   feh --bg-fill ~/dotfiles/pictures/wallapper/CjByCrG.png
 fi
 
+if [ -f /usr/bin/synclient ]; then
+  synclient MaxSpeed=1
+  synclient VertEdgeScroll=0
+fi
+
 if [ -f /usr/local/bin/slstatus ]; then
   slstatus &
 else
