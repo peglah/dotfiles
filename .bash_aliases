@@ -1,14 +1,12 @@
 #!/bin/sh
 
-if [ -f /usr/bin/nvim ]; then
+if command -v nvim &> /dev/null; then
   alias vim=nvim
 fi
 
-if [ -f /usr/bin/batcat ]; then
+if command -v batcat &> /dev/null; then
   alias cat=batcat
-fi
-
-if [ -f /usr/bin/bat ]; then
+elif command -v bat &> /dev/null; then
   alias cat=bat
 fi
 

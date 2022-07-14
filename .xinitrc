@@ -1,19 +1,20 @@
 #!/bin/sh
 
 # More wallpapers at https://www.reddit.com/r/wallpaper/comments/kedqme/1920x1080_all_resolutions_available_dark_light/
-if [ -f /usr/bin/feh ]; then
+if command -v feh &> /dev/null; then
   feh --bg-fill ~/dotfiles/pictures/wallapper/CjByCrG.png
 fi
 
-if [ -f /usr/bin/synclient ]; then
+if command -v synclient &> /dev/null; then
   synclient MaxSpeed=1
   synclient VertEdgeScroll=0
+fi
 
-if [ -f /usr/bin/unclutter ]; then
+if command -v unclutter &> /dev/null; then
   unclutter &
 fi
 
-if [ -f /usr/local/bin/slstatus ]; then
+if command -v slstatus &> /dev/null; then
   slstatus &
 else
   while xsetroot -name "`date +"%F %R"` `uptime | sed 's/.*,//'`"
