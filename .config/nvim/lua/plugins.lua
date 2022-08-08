@@ -44,24 +44,6 @@ return require('packer').startup({
       config = function() require('colorizer').setup() end }
     use 'nvim-treesitter/nvim-treesitter'
 
-    -- LSP stuff
-    use { 'junnplus/nvim-lsp-setup',
-      requires = {
-        'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-        'williamboman/nvim-lsp-installer', } } -- Allows you to seamlessly install LSP servers locally
-
-    use { 'hrsh7th/nvim-cmp',
-      requires = {
-        'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-        'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/nvim-cmp', -- Autocompletion plugin
-        'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-        'L3MON4D3/LuaSnip' } } -- Snippets plugin
-
-
     --  Utility
     use { 'sudormrfbin/cheatsheet.nvim', -- Hit <leader>? to invoke cheatsheet telescope
       requires = {
