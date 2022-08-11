@@ -1,0 +1,71 @@
+# Maintainer:  Håvard Pettersson <mail@haavard.me>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+# Contributor: Thorsten Töpper <atsutane-tu@freethoughts.de>
+# Contributor: Thayer Williams <thayer@archlinux.org>
+# Contributor: Jeff 'codemac' Mickey <jeff@archlinux.org>
+
+_pkgname=dmenu
+pkgname=$_pkgname-git
+pkgver=5.1
+pkgrel=1
+pkgdesc="A generic menu for X"
+url="http://tools.suckless.org/dmenu/"
+arch=('i686' 'x86_64')
+license=('MIT')
+depends=('sh' 'libxinerama' 'libxft')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=(https://github.com/Peglah/dotfiles/raw/main/suckless/$_pkgname-$pkgver/$_pkgname-$pkgver.tar.gz)
+sha256sums=('12fcc97399acbacb6b28b6c2d50d58a8da72ade7521725622978e943883a6b7e')
+
+pkgver() {
+  cd $_pkgname
+  git describe --tags --long | sed 's/-/./g'
+}
+
+prepare() {
+  # This package provides a mechanism to provide a custom config.h. Multiple
+  # configuration states are determined by the presence of two files in
+  # $BUILDDIR:
+  #
+  # config.h  config.def.h  state
+  # ========  ============  =====
+  # absent    absent        Initial state. The user receives a message on how
+  #                         to configure this package.
+  # absent    present       The user was previously made aware of the
+  #                         configuration options and has not made any
+  #                         configuration changes. The package is built using
+  #                         default values.
+  # present                 The user has supplied his or her configuration. The
+  #                         file will be copied to $srcdir and used during
+  #                         build.
+  #
+  # After this test, config.def.h is copied from $srcdir to $BUILDDIR to
+  # provide an up to date template for the user.
+  if [ -e "$BUILDDIR/config.h" ]
+  then
+    cp "$BUILDDIR/config.h" "$_sourcedir"
+  elif [ ! -e "$BUILDDIR/config.def.h" ]
+  then
+    msg='This package can be configured in config.h. Copy the config.def.h '
+    msg+='that was just placed into the package directory to config.h and '
+    msg+='modify it to change the configuration. Or just leave it alone to '
+    msg+='continue to use default values.'
+    echo "$msg"
+  fi
+  cp "$_sourcedir/config.def.h" "$BUILDDIR"
+}
+
+build(){
+  cd $_pkgname
+  make \
+    X11INC=/usr/include/X11 \
+    X11LIB=/usr/lib/X11
+}
+
+package() {
+  cd $_pkgname
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
