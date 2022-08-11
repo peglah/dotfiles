@@ -5,8 +5,7 @@
 # Contributor: Thayer Williams <thayer@archlinux.org>
 # Contributor: Jeff 'codemac' Mickey <jeff@archlinux.org>
 
-_pkgname=dmenu
-pkgname=$_pkgname-git
+pkgname=dmenu
 pkgver=5.1
 pkgrel=1
 pkgdesc="A generic menu for X"
@@ -14,15 +13,10 @@ url="http://tools.suckless.org/dmenu/"
 arch=('i686' 'x86_64')
 license=('MIT')
 depends=('sh' 'libxinerama' 'libxft')
-provides=($_pkgname)
-conflicts=($_pkgname)
-source=(https://github.com/Peglah/dotfiles/raw/main/suckless/$_pkgname-$pkgver/$_pkgname-$pkgver.tar.gz)
+source=(https://github.com/Peglah/dotfiles/raw/main/suckless/$pkgname-$pkgver/$pkgname-$pkgver.tar.gz)
 sha256sums=('12fcc97399acbacb6b28b6c2d50d58a8da72ade7521725622978e943883a6b7e')
-
-pkgver() {
-  cd $_pkgname
-  git describe --tags --long | sed 's/-/./g'
-}
+_sourcedir=$pkgname-$pkgver
+_makeopts="--directory=$_sourcedir"
 
 prepare() {
   # This package provides a mechanism to provide a custom config.h. Multiple
@@ -58,14 +52,13 @@ prepare() {
 }
 
 build(){
-  cd $_pkgname
-  make \
-    X11INC=/usr/include/X11 \
-    X11LIB=/usr/lib/X11
+  make $_makeopts X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-  cd $_pkgname
-  make PREFIX=/usr DESTDIR="$pkgdir" install
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+  local installopts='--mode 0644 -D --target-directory'
+  local shrdir="$pkgdir/usr/share"
+  local licdir="$shrdir/licenses/$pkgname"
+  make $_makeopts PREFIX=/usr DESTDIR="$pkgdir" install
+  install $installopts "$licdir" "$_sourcedir/LICENSE"
 }
