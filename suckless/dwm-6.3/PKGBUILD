@@ -26,21 +26,21 @@ source=(LICENSE
         transient.c
         util.c
         util.h)
-#sha256sums=('SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP'
-#            'SKIP')
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
 
 prepare() {
   cd "$srcdir"
