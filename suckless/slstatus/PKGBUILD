@@ -1,0 +1,95 @@
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+
+pkgname=slstatus
+pkgver=r540.dd7f189
+pkgrel=1
+pkgdesc='A status monitor for window managers'
+url='http://tools.suckless.org/slstatus'
+arch=('i686' 'x86_64')
+license=('custom:ISC')
+depends=('libx11')
+source=(LICENSE
+        Makefile
+        README
+        arg.h
+        battery.c
+        cpu.c
+        datetime.c
+        disk.c
+        entropy.c
+        hostname.c
+        ip.c
+        kernel_release.c
+        keyboard_indicators.c
+        keymap.c
+        load_avg.c
+        netspeeds.c
+        num_files.c
+        ram.c
+        run_command.c
+        separator.c
+        swap.c
+        temperature.c
+        uptime.c
+        user.c
+        volume.c
+        wifi.c
+        config.def.h
+        config.mk
+        slstatus.1
+        slstatus.c
+        slstatus.h
+        util.c
+        util.h)
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
+
+prepare() {
+  cd "$srcdir"
+  cp config.def.h config.h
+}
+
+build() {
+  cd "$srcdir"
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+}
+
+package() {
+  cd "$srcdir"
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+}

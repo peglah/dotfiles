@@ -1,0 +1,54 @@
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+
+pkgname=st
+pkgver=0.8.5
+pkgrel=1
+pkgdesc='A simple virtual terminal emulator for X.'
+arch=('i686' 'x86_64' 'armv7h' 'aarch64')
+license=('MIT')
+depends=(libxft)
+url=https://st.suckless.org
+source=(LICENSE
+        Makefile
+        README
+        arg.h
+        config.def.h
+        config.mk
+        st.1
+        st.c
+        st.h
+        st.info
+        win.h
+        x.c)
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
+
+prepare() {
+
+  cd "$srcdir"
+  cp config.def.h config.h
+}
+
+build() {
+  cd "$srcdir"
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+}
+
+package() {
+  cd "$srcdir"
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+}

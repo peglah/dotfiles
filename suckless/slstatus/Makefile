@@ -6,28 +6,28 @@ include config.mk
 
 REQ = util
 COM =\
-	components/battery\
-	components/cpu\
-	components/datetime\
-	components/disk\
-	components/entropy\
-	components/hostname\
-	components/ip\
-	components/kernel_release\
-	components/keyboard_indicators\
-	components/keymap\
-	components/load_avg\
-	components/netspeeds\
-	components/num_files\
-	components/ram\
-	components/run_command\
-	components/separator\
-	components/swap\
-	components/temperature\
-	components/uptime\
-	components/user\
-	components/volume\
-	components/wifi
+	battery\
+	cpu\
+	datetime\
+	disk\
+	entropy\
+	hostname\
+	ip\
+	kernel_release\
+	keyboard_indicators\
+	keymap\
+	load_avg\
+	netspeeds\
+	num_files\
+	ram\
+	run_command\
+	separator\
+	swap\
+	temperature\
+	uptime\
+	user\
+	volume\
+	wifi
 
 all: slstatus
 
