@@ -12,12 +12,13 @@ static const char col_gray1[]       = "#282828"; // norm bg
 static const char col_gray2[]       = "#a89984"; // norm border
 static const char col_gray3[]       = "#ebdbb2"; // norm fg
 static const char col_gray4[]       = "#fbf1c7"; // sel fg
+static const char col_gray5[]       = "#3c3836"; //
 static const char col_cyan[]        = "#458588"; // sel bg and border
 static const char col_orange[]      = "#fe8019"; // sel bg and border
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_orange  },
+	[SchemeSel]  = { col_gray4, col_gray5,  col_orange  },
 };
 
 /* tagging */

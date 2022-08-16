@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "FiraMono NF:pixelsize=12:antialias=true:autohint=true";
+static char *font = "FiraMono Nerd Font:style=Bold:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
