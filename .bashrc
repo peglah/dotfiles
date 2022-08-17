@@ -116,8 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# use vim mode/keybindings
+# use vi mode/keybindings
 set -o vi
+if command -v nvim &> /dev/null; then
+  export EDITOR=nvim
+fi
 
 #PS1="${debian_chroot:+($debian_chroot)}\u@vm:\w\$"
 if command -v fastfetch &> /dev/null; then
