@@ -109,22 +109,22 @@ install ranger
 
 [Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
 ```bash
-install highlight w3m
+pacman -S highlight w3m
 ```
 
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
-install ffmpegthumbnailer
+pacman -S ffmpegthumbnailer
 ```
 
 ### [Mplayer](http://www.mplayerhq.hu/)
 ```bash
-install mplayer
+pacman -S mplayer
 ```
 
 ### [Neovim](https://neovim.io/)
 ```bash
-install neovim
+pacman -S neovim
 ```
 
 ### Network Manager
@@ -137,12 +137,12 @@ https://github.com/martanne/dvtm/issues/10
 
 ### [btop++](https://github.com/aristocratos/btop)
 ```bash
-install btop
+pacman -S btop
 ```
 
 ### [bat](https://github.com/sharkdp/bat)
 ```bash
-install bat
+pacman -S bat
 ```
 
 # **TODO**
