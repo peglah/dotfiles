@@ -7,7 +7,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "FiraMono NF:size=10" };
+static const char *fonts[]          = { "FuraMono Nerd Font:style=Bold:pixelsize=16:antialias=true:autohint=true" };
 static const char col_gray1[]       = "#282828"; // norm bg
 static const char col_gray2[]       = "#a89984"; // norm border
 static const char col_gray3[]       = "#ebdbb2"; // norm fg
