@@ -1,13 +1,175 @@
 # Install OS
-Download and install [Arch](https://archlinux.org/download/)
+## Fix layout
 ```bash
-pacman -Syu
-#timedatectl set-timezone Europe/Stockholm
+loadkeys sv-latin1
 ```
 
-# Initial setup
+## iwctl
 ```bash
+device list
+station device scan
+station device get-networks
+station device connect SSID
+```
+
+## NTP
+```bash
+timedatectl set-ntp true
+```
+
+## fdisk
+```bash
+fdisk -l
+fdisk /dev/sda
+#sda1 EFI system partition  +550M
+#sda2 Linux swap            +2G
+#sda3 Ext4
+```
+
+## Make filesystem
+```bash
+mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda2
+swapon /dev/sda2
+mkfs.ext4 /dev/sda3
+```
+
+## Fix pacman
+vim /etc/pacman.conf # IgnorePkg = sudo
+                      # Color
+                      # ParallelDownloads = 5
+curl -L -o /etc/pacman.d/mirrorlist "https://archlinux.org/mirrorlist/?country=SE&protocol=https&ip_version=4&use_mirror_status=on"
+vim /etc/pacman.d/mirrorlist #uncomment mirrors
+```
+
+## Base Install
+```bash
+mount /dev/sda3 /mnt
+pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+## Chroot
+```bash
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
+hwclock --systohc
+pacman -S neovim
+nvim /etc/locale.gen
+locale-gen
+nvim /etc/hostname
+nvim /etc/hosts
+  127.0.0.1        localhost
+  ::1              localhost
+  127.0.1.1        myhostname
+```
+
+## Users
+```bash
+passwd
+useradd -m peglah
+passwd peglah
+usermod -aG wheel,audio,video,storage peglah
+```
+
+## Sudo
+```bash
+pacman -S opendoas
+nvim /etc/doas.conf # permit persist :wheel
+chown -c root:root /etc/doas.conf
+chmod -c 0400 /etc/doas.conf
+ln -s /usr/bin/doas /usr/bin/sudo
+```
+
+## GRUB
+```bash
+pacman -S grub efibootmgr dosfstools os-prober mtools
+mkdir /boot/EFI
+mount /dev/sda1 /boot/EFI
+nvim /etc/default/grub # GRUB_TIMEOUT=0
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Networking
+```bash
+pacman -S networkmanager git
+systemctl enable NetworkManager
+```
+
+## Reboot
+```bash
+exit
+umount -l /mnt
+shutdown now
+# Detach the ISO
+```
+
+# First boot
+## Fix layout again
+```bash
+localectl set-keymap --no-convert sv-latin1
+```
+
+## Setup git
+```bash
+mkdir ~/git
+git config --global user.name "Peglah"
+git config --global user.email "peglah@gmail.com"
+git config --global credential.helper cache
+```
+
+## Fix pacman again
+```bash
+nvim /etc/pacman.conf # ParallelDownloads = 5
+                      # Color
+                      # IgnorePkg = sudo
+```
+
+## Update
+```bash
+pacman -Syu
+```
+
+# Install programs
+```bash
+pacman -S bat feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv btop openssh firefox qutebrowser alsa-utils pulseaudio base-devel
+```
+
+## Paru AUR helper
+```bash
+cd ~/git
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+```bash
+paru -S fastfetch ly ncpamixer
+```
+
+## Ly
+```bash
+systemctl enable ly.service
+systemctl disable getty@tty2.service
+```
+
+## SSH
+```bash
+systemctl enable sshd.service
+systemctl start sshd.service
+```
+
+## Dotfiles
+```bash
+cd ~/git
 git clone https://github.com/Peglah/dotfiles.git
+#copy dotfiles to home
+chmod +x ~/.xinitrc
+```
+
+# TODO: Note, old example. To this with symbolic links.
+```bash
 #cp -r ~/dotfiles/.config ~/
 #cp ~/dotfiles/.bash_aliases ~/
 #cp ~/dotfiles/.bashrc ~/
@@ -15,36 +177,56 @@ git clone https://github.com/Peglah/dotfiles.git
 #chmod +x ~/.xinitrc
 ```
 
-## [Suckless](https://suckless.org/)
-Dependencies:
+## Video driver
 ```bash
-libx11-dev libxft-dev libxinerama-dev xinit
+lspci -v | grep -A1 -e VGA -e 3D
+pacman -Ss xf86-video
 ```
 
-[feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
+## Xorg
 ```bash
-feh unclutter-xfixes
+paru -S otf-nerd-fonts-fira-mono
+pacman -S xorg xorg-xinit
 ```
 
-Compile and install dwm, dmenu, st and slstatus
+## Suckless
 ```bash
-makepkg
+cd dmenu && makepkg -sifc
+cd slstatus && makepkg -sifc
+cd st && makepkg -sifc
+cd dwm && makepkg -sifc
 ```
 
-Install firamono from AUR
-
-`reboot` and `startx`
-
-## [Remote desktop](http://xrdp.org/)
+## xrdp
 ```bash
-install xrdp
+paru -S xrdp pulseaudio-module-xrdp
+export PULSE_SCRIPT=/etc/xrdp/pulse/default.pa
 ln -s ~/.xinitrc ~/.xsession
 ```
 
-## [Mosh](https://mosh.org/)
+# Fixes
+## Disable sleep when lid is closed
 ```bash
-install mosh
+sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
 ```
+
+
+Fix tearing
+https://wiki.archlinux.org/title/intel_graphics#Tearing
+
+TODO
+enable media buttons
+fix screen flicker
+tap to click
+Notifications
+Tab completion, git
+Change Caps Lock and ESC
+
+
+
+
+
+
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
 ```bash
@@ -60,13 +242,6 @@ install mosh
 #systemctl mask hybrid-sleep.target
 ```
 
-## [Touchpad tap-to-click](https://linux.die.net/man/1/synclient)
-```bash
-#apt install xserver-xorg-input-synaptics
-#synclient MaxSpeed=1
-#synclient VertEdgeScroll=0
-```
-
 ## Change Caps Lock and ESC
 ```bash
 #sed -i '0,/Caps_Lock/s//Escape/' /usr/share/X11/xkb/symbols/pc
@@ -75,116 +250,17 @@ install mosh
 #reboot
 ```
 
-## [Power management](https://pm-utils.freedesktop.org/wiki/)
-```bash
-#install pm-utils
-```
-
-# Software setup
-## Programs
-### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
-Dependencies:
-```bash
-cmake
-```
-
-Download, compile and install from AUR:
-
-### [ly](https://github.com/fairyglade/ly)
-Dependencies:
-```bash
-build-essential libpam0g-dev libxcb-xkb-dev
-```
-
-Download, compile and install:
-```bash
-systemctl enable ly.service
-systemctl disable getty@tty2.service
-```
-
-### [Ranger](https://github.com/ranger/ranger)
-```bash
-install ranger
-```
-
-[Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
-```bash
-pacman -S highlight w3m
-```
-
-[Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
-```bash
-pacman -S ffmpegthumbnailer
-```
-
-### [Mplayer](http://www.mplayerhq.hu/)
-```bash
-pacman -S mplayer
-```
-
-### [Neovim](https://neovim.io/)
-```bash
-pacman -S neovim
-```
-
-### Network Manager
-```bash
-#apt install network-manager
-```
-
 ### [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
-### [btop++](https://github.com/aristocratos/btop)
-```bash
-pacman -S btop
-```
-
-### [bat](https://github.com/sharkdp/bat)
-```bash
-pacman -S bat
-```
-
 # **TODO**
-music
-Install ALSA
-$ sudo apt-get install alsa-utils
-
-Install PulseAudio:
-$ sudo apt-get install pulseaudio pulseaudio-utils
-
-Set Group Memberships for PA:
-$ sudo usermod -aG pulse,pulse-access <username>
-
-Run the PulseaudioServer:
-$ pulseaudio -D
-
-Following command tells us if a sink is recognized by PulseAudio:
-$ pacmd list-sinks
-
-Remember sinkname for output below.
-This command will play a sound file to a given sink:
-$ pacmd play-file <filename> <sinkname>
-
-We may need to unmute audio devices:
-for ALSA: use alsamixer
-for Pulseaudio: use pacmd set-sink-mute n 0 where n is the sink index (likely 0)
-For further CLI commands see also the Pulse Audio Wiki
-To configure Pulseaudio Server to our needs we may need to edit /etc/pulse/default.pa and /etc/pulse/daemon.conf that come with self-explanatory. notes.
-
-
 apt install ncmpcpp mopidy mopidy-mpd mopidy-alsamixer
-usermod -a -G audio peglah
-make sure aplay can play
-curl -O https://www.kozco.com/tech/piano2.wav
 mkdir -p ~/.config/ncmpcpp/
 cp /usr/share/doc/ncmpcpp/examples/config ~/.config/ncmpcpp/
 echo http://fm02-ice.stream.khz.se/fm02_mp3 > ~/banditrock.m3u
 sudo mv ~/banditrock.m3u /var/lib/mopidy/m3u/
 
-sudo su
 mopidyctl config >> /etc/mopidy/mopidy.conf
-exit
 
 fix viz
 /etc/mopidy/mopidy.conf
@@ -192,6 +268,3 @@ output = tee name=t t. ! queue ! autoaudiosink t. ! queue ! audioresample ! audi
 
 systemctl enable mopidy
 systemctl start mopidy
-
-Keybindings
-TODO SXHKD
