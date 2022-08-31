@@ -67,8 +67,8 @@ static const struct arg args[] = {
 	/* function format          argument */
 	//{ netspeed_rx, " %s ",    "enp1s0" },
 	//{ netspeed_tx, "%s | ",   "enp1s0" },
-	{ netspeed_rx, "%s ",    "wlp3s0" },
-	{ netspeed_tx, "%s | ",   "wlp3s0" },
+	{ netspeed_rx, " %s ",    "wlp3s0" },
+	{ netspeed_tx, " %s | ",   "wlp3s0" },
   { load_avg, "%s | ",         NULL },
   //{ uptime, "Up %s | ",        NULL },
   { battery_state, "%s",     "BAT0" },
