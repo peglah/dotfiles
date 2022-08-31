@@ -174,19 +174,11 @@ ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
 chmod +x ~/.xinitrc
 ```
 
-# TODO: Note, old example. To this with symbolic links.
-```bash
-#cp -r ~/dotfiles/.config ~/
-#cp ~/dotfiles/.bash_aliases ~/
-#cp ~/dotfiles/.bashrc ~/
-#cp ~/dotfiles/.xinitrc ~/
-#chmod +x ~/.xinitrc
-```
-
 ## Video driver
 ```bash
 lspci -v | grep -A1 -e VGA -e 3D
 pacman -Ss xf86-video
+# Install correct driver
 ```
 
 ## Xorg
@@ -197,16 +189,18 @@ pacman -S xorg xorg-xinit
 
 ## Suckless
 ```bash
-cd dmenu && makepkg -sifc
-cd slstatus && makepkg -sifc
-cd st && makepkg -sifc
-cd dwm && makepkg -sifc
+cd ~/git/dotfiles/suckless/dmenu* && makepkg -sifc
+cd ~/git/dotfiles/suckless/slstatus && makepkg -sifc
+cd ~/git/dotfiles/suckless/st* && makepkg -sifc
+cd ~/git/dotfiles/suckless/dwm* && makepkg -sifc
 ```
 
 ## xrdp
 ```bash
 paru -S xrdp pulseaudio-module-xrdp
-export PULSE_SCRIPT=/etc/xrdp/pulse/default.pa
+/etc/systemd/system/pulseaudio.service.d/xrdp.conf
+  [Service]
+  Environment="PULSE_SCRIPT=/etc/xrdp/pulse/default.pa"
 ln -s ~/.xinitrc ~/.xsession
 ```
 
