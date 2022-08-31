@@ -35,7 +35,8 @@ mkfs.ext4 /dev/sda3
 ```
 
 ## Fix pacman
-vim /etc/pacman.conf # IgnorePkg = sudo
+```bash
+vim /etc/pacman.conf  # IgnorePkg = sudo
                       # Color
                       # ParallelDownloads = 5
 curl -L -o /etc/pacman.d/mirrorlist "https://archlinux.org/mirrorlist/?country=SE&protocol=https&ip_version=4&use_mirror_status=on"
@@ -67,9 +68,9 @@ nvim /etc/hosts
 ## Users
 ```bash
 passwd
-useradd -m peglah
-passwd peglah
-usermod -aG wheel,audio,video,storage peglah
+useradd -m username
+passwd username
+usermod -aG wheel,audio,video,storage username
 ```
 
 ## Sudo
@@ -114,8 +115,8 @@ localectl set-keymap --no-convert sv-latin1
 ## Setup git
 ```bash
 mkdir ~/git
-git config --global user.name "Peglah"
-git config --global user.email "peglah@gmail.com"
+git config --global user.name "username"
+git config --global user.email "usern@name.com"
 git config --global credential.helper cache
 ```
 
@@ -164,7 +165,12 @@ systemctl start sshd.service
 ```bash
 cd ~/git
 git clone https://github.com/Peglah/dotfiles.git
-#copy dotfiles to home
+
+ln -s ~/git/dotfiles/.bash_aliases ~/.bash_aliases
+ln -s ~/git/dotfiles/.bashrc ~/.bashrc
+ln -s ~/git/dotfiles/.config ~/.config
+ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
+
 chmod +x ~/.xinitrc
 ```
 
