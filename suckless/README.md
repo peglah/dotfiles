@@ -23,6 +23,8 @@
 ### st
 [anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.4.diff)
 
+[boxdraw](https://st.suckless.org/patches/boxdraw/st-boxdraw_v2-0.8.5.diff)
+
 [csi_22_23](https://st.suckless.org/patches/csi_22_23/st-csi_22_23-0.8.5.diff)
 
 [gruvbox](https://st.suckless.org/patches/gruvbox/st-gruvbox-dark-0.8.5.diff)

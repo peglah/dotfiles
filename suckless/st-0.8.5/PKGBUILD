@@ -14,6 +14,8 @@ source=(LICENSE
         Makefile
         README
         arg.h
+        boxdraw.c
+        boxdraw_data.h
         config.def.h
         config.mk
         st.1
@@ -23,6 +25,8 @@ source=(LICENSE
         win.h
         x.c)
 sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'

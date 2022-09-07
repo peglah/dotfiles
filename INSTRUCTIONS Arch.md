@@ -183,7 +183,7 @@ pacman -Ss xf86-video
 
 ## Xorg
 ```bash
-paru -S otf-nerd-fonts-fira-mono
+paru -S nerd-fonts-fira-code
 pacman -S xorg xorg-xinit
 ```
 
