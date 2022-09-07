@@ -2,7 +2,7 @@
 
 # More wallpapers at https://www.reddit.com/r/wallpaper/comments/kedqme/1920x1080_all_resolutions_available_dark_light/
 if command -v feh &> /dev/null; then
-  feh --bg-fill ~/dotfiles/pictures/wallapper/CjByCrG.png
+  feh --bg-fill ~/git/dotfiles/pictures/wallapper/CjByCrG.png
 fi
 
 if command -v synclient &> /dev/null; then
@@ -22,6 +22,8 @@ else
     sleep 1
   done &
 fi
+
+setxkbmap se
 
 # if dwm exits 0, restart -- this allows hot reloading of config.h
 while type dwm >/dev/null ; do dwm && continue || break ; done
