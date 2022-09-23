@@ -40,7 +40,7 @@ return require('packer').startup({
     -- Editing supports
     use { 'p00f/nvim-ts-rainbow', -- Colorful parentheses
       branch = 'master' }
-    use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
+    use { 'NvChad/nvim-colorizer.lua', -- Color highlighter
       config = function() require('colorizer').setup() end }
     use 'nvim-treesitter/nvim-treesitter'
 
