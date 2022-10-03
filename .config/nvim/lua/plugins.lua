@@ -40,7 +40,7 @@ return require('packer').startup({
     -- Editing supports
     use { 'p00f/nvim-ts-rainbow', -- Colorful parentheses
       branch = 'master' }
-    use { 'NvChad/nvim-colorizer.lua', -- Color highlighter
+    use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
       config = function() require('colorizer').setup() end }
     use 'nvim-treesitter/nvim-treesitter'
 
@@ -50,7 +50,9 @@ return require('packer').startup({
         { 'nvim-telescope/telescope.nvim' },
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' }, } }
-    use 'tversteeg/registers.nvim' -- Press " in normal or visual mode or Ctrl-R in insert mode
+    use { "tversteeg/registers.nvim" -- Press " in normal or visual mode or Ctrl-R in insert mode
+      config = function() require("registers").setup() end }
+
     --  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
 
     -- Automatically set up your configuration after cloning packer.nvim
