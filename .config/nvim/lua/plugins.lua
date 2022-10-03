@@ -50,8 +50,8 @@ return require('packer').startup({
         { 'nvim-telescope/telescope.nvim' },
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' }, } }
-    use { "tversteeg/registers.nvim" -- Press " in normal or visual mode or Ctrl-R in insert mode
-      config = function() require("registers").setup() end }
+    use { 'tversteeg/registers.nvim', -- Press " in normal or visual mode or Ctrl-R in insert mode
+      config = function() require('registers').setup() end }
 
     --  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
 
