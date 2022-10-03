@@ -26,6 +26,8 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 -- Use system clipboard
 vim.o.clipboard = 'unnamedplus'
+-- Disable mouse
+vim.opt.mouse={ i = false, n = false, v = false }
 -- Enable autocompletion
 vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
