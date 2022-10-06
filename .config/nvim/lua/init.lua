@@ -16,6 +16,8 @@ require('plugins')
 --vim.cmd('language en_US', true)
 -- Set title to: filename [+=-] (path) - NVIM
 vim.opt.title = true
+-- Enables the window bar and determines its contents
+vim.opt.winbar="%f"
 -- Enable line number and relative line numbers
 vim.opt.relativenumber = true
 -- Maximum width of text that is being inserted.
