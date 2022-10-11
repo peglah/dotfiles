@@ -25,6 +25,7 @@ return require('packer').startup({
 
     -- Eye candy
     use 'ellisonleao/gruvbox.nvim' -- Theme
+      vim.cmd("colorscheme gruvbox")
     use { 'karb94/neoscroll.nvim', -- Smooth scrolling
       config = function() require('neoscroll').setup() end }
     use { 'nvim-lualine/lualine.nvim', -- Status/tabline
