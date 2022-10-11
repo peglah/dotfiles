@@ -70,10 +70,6 @@ vim.cmd([[ autocmd BufWritePre * %s/\n\+\%$//e ]], false)
 vim.cmd([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
 
 --  Plugins config  --
---  ellisonleao/gruvbox.nvim
-vim.opt.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
-
 -- nvim-treesitter/nvim-treesitter
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
