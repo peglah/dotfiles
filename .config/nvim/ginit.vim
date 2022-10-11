@@ -1,4 +1,4 @@
-GuiFont FiraCode NFM:h12:b
+GuiFont! FiraCode NFM:h12:b
 GuiTabline 0
 
 " Allows for font size to inc-/decrement and go back to normal
