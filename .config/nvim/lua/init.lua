@@ -35,7 +35,7 @@ vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
 -- Set font
-vim.cmd([[ set guifont=FiraCode\ NF:h12 ]], false)
+vim.cmd([[ set guifont=FiraCode\ NFM:h12 ]], false)
 -- Fancy colors
 vim.opt.termguicolors = true
 
@@ -58,7 +58,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- Highlight column after 'textwidth' in the help
-vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
+--vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
 -- Enable relative line numbers in the help
 vim.cmd([[ autocmd FileType help setlocal relativenumber ]], false)
 
@@ -74,7 +74,7 @@ vim.cmd([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   --  ensure_installed = { "c", "lua", "rust" },
-  ensure_installed = { "c", "cpp", "lua" },
+  ensure_installed = { "c", "cpp", "help", "lua", "vim" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -108,3 +108,46 @@ require 'nvim-treesitter.configs'.setup {
     -- termcolors = {} -- table of colour name strings
   }
 }
+
+-- LSP
+
+-- Learn the keybindings, see :help lsp-zero-keybindings
+-- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+
+-- Required options for PS
+require("lspconfig").powershell_es.setup{
+  bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
+  shell = 'powershell.exe',
+}
+
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
+})
+
+-- These are the options the recommended preset uses
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  sign_icons = {
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+  }
+})
+
+lsp.setup()
