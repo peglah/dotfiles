@@ -32,7 +32,7 @@ return require('packer').startup({
     config = function() require('twilight').setup() end }
 
     -- Editing supports
-    use { 'p00f/nvim-ts-rainbow', -- Colorful parentheses
+    use { 'mrjones2014/nvim-ts-rainbow', -- Colorful parentheses
     branch = 'master' }
     use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
     config = function() require('colorizer').setup() end }
