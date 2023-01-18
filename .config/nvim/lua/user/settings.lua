@@ -24,6 +24,7 @@ vim.opt.path = vim.opt.path + ",**"
 vim.cmd([[ set guifont=FiraCode\ NFM:h12 ]], false)
 -- Fancy colors
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
 pcall(vim.cmd, 'colorscheme gruvbox')
 
 -- Ignoring case in a pattern
