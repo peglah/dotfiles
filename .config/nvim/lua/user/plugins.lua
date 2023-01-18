@@ -18,24 +18,23 @@ return require('packer').startup({
 
     -- Eye candy
     use 'ellisonleao/gruvbox.nvim' -- Theme
-      vim.cmd("colorscheme gruvbox")
     use { 'karb94/neoscroll.nvim', -- Smooth scrolling
-    config = function() require('neoscroll').setup() end }
+    config = function() pcall(require, 'plugins.neoscroll') end }
     use { 'nvim-lualine/lualine.nvim', -- Status/tabline
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('lualine').setup() end }
+    config = function() pcall(require, 'plugins.lualine') end }
 
     -- Distraction-free editing
     use { 'folke/zen-mode.nvim', -- Distraction-free coding
-    config = function() require('zen-mode').setup() end }
+    config = function() pcall(require, 'plugins.zen-mode') end }
     use { 'folke/twilight.nvim', -- Dims inactive portions of the code you're editing
-    config = function() require('twilight').setup() end }
+    config = function() pcall(require, 'plugins.twilight') end }
 
     -- Editing supports
     use { 'mrjones2014/nvim-ts-rainbow', -- Colorful parentheses
     branch = 'master' }
     use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
-    config = function() require('colorizer').setup() end }
+    config = function() pcall(require, 'plugins.colorizer') end }
     use 'nvim-treesitter/nvim-treesitter'
 
     --  Utility
@@ -45,7 +44,7 @@ return require('packer').startup({
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' }, } }
       use { 'tversteeg/registers.nvim', -- Press " in normal or visual mode or Ctrl-R in insert mode
-      config = function() require('registers').setup() end }
+      config = function() pcall(require, 'plugins.registers') end }
 
       --  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
 
@@ -70,8 +69,8 @@ return require('packer').startup({
           {'L3MON4D3/LuaSnip'},
           -- Snippet Collection (Optional)
           {'rafamadriz/friendly-snippets'},
-        }
-      }
+        },
+        config = function() pcall(require, 'plugins.lsp-zero') end }
 
       -- Automatically set up your configuration after cloning packer.nvim
       -- Put this at the end after all plugins
