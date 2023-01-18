@@ -20,6 +20,8 @@ return require('packer').startup({
     use 'ellisonleao/gruvbox.nvim' -- Theme
     use { 'karb94/neoscroll.nvim', -- Smooth scrolling
     config = function() pcall(require, 'plugins.neoscroll') end }
+    --use { 'echasnovski/mini.animate', -- Animations
+    --config = function() pcall(require, 'plugins.mini-animate') end }
     use { 'nvim-lualine/lualine.nvim', -- Status/tabline
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function() pcall(require, 'plugins.lualine') end }
