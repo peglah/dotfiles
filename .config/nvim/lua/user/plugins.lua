@@ -40,6 +40,20 @@ return require('packer').startup({
     config = function() pcall(require, 'plugins.colorizer') end }
     use 'nvim-treesitter/nvim-treesitter'
 
+    --use { 'dense-analysis/neural', -- AI code generation, editing and completion
+    --requires = {
+    --    'MunifTanjim/nui.nvim',
+    --    'ElPiloto/significant.nvim' }
+    --config = function() pcall(require, 'plugins.neural') end }
+
+    --use { "jackMort/ChatGPT.nvim", -- Interface for exploring GPT-3 and NLP.
+    --requires = {
+    --    "MunifTanjim/nui.nvim",
+    --    "nvim-lua/plenary.nvim",
+    --    "nvim-telescope/telescope.nvim" }
+    --config = function() pcall(require, 'plugins.chatgpt') end }
+
+
     --  Utility
     use { 'sudormrfbin/cheatsheet.nvim', -- Hit <leader>? to invoke cheatsheet telescope
     requires = {
