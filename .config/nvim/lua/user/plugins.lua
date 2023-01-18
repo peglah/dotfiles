@@ -17,7 +17,8 @@ return require('packer').startup({
     use 'wbthomason/packer.nvim'
 
     -- Eye candy
-    use 'ellisonleao/gruvbox.nvim' -- Theme
+    use { 'ellisonleao/gruvbox.nvim' -- Theme
+    config = function() pcall(require, 'plugins.gruvbox') end }
     use { 'karb94/neoscroll.nvim', -- Smooth scrolling
     config = function() pcall(require, 'plugins.neoscroll') end }
     --use { 'echasnovski/mini.animate', -- Animations
