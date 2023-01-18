@@ -10,9 +10,13 @@ vim.g.mapleader = ' '
 --
 --" Easier split navigations
 --nnoremap <C-J> <C-W><C-J>
+vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
 --nnoremap <C-K> <C-W><C-K>
+vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
 --nnoremap <C-L> <C-W><C-L>
+vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 --nnoremap <C-H> <C-W><C-H>
+vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 --
 --" Insert date
 --nnoremap <leader>. "=strftime("%F")<CR>Pa<CR><ESC>

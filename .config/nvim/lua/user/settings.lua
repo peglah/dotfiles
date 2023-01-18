@@ -21,7 +21,7 @@ vim.opt.wildmode = { 'longest:list', 'full' }
 -- Finding files
 vim.opt.path = vim.opt.path + ",**"
 -- Set font
-vim.cmd([[ set guifont=FiraCode\ NFM:h12 ]], false)
+--vim.cmd([[ set guifont=FiraCode\ NFM:h12 ]], false)
 -- Fancy colors
 vim.opt.termguicolors = true
 vim.opt.background = "dark"

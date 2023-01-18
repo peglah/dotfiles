@@ -17,12 +17,10 @@ return require('packer').startup({
     use 'wbthomason/packer.nvim'
 
     -- Eye candy
-    use { 'ellisonleao/gruvbox.nvim' -- Theme
+    use { 'ellisonleao/gruvbox.nvim', -- Theme
     config = function() pcall(require, 'plugins.gruvbox') end }
-    use { 'karb94/neoscroll.nvim', -- Smooth scrolling
-    config = function() pcall(require, 'plugins.neoscroll') end }
-    --use { 'echasnovski/mini.animate', -- Animations
-    --config = function() pcall(require, 'plugins.mini-animate') end }
+    use { 'echasnovski/mini.animate', -- Animations
+    config = function() pcall(require, 'plugins.mini-animate') end }
     use { 'nvim-lualine/lualine.nvim', -- Status/tabline
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function() pcall(require, 'plugins.lualine') end }
@@ -38,20 +36,21 @@ return require('packer').startup({
     branch = 'master' }
     use { 'norcalli/nvim-colorizer.lua', -- Color highlighter
     config = function() pcall(require, 'plugins.colorizer') end }
-    use 'nvim-treesitter/nvim-treesitter'
+    use { 'nvim-treesitter/nvim-treesitter',
+    config = function() pcall(require, 'plugins.treesitter') end }
 
-    --use { 'dense-analysis/neural', -- AI code generation, editing and completion
-    --requires = {
-    --    'MunifTanjim/nui.nvim',
-    --    'ElPiloto/significant.nvim' }
-    --config = function() pcall(require, 'plugins.neural') end }
-
-    --use { "jackMort/ChatGPT.nvim", -- Interface for exploring GPT-3 and NLP.
-    --requires = {
-    --    "MunifTanjim/nui.nvim",
-    --    "nvim-lua/plenary.nvim",
-    --    "nvim-telescope/telescope.nvim" }
-    --config = function() pcall(require, 'plugins.chatgpt') end }
+--    --use { 'dense-analysis/neural', -- AI code generation, editing and completion
+--    --requires = {
+--    --    'MunifTanjim/nui.nvim',
+--    --    'ElPiloto/significant.nvim' }
+--    --config = function() pcall(require, 'plugins.neural') end }
+--
+    use ({ "jackMort/ChatGPT.nvim", -- Interface for exploring GPT-3 and NLP.
+    requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim" },
+    config = function() pcall(require, 'plugins.chatgpt') end })
 
 
     --  Utility
@@ -60,34 +59,34 @@ return require('packer').startup({
       { 'nvim-telescope/telescope.nvim' },
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' }, } }
-      use { 'tversteeg/registers.nvim', -- Press " in normal or visual mode or Ctrl-R in insert mode
-      config = function() pcall(require, 'plugins.registers') end }
+    use { 'tversteeg/registers.nvim', -- Press " in normal or visual mode or Ctrl-R in insert mode
+    config = function() pcall(require, 'plugins.registers') end }
 
-      --  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
+    --  use 'kshenoy/vim-signature'         -- Place, toggle and display marks
 
-      -- LSP
-      use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-          -- LSP Support
-          {'neovim/nvim-lspconfig'},
-          {'williamboman/mason.nvim'},
-          {'williamboman/mason-lspconfig.nvim'},
+    -- LSP
+    use {
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
 
-          -- Autocompletion
-          {'hrsh7th/nvim-cmp'},
-          {'hrsh7th/cmp-buffer'},
-          {'hrsh7th/cmp-path'},
-          {'saadparwaiz1/cmp_luasnip'},
-          {'hrsh7th/cmp-nvim-lsp'},
-          {'hrsh7th/cmp-nvim-lua'},
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'saadparwaiz1/cmp_luasnip'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-nvim-lua'},
 
-          -- Snippets
-          {'L3MON4D3/LuaSnip'},
-          -- Snippet Collection (Optional)
-          {'rafamadriz/friendly-snippets'},
-        },
-        config = function() pcall(require, 'plugins.lsp-zero') end }
+        -- Snippets
+        {'L3MON4D3/LuaSnip'},
+        -- Snippet Collection (Optional)
+        {'rafamadriz/friendly-snippets'},
+      },
+      config = function() pcall(require, 'plugins.lsp-zero') end }
 
       -- Automatically set up your configuration after cloning packer.nvim
       -- Put this at the end after all plugins
