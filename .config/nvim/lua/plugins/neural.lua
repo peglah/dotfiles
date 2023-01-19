@@ -6,7 +6,7 @@ return {
     'ElPiloto/significant.nvim' },
   config = function() require('neural').setup({
     open_ai = {
-      api_key = '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'
+      api_key = ''
     }
   }) end
 }
