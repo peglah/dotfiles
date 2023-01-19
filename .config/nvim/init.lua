@@ -6,6 +6,5 @@ end
 load('user.settings')
 load('user.commands')
 load('user.keymaps')
-load('user.plugins')
-
-pcall(vim.cmd, 'colorscheme gruvbox')
+load('user.lazy')
+load('user.lsp')

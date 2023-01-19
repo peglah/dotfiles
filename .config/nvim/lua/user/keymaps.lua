@@ -1,8 +1,5 @@
 local group = vim.api.nvim_create_augroup('mapping_cmds', {clear = true})
 
--- Space as leader key
-vim.g.mapleader = ' '
-
 --" In normal mode, pressing ctrl + numpad's+ increases the font
 --noremap <leader>+ :call AdjustFontSize(2)<CR>
 --noremap <leader>- :call AdjustFontSize(-2)<CR>

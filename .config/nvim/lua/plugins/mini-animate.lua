@@ -1,1 +1,4 @@
-require('mini.animate').setup()
+return {
+  'echasnovski/mini.animate', -- Animations
+  config = function() require('mini.animate').setup() end
+}
