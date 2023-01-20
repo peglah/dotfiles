@@ -16,17 +16,17 @@ vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 --
 --" Insert date
---nnoremap <leader>. "=strftime("%F")<CR>Pa<CR><ESC>
+vim.keymap.set('n', '<leader>.', '"=strftime("%F")<CR>Pa<CR><ESC>')
 --
 --" Spellcheck
---nnoremap <silent> <leader>o :setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>
+vim.keymap.set('n', '<leader>o', ':setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>')
 --autocmd BufRead,BufNewFile *.md setlocal spell spelllang=sv,en complete+=kspell
 --
 --" Switch between the last two files
---nnoremap <leader><leader> <C-^>
+vim.keymap.set('n', '<leader><leader>', '<C-^>')
 --
 --" Edit this file
---nnoremap <leader>b :e $MYVIMRC<CR>
+vim.keymap.set('n', '<leader>b', ':e $MYVIMRC<CR>')
 --
 --" Save and close buffer
 --command Wbd write <bar> bdelete
