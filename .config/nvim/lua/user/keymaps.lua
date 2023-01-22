@@ -27,7 +27,14 @@ vim.keymap.set('n', '<leader><leader>', '<C-^>')
 --
 --" Edit this file
 vim.keymap.set('n', '<leader>b', ':e $MYVIMRC<CR>')
---
+
+-- Telescope keymaps
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 --" Save and close buffer
 --command Wbd write <bar> bdelete
 --
