@@ -3,8 +3,8 @@ local load = function(mod)
 	require(mod)
 end
 
-load('user.lazy')
-load('user.settings')
-load('user.commands')
-load('user.keymaps')
-load('user.lsp')
+load('config.lazy')
+load('config.options')
+load('config.autocmds')
+load('config.keymaps')
+load('config.lsp')

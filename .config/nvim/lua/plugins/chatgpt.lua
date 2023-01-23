@@ -7,7 +7,5 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-telescope/telescope.nvim" },
-  config = function() require("chatgpt").setup(
-    -- optional configuration
-  ) end
+  config = true
 }
