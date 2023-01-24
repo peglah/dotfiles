@@ -5,7 +5,12 @@ return {
     { 'nvim-lua/plenary.nvim' },
     { 'BurntSushi/ripgrep' },
   },
-  config = function() require('telescope').setup(
+  config = function() require('telescope').setup({
     -- optional configuration
-  ) end
+    pickers = {
+      colorscheme = {
+        enable_preview = true
+      }
+    }
+  }) end
 }
