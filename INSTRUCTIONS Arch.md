@@ -114,6 +114,8 @@ localectl set-keymap --no-convert sv-latin1
 
 ## Setup git
 ```bash
+systemctl enable systemd-networkd
+nmtui
 mkdir ~/git
 git config --global user.name "username"
 git config --global user.email "usern@name.com"

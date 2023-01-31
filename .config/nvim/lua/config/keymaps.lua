@@ -11,11 +11,12 @@ vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 local wk = require("which-key")
 wk.register({
   ["<leader>f"] = { name = "+Telescope" },
+  ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Lists open buffers" },
+  ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Choose colorscheme" },
   ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Search for files" },
   ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Search for a string" },
-  ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Lists open buffers" },
   ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Lists available help tags" },
-  ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Choose colorscheme" },
+  ["<leader>fl"] = { "<cmd>Telescope lazy<cr>", "Plugins installed via lazy.nvim" },
 })
 
 -- leader
