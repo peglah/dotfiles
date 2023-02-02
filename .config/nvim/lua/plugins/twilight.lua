@@ -1,5 +1,5 @@
 return
-  { 'folke/twilight.nvim', -- Dims inactive portions of the code you're editing
+  { 'folke/twilight.nvim',
   cmd = 'Twilight',
   config = function() require('twilight').setup() end
 }

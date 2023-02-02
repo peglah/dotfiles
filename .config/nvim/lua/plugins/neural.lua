@@ -1,5 +1,5 @@
 return {
-  'dense-analysis/neural', -- AI code generation, editing and completion
+  'dense-analysis/neural',
   keys = "<C-Space>",
   dependencies = {
     'MunifTanjim/nui.nvim',

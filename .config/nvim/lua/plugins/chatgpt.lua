@@ -1,5 +1,5 @@
 return {
-  "jackMort/ChatGPT.nvim", -- Interface for exploring GPT-3 and NLP.
+ "jackMort/ChatGPT.nvim",
   cmd = {
     'ChatGPT',
     'ChatGPTActAs',

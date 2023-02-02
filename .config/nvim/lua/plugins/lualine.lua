@@ -1,5 +1,6 @@
 return {
-  'nvim-lualine/lualine.nvim', -- Status/tabline
+  'nvim-lualine/lualine.nvim',
+  event = 'VeryLazy',
   dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
   config = function() require('lualine').setup({
     theme = 'auto',
