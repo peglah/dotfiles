@@ -7,27 +7,15 @@ vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
 -- Bindings
--- leader f
-local wk = require("which-key")
-wk.register({
-  ["<leader>f"] = { name = "+Telescope" },
-  ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Lists open buffers" },
-  ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Choose colorscheme" },
-  ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Search for files" },
-  ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Search for a string" },
-  ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Lists available help tags" },
-  ["<leader>fl"] = { "<cmd>Telescope lazy<cr>", "Plugins installed via lazy.nvim" },
-})
-
--- leader
-wk.register({
-  ["<leader>"] = { name = "+leader" },
-  ["<leader>?"] = { "<cmd>Cheatsheet<cr>", "Searchable cheatsheet" },
-  ["<leader>."] = { '"=strftime("%F")<CR>Pa<CR><ESC>', "Insert date" },
-  ["<leader>o"] = { "<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>", "Enable Spellcheck" },
-  ["<leader><leader>"] = { "<C-^>", "Go to last buffer" },
-  ["<leader>b"] = { "<cmd>e $MYVIMRC | cd %:p:h<cr>", "Edit init.lua" },
-})
+--local wk = require("which-key")
+--wk.register({
+--  ["<leader>"] = { name = "+leader" },
+--  ["<leader>f"] = { name = "+Telescope" },
+--  ["<leader>."] = { '"=strftime("%F")<CR>Pa<CR><ESC>', "Insert date" },
+--  ["<leader>o"] = { "<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>", "Enable Spellcheck" },
+--  ["<leader><leader>"] = { "<C-^>", "Go to last buffer" },
+--  ["<leader>b"] = { "<cmd>e $MYVIMRC | cd %:p:h<cr>", "Edit init.lua" },
+--})
 
 -- Save and close buffer
 vim.api.nvim_create_user_command('Wbd', 'write <bar> bdelete', {})

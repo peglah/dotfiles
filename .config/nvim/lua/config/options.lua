@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Suppress intro message
+vim.opt.shortmess:append("I")
 -- Set title to: filename [+=-] (path) - NVIM
 vim.opt.title = true
 -- Enables the window bar and determines its contents
