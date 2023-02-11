@@ -114,6 +114,8 @@ localectl set-keymap --no-convert sv-latin1
 
 ## Setup git
 ```bash
+systemctl enable systemd-networkd
+nmtui
 mkdir ~/git
 git config --global user.name "username"
 git config --global user.email "usern@name.com"
@@ -183,8 +185,7 @@ pacman -Ss xf86-video
 
 ## Xorg
 ```bash
-paru -S nerd-fonts-fira-code
-pacman -S xorg xorg-xinit
+pacman -S xorg xorg-xinit ttf-firacode-nerd
 ```
 
 ## Suckless

@@ -40,7 +40,7 @@ return require('lazy').setup('plugins',
   },
   install = {
     -- install missing plugins on startup. This doesn't increase startup time.
-    missing = true,
+    missing = false,
     -- try to load one of these colorschemes when starting an installation during startup
     colorscheme = { "gruvbox" },
   },
@@ -49,7 +49,7 @@ return require('lazy').setup('plugins',
     size = { width = 0.8, height = 0.8 },
     wrap = true, -- wrap the lines in the ui
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-    border = "none",
+    border = "rounded",
     icons = {
       cmd = " ",
       config = "",

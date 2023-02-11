@@ -1,7 +1,9 @@
 return {
-  'nvim-lualine/lualine.nvim', -- Status/tabline
+  'nvim-lualine/lualine.nvim',
+--  event = 'VeryLazy',
   dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
   config = function() require('lualine').setup({
+    theme = 'auto',
     sections = {
       lualine_c = {},
       lualine_y = {}
@@ -10,9 +12,8 @@ return {
       lualine_a = {
         {
           'buffers',
-          mode = 4, -- 0: Shows buffer name, 1: Shows buffer index, 2: Shows buffer name + buffer index
-          -- 3: Shows buffer number, 4: Shows buffer name + buffer number
-          max_length = vim.o.columns * 2 / 3, -- Maximum width of buffers component
+          mode = 4,
+          max_length = vim.o.columns * 2 / 3,
         }
       },
       lualine_y = {

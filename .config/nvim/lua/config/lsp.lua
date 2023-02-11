@@ -5,8 +5,8 @@ lsp.preset('recommended')
 
 -- Required options for PS
 require("lspconfig").powershell_es.setup{
+  shell = "powershell.exe",
   bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
-  shell = 'powershell.exe',
 }
 
 -- Fix Undefined global 'vim'

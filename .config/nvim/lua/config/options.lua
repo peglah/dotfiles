@@ -1,5 +1,8 @@
--- Set language
---vim.cmd('language en_US', true)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Suppress intro message
+vim.opt.shortmess:append("I")
 -- Set title to: filename [+=-] (path) - NVIM
 vim.opt.title = true
 -- Enables the window bar and determines its contents
@@ -43,11 +46,3 @@ vim.opt.shiftwidth = 2
 vim.g.netrw_banner = 0
 -- netrw - tree style listing
 vim.g.netrw_liststyle = 3
-
--- Highlight column after 'textwidth' in the help
---vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
--- Enable relative line numbers in the help
-vim.cmd([[ autocmd FileType help setlocal relativenumber ]], false)
-
--- Disables automatic commenting on newline
-vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]], false)

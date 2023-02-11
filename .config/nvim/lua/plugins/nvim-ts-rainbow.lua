@@ -1,4 +1,4 @@
 return {
-  'mrjones2014/nvim-ts-rainbow', -- Colorful parentheses
+  'mrjones2014/nvim-ts-rainbow',
   branch = 'master'
 }

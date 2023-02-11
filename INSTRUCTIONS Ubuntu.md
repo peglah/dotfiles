@@ -27,7 +27,7 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-apt install feh font-manager unclutter-xfixes
+apt install feh unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
@@ -40,7 +40,12 @@ cd ~/dotfiles/suckless/slstatus && make clean install
 
 `reboot` and `startx`
 ```bash
-font-manager -i ~/dotfiles/fonts/FiraMono/*
+mkdir ~/.fonts
+cd /tmp
+curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+unzip FiraCode.zip
+mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
+fc-cache -fv
 ```
 
 ## [Remote desktop](http://xrdp.org/)
