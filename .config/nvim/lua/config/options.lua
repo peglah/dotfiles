@@ -46,3 +46,6 @@ vim.opt.shiftwidth = 2
 vim.g.netrw_banner = 0
 -- netrw - tree style listing
 vim.g.netrw_liststyle = 3
+
+-- suppress colorschemes that are not used
+vim.cmd([[ set wildignore+=blue.vim,darkblue.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,ron.vim,shine.vim,slate.vim,torte.vim,zellner.vim ]], false)

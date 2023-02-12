@@ -40,7 +40,7 @@ return require('lazy').setup('plugins',
   },
   install = {
     -- install missing plugins on startup. This doesn't increase startup time.
-    missing = false,
+    missing = true,
     -- try to load one of these colorschemes when starting an installation during startup
     colorscheme = { "gruvbox" },
   },
