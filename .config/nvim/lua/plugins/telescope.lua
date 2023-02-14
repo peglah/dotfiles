@@ -1,5 +1,7 @@
 return {
   'nvim-telescope/telescope.nvim',
+  lazy = 'VeryLazy',
+
   keys = {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Lists open buffers" },
     { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Choose colorscheme" },
@@ -7,7 +9,9 @@ return {
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Search for a string" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Lists available help tags" },
     { "<leader>fl", "<cmd>Telescope lazy<cr>", desc = "Plugins installed via lazy.nvim" },
+    { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Lists previously open files" },
   },
+
   dependencies = {
     'nvim-lua/plenary.nvim',
     'BurntSushi/ripgrep',

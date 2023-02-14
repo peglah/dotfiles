@@ -1,4 +1,4 @@
 return {
-  "folke/tokyonight.nvim",
+  'arturgoms/moonbow.nvim',
   event = 'VeryLazy'
 }

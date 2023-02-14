@@ -48,4 +48,12 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- suppress colorschemes that are not used
-vim.cmd([[ set wildignore+=blue.vim,darkblue.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,ron.vim,shine.vim,slate.vim,torte.vim,zellner.vim ]], false)
+vim.cmd([[ set wildignore+=zellner.vim,torte.vim,slate.vim,shine.vim,ron.vim,quiet.vim,peachpuff.vim,pablo.vim,murphy.vim,morning.vim,lunaperche.vim,koehler.vim,industry.vim,habamax.vim,evening.vim,elflord.vim,desert.vim,delek.vim,darkblue.vim,blue.vim ]], false)
+
+-- indent-blankline
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent1', { fg = vim.g.terminal_color_1, nocombine = true })
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent2', { fg = vim.g.terminal_color_2, nocombine = true })
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent3', { fg = vim.g.terminal_color_3, nocombine = true })
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent4', { fg = vim.g.terminal_color_4, nocombine = true })
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent5', { fg = vim.g.terminal_color_5, nocombine = true })
+vim.api.nvim_set_hl(0, 'IndentBlanklineIndent6', { fg = vim.g.terminal_color_6, nocombine = true })

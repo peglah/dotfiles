@@ -1,4 +1,4 @@
 return {
-  "folke/tokyonight.nvim",
+  'Shatur/neovim-ayu',
   event = 'VeryLazy'
 }
