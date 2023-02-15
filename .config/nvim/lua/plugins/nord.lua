@@ -1,4 +1,4 @@
 return {
   'shaunsingh/nord.nvim',
-  event = 'VeryLazy'
+  lazy = true
 }

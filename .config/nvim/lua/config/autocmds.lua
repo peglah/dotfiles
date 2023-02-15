@@ -3,6 +3,10 @@ vim.cmd([[ autocmd BufWritePre * %s/\s\+$//e ]], false)
 vim.cmd([[ autocmd BufWritePre * %s/\n\+\%$//e ]], false)
 vim.cmd([[ autocmd BufWritePre *.[ch] %s/\%$/\r/e ]], false)
 
+-- Save and load text folding
+vim.cmd([[ autocmd BufWritePost * mkview ]], false)
+vim.cmd([[ autocmd BufReadPost * silent! loadview ]], false)
+
 -- Highlight column after 'textwidth' in the help
 --vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
 -- Enable relative line numbers in the help

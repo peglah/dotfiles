@@ -1,6 +1,6 @@
 return {
   'neanias/everforest-nvim',
-  event = 'VeryLazy',
+  lazy = true,
 
   config = function() require("everforest").setup {
     -- Controls the "hardness" of the background. Options are "soft", "medium" or "hard".

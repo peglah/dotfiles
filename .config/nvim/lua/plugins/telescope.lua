@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  lazy = 'VeryLazy',
+  event = 'VeryLazy',
 
   keys = {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Lists open buffers" },

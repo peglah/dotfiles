@@ -1,4 +1,4 @@
 return {
   "folke/tokyonight.nvim",
-  event = 'VeryLazy'
+  lazy = true
 }

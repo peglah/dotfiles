@@ -1,4 +1,4 @@
 return {
   'NTBBloodbath/doom-one.nvim',
-  event = 'VeryLazy',
+  lazy = true
 }

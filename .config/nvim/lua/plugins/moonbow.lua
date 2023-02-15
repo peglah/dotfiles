@@ -1,4 +1,4 @@
 return {
   'arturgoms/moonbow.nvim',
-  event = 'VeryLazy'
+  lazy = true
 }
