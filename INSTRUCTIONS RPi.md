@@ -145,9 +145,11 @@ apt install ./nvim-linux64.deb
 https://github.com/martanne/dvtm/issues/10
 
 ### TODO [btop++](https://github.com/aristocratos/btop)
-Dependencies:
 ```bash
-sudo apt install coreutils sed git build-essential gcc-11 g++-11
+cd /tmp
+wget -qO btop.tbz https://github.com/aristocratos/btop/releases/latest/download/btop-armv7l-linux-musleabihf.tbz
+tar -xf btop.tbz
+sudo cp /tmp/btop/bin/btop /usr/local/
 ```
 
 Download, compile and install:
