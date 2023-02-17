@@ -122,6 +122,7 @@ systemctl disable getty@tty2.service
 
 ### [Ranger](https://github.com/ranger/ranger)
 [Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
+
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
 apt install ranger highlight ffmpegthumbnailer
@@ -144,8 +145,18 @@ apt install ./nvim-linux64.deb
 https://github.com/martanne/dvtm/issues/10
 
 ### TODO [btop++](https://github.com/aristocratos/btop)
+Dependencies:
 ```bash
-apt install btop
+sudo apt install coreutils sed git build-essential gcc-11 g++-11
+```
+
+Download, compile and install:
+```bash
+cd /tmp
+git clone https://github.com/aristocratos/btop.git
+cd btop
+make
+sudo make install
 ```
 
 ### [bat](https://github.com/sharkdp/bat)
