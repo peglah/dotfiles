@@ -34,12 +34,9 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 apt install feh
 ```
 
-[unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
-Deps:
-libev-devel
-libX11-devel
-libXi-devel
-asciidoc
+TODO [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
+
+Deps: libev-devel libX11-devel libXi-devel asciidoc
 ```bash
 cd /tmp
 git clone https://github.com/Airblader/unclutter-xfixes
@@ -65,13 +62,9 @@ unzip FiraCode.zip
 mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
 ```
 
-## [Mosh](https://mosh.org/)
+## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
 apt install mosh
-```
-
-## [abduco](https://github.com/martanne/abduco)
-```bash
 cd /tmp
 curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
 tar -zxvf abduco-0.6.tar.gz
@@ -108,7 +101,7 @@ cmake --build . --target fastfetch
 cp fastfetch /usr/local/bin/
 ```
 
-### [ly](https://github.com/fairyglade/ly)
+### TODO [ly](https://github.com/fairyglade/ly)
 Dependencies:
 ```bash
 apt install build-essential libpam0g-dev libxcb-xkb-dev
@@ -127,18 +120,10 @@ systemctl disable getty@tty2.service
 ```
 
 ### [Ranger](https://github.com/ranger/ranger)
-```bash
-apt install ranger
-```
-
 [Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
-```bash
-apt install highlight
-```
-
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
-apt install ffmpegthumbnailer
+apt install ranger highlight ffmpegthumbnailer
 ```
 
 ### [mpv]()
@@ -146,7 +131,7 @@ apt install ffmpegthumbnailer
 apt install mpv
 ```
 
-### [Neovim](https://neovim.io/)
+### TODO [Neovim](https://neovim.io/)
 ```bash
 apt install ripgrep npm
 cd /tmp
@@ -157,7 +142,7 @@ apt install ./nvim-linux64.deb
 ### [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
-### [btop++](https://github.com/aristocratos/btop)
+### TODO [btop++](https://github.com/aristocratos/btop)
 ```bash
 apt install btop
 ```
