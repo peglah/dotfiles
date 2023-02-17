@@ -1,5 +1,6 @@
 # Install OS
 Download and install [Raspberry Pi OS (64-bit) Lite](https://www.raspberrypi.com/software/operating-systems/)
+
 Boot with a screen
 
 ```bash
@@ -42,15 +43,15 @@ cd /tmp
 git clone https://github.com/Airblader/unclutter-xfixes
 cd unclutter-xfixes
 make
-make install
+sudo make install
 ```
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/git/dotfiles/suckless/dwm* && make clean install
-cd ~/git/dotfiles/suckless/dmenu* && make clean install
-cd ~/git/dotfiles/suckless/st* && make clean install
-cd ~/git/dotfiles/suckless/slstatus* && make clean install
+cd ~/git/dotfiles/suckless/dwm* && sudo make clean install
+cd ~/git/dotfiles/suckless/dmenu* && sudo make clean install
+cd ~/git/dotfiles/suckless/st* && sudo make clean install
+cd ~/git/dotfiles/suckless/slstatus* && sudo make clean install
 ```
 
 `reboot` and `startx`
@@ -70,7 +71,7 @@ curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
 tar -zxvf abduco-0.6.tar.gz
 cd abduco-0.6
 make
-make install
+sudo make install
 ```
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
@@ -98,7 +99,7 @@ mkdir -p build
 cd build
 cmake ..
 cmake --build . --target fastfetch
-cp fastfetch /usr/local/bin/
+sudo cp fastfetch /usr/local/bin/
 ```
 
 ### TODO [ly](https://github.com/fairyglade/ly)
@@ -114,7 +115,7 @@ git clone --recurse-submodules https://github.com/nullgemm/ly
 cd ly
 make
 make run
-make install
+sudo make install
 systemctl enable ly.service
 systemctl disable getty@tty2.service
 ```
@@ -126,7 +127,7 @@ systemctl disable getty@tty2.service
 apt install ranger highlight ffmpegthumbnailer
 ```
 
-### [mpv]()
+### [mpv](https://mpv.io/)
 ```bash
 apt install mpv
 ```
