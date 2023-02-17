@@ -1,25 +1,21 @@
 # Install OS
-Download and install [Raspberry Pi OS (64-bit) Lite](https://www.raspberrypi.com/software/operating-systems/)
-Boot with a screen
-
+Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
 ```bash
-service NetworkManager start
-nmtui
+add-apt-repository universe
 apt update && apt upgrade
 timedatectl set-timezone Europe/Stockholm
+systemctl mask systemd-networkd-wait-online.service
 ```
 
 # Initial setup
 ```bash
-apt install make gcc git
-mkdir ~/git
-cd ~/git
+apt install make gcc
+cd ~
 git clone https://github.com/Peglah/dotfiles.git
-ln -s ~/git/dotfiles/.config/ ~/
-ln -s ~/git/dotfiles/.bash_aliases ~/
-rm ~/.bashrc
-ln -s ~/git/dotfiles/.bashrc ~/
-ln -s ~/git/dotfiles/.xinitrc ~/
+cp -r ~/dotfiles/.config ~/
+cp ~/dotfiles/.bash_aliases ~/
+cp ~/dotfiles/.bashrc ~/
+cp ~/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ```
 
@@ -29,31 +25,17 @@ Dependencies:
 apt install libx11-dev libxft-dev libxinerama-dev xinit
 ```
 
-[feh](https://feh.finalrewind.org/)
+[feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-apt install feh
-```
-
-[unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
-Deps:
-libev-devel
-libX11-devel
-libXi-devel
-asciidoc
-```bash
-cd /tmp
-git clone https://github.com/Airblader/unclutter-xfixes
-cd unclutter-xfixes
-make
-make install
+apt install feh unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/git/dotfiles/suckless/dwm* && make clean install
-cd ~/git/dotfiles/suckless/dmenu* && make clean install
-cd ~/git/dotfiles/suckless/st* && make clean install
-cd ~/git/dotfiles/suckless/slstatus* && make clean install
+cd ~/dotfiles/suckless/dwm && make clean install
+cd ~/dotfiles/suckless/dmenu && make clean install
+cd ~/dotfiles/suckless/st && make clean install
+cd ~/dotfiles/suckless/slstatus && make clean install
 ```
 
 `reboot` and `startx`
@@ -63,6 +45,13 @@ cd /tmp
 curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
+fc-cache -fv
+```
+
+## [Remote desktop](http://xrdp.org/)
+```bash
+apt install xrdp
+ln -s ~/.xinitrc ~/.xsession
 ```
 
 ## [Mosh](https://mosh.org/)
@@ -70,14 +59,10 @@ mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
 apt install mosh
 ```
 
-## [abduco](https://github.com/martanne/abduco)
+## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
 ```bash
-cd /tmp
-curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
-tar -zxvf abduco-0.6.tar.gz
-cd abduco-0.6
-make
-make install
+sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+service systemd-logind restart
 ```
 
 ## [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
@@ -86,6 +71,26 @@ systemctl mask sleep.target
 systemctl mask suspend.target
 systemctl mask hibernate.target
 systemctl mask hybrid-sleep.target
+```
+
+## [Touchpad tap-to-click](https://linux.die.net/man/1/synclient)
+```bash
+apt install xserver-xorg-input-synaptics
+synclient MaxSpeed=1
+synclient VertEdgeScroll=0
+```
+
+## Change Caps Lock and ESC
+```bash
+sed -i '0,/Caps_Lock/s//Escape/' /usr/share/X11/xkb/symbols/pc
+sed -i '0,/Escape/s//Caps_Lock/' /usr/share/X11/xkb/symbols/pc
+rm -rf /var/lib/xkb/*
+reboot
+```
+
+## [Power management](https://pm-utils.freedesktop.org/wiki/)
+```bash
+apt install pm-utils
 ```
 
 # Software setup
@@ -141,17 +146,21 @@ apt install highlight
 apt install ffmpegthumbnailer
 ```
 
-### [mpv]()
+### [Mplayer](http://www.mplayerhq.hu/)
 ```bash
-apt install mpv
+apt install mplayer
 ```
 
 ### [Neovim](https://neovim.io/)
 ```bash
-apt install ripgrep npm
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
+```
+
+### Network Manager
+```bash
+apt install network-manager
 ```
 
 ### [a4term](https://a4term.com/)
