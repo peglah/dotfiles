@@ -2,8 +2,12 @@
 
 Welcome to the rice fields
 
-[INSTRUCTIONS Arch](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Arch.md)
+## Instructions
 
-[INSTRUCTIONS Ubuntu](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Ubuntu.md)
+[Arch](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Arch.md)
 
-[INSTRUCTIONS Win](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Win.md)
+[RPi](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20RPi.md)
+
+[Ubuntu](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Ubuntu.md)
+
+[Win](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Win.md)
