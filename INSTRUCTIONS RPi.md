@@ -115,7 +115,7 @@ git clone --recurse-submodules https://github.com/nullgemm/ly
 cd ly
 make
 make run
-sudo make install
+sudo make install installsystemd
 systemctl enable ly.service
 systemctl disable getty@tty2.service
 ```
