@@ -141,10 +141,10 @@ curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux6
 apt install ./nvim-linux64.deb
 ```
 
-### [a4term](https://a4term.com/)
+### TODO [a4term](https://a4term.com/)
 https://github.com/martanne/dvtm/issues/10
 
-### TODO [btop++](https://github.com/aristocratos/btop)
+### [btop++](https://github.com/aristocratos/btop)
 ```bash
 cd /tmp
 wget -qO btop.tbz https://github.com/aristocratos/btop/releases/latest/download/btop-armv7l-linux-musleabihf.tbz
