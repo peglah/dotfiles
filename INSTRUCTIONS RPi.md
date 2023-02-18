@@ -102,7 +102,7 @@ cmake --build . --target fastfetch
 sudo cp fastfetch /usr/local/bin/
 ```
 
-### TODO [ly](https://github.com/fairyglade/ly)
+### [ly](https://github.com/fairyglade/ly)
 Dependencies:
 ```bash
 apt install build-essential libpam0g-dev libxcb-xkb-dev
