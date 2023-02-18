@@ -133,12 +133,24 @@ apt install ranger highlight ffmpegthumbnailer
 apt install mpv
 ```
 
-### TODO [Neovim](https://neovim.io/)
+### [Neovim](https://neovim.io/)
+Dependencies:
 ```bash
-apt install ripgrep npm
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen nodejs
+
 cd /tmp
-curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
-apt install ./nvim-linux64.deb
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo npm install -g neovim
+python3 -m pip install --user --upgrade pynvim
+```
+
+Download, unzip, configure, compile and install:
+```bash
+curl -LO https://github.com/neovim/neovim/archive/refs/tags/stable.zip
+unzip stable.zip
+cd neovim-stable
+vi Makefile # CMAKE_BUILD_TYPE ?=RelWithDebInfo
+make && sudo make install
 ```
 
 ### TODO [a4term](https://a4term.com/)
