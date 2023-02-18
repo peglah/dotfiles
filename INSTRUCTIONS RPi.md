@@ -153,24 +153,34 @@ vi Makefile # CMAKE_BUILD_TYPE ?=RelWithDebInfo
 make && sudo make install
 ```
 
-### TODO [a4term](https://a4term.com/)
-https://github.com/martanne/dvtm/issues/10
+### [a4](https://a4term.com/)
+Dependencies:
+```bash
+sudo apt install bzr libtermkey-dev libunibilium-dev libtool-bin
+
+cd /tmp
+bzr branch https://bazaar.leonerd.org.uk/c/libtickit/
+bzr branch https://bazaar.leonerd.org.uk/c/libvterm/
+
+cd /tmp/libtickit && make && sudo make install
+cd /tmp/libvterm && make && sudo make install
+```bash
+
+Download, compile, install and reboot:
+```bash
+cd /tmp
+git clone https://github.com/rpmohn/a4
+cd /tmp/a4 && make && sudo make install
+sudo reboot
+```
 
 ### [btop++](https://github.com/aristocratos/btop)
+Download, extract and install:
 ```bash
 cd /tmp
 wget -qO btop.tbz https://github.com/aristocratos/btop/releases/latest/download/btop-armv7l-linux-musleabihf.tbz
 tar -xf btop.tbz
 sudo cp /tmp/btop/bin/btop /usr/local/
-```
-
-Download, compile and install:
-```bash
-cd /tmp
-git clone https://github.com/aristocratos/btop.git
-cd btop
-make
-sudo make install
 ```
 
 ### [bat](https://github.com/sharkdp/bat)
