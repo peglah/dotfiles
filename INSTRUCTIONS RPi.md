@@ -24,7 +24,7 @@ ln -s ~/git/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ```
 
-## [Suckless](https://suckless.org/)
+## Window manager
 Dependencies:
 ```bash
 apt install libx11-dev libxft-dev libxinerama-dev xinit
@@ -35,9 +35,12 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 apt install feh
 ```
 
-TODO [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
+[unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
+```bash
+sudo apt install libev-dev libx11-dev libxi-dev asciidoc
+```
 
-Deps: libev-devel libX11-devel libXi-devel asciidoc
+Clone, compile and install
 ```bash
 cd /tmp
 git clone https://github.com/Airblader/unclutter-xfixes
@@ -46,6 +49,7 @@ make
 sudo make install
 ```
 
+### [Suckless](https://suckless.org/)
 Compile and install dwm, dmenu, st and slstatus
 ```bash
 cd ~/git/dotfiles/suckless/dwm* && sudo make clean install
