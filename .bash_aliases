@@ -4,6 +4,10 @@ if command -v nvim &> /dev/null; then
   alias vim=nvim
 fi
 
+if command -v wtwitch &> /dev/null; then
+  alias wt=wtwitch
+fi
+
 if command -v batcat &> /dev/null; then
   alias cat=batcat
 elif command -v bat &> /dev/null; then
