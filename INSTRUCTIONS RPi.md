@@ -6,13 +6,13 @@ Boot with a screen
 ```bash
 service NetworkManager start
 nmtui
-apt update && apt upgrade
+sudo apt update && sudo apt upgrade
 timedatectl set-timezone Europe/Stockholm
 ```
 
 # Initial setup
 ```bash
-apt install make gcc git
+sudo apt install make gcc git
 mkdir ~/git
 cd ~/git
 git clone https://github.com/Peglah/dotfiles.git
@@ -27,12 +27,12 @@ chmod +x ~/.xinitrc
 ## Window manager
 Dependencies:
 ```bash
-apt install libx11-dev libxft-dev libxinerama-dev xinit
+sudo apt install libx11-dev libxft-dev libxinerama-dev xinit
 ```
 
 [feh](https://feh.finalrewind.org/)
 ```bash
-apt install feh
+sudo apt install feh
 ```
 
 [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
@@ -69,7 +69,7 @@ mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
 
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
-apt install mosh
+sudo apt install mosh
 cd /tmp
 curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
 tar -zxvf abduco-0.6.tar.gz
@@ -91,7 +91,7 @@ systemctl mask hybrid-sleep.target
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
-apt install cmake
+sudo apt install cmake
 ```
 
 Download, compile and install:
@@ -109,7 +109,7 @@ sudo cp fastfetch /usr/local/bin/
 ### [ly](https://github.com/fairyglade/ly)
 Dependencies:
 ```bash
-apt install build-essential libpam0g-dev libxcb-xkb-dev
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev
 ```
 
 Download, compile and install:
@@ -129,18 +129,18 @@ systemctl disable getty@tty2.service
 
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
-apt install ranger highlight ffmpegthumbnailer
+sudo apt install ranger highlight ffmpegthumbnailer
 ```
 
 ### [mpv](https://mpv.io/)
 ```bash
-apt install mpv
+sudo apt install mpv
 ```
 
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen nodejs
+sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen nodejs
 
 cd /tmp
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
@@ -189,7 +189,7 @@ sudo cp /tmp/btop/bin/btop /usr/local/
 
 ### [bat](https://github.com/sharkdp/bat)
 ```bash
-apt install bat
+sudo apt install bat
 ```
 
 # **TODO**
