@@ -6,6 +6,7 @@ return {
     local wk = require("which-key")
     wk.register({
       ["<leader>"] = { name = "+leader" },
+      ["<leader>c"] = { name = "+ChatGPT" },
       ["<leader>f"] = { name = "+Telescope" },
       ["<leader>l"] = { name = "+Lazy" },
       ["<leader>."] = { '"=strftime("%F")<CR>Pa<CR><ESC>', "Insert date" },
@@ -26,6 +27,11 @@ return {
       ["<leader>lp"] = { "<cmd>Lazy profile<CR>", "profile" },
       ["<leader>ld"] = { "<cmd>Lazy debug<CR>", "debug" },
       ["<leader>l?"] = { "<cmd>Lazy help<CR>", "help" },
+
+      -- ChatGPT
+      ["<leader>cc"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+      ["<leader>ca"] = { "<cmd>ChatGPTActAs<CR>", "ChatGPTActAs" },
+      ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPTEditWithInstructions" },
 
       -- LSP
       ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
