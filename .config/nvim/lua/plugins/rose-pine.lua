@@ -3,7 +3,7 @@ return {
   name = 'rose-pine',
   lazy = true,
 
-  config = function() require("rose-pine").setup {
+  opts = {
     --- @usage 'main' | 'moon'
     dark_variant = 'main',
     bold_vert_split = false,
@@ -42,5 +42,5 @@ return {
     highlight_groups = {
       ColorColumn = { bg = 'rose' }
     }
-  } end
+  }
 }

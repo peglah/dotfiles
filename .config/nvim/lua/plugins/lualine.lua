@@ -1,8 +1,8 @@
 return {
   'nvim-lualine/lualine.nvim',
---  event = 'VeryLazy',
   dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
-  config = function() require('lualine').setup({
+
+  opts = {
     theme = 'auto',
     sections = {
       lualine_c = {},
@@ -18,12 +18,12 @@ return {
       },
       lualine_y = {
         {
-          require("lazy.status").updates,
-          cond = require("lazy.status").has_updates,
-          color = { fg = "#FE8019" },
+          require('lazy.status').updates,
+          cond = require('lazy.status').has_updates,
+          color = { fg = '#FE8019' },
         }
       },
       lualine_z = { 'progress' }
     },
-  }) end
+  }
 }
