@@ -1,6 +1,8 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = 'VeryLazy',
+  version = false, -- last release is way too old and doesn't work on Windows
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
 
   opts = {
     -- A list of parser names, or 'all'
@@ -38,5 +40,9 @@ return {
       -- colors = {}, -- table of hex strings
       -- termcolors = {} -- table of colour name strings
     }
-  }
+  },
+
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end
 }
