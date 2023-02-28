@@ -32,6 +32,7 @@ return {
       ['<leader>cc'] = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
       ['<leader>ca'] = { '<cmd>ChatGPTActAs<CR>', 'ChatGPTActAs' },
       ['<leader>ce'] = { '<cmd>ChatGPTEditWithInstructions<CR>', 'ChatGPTEditWithInstructions' },
+      ['<leader>cn'] = { '<cmd>Neural<CR>', 'Neural' },
 
       -- LSP
       ['K'] = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },

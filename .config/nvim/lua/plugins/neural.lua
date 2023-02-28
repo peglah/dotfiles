@@ -1,6 +1,6 @@
 return {
   'dense-analysis/neural',
-  keys = '<C-Space>',
+  cmd = { 'Neural' },
   dependencies = {
     'MunifTanjim/nui.nvim',
     'ElPiloto/significant.nvim'
