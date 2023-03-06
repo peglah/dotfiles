@@ -8,6 +8,7 @@ return {
     { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Search for files' },
     { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Search for a string' },
     { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Lists available help tags' },
+    { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Lists available keymaps' },
     { '<leader>fl', '<cmd>Telescope lazy<cr>', desc = 'Plugins installed via lazy.nvim' },
     { '<leader>fo', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
   },
