@@ -31,15 +31,19 @@ return {
       enable = true
     },
 
-    -- mrjones2014/nvim-ts-rainbow
+    -- HiPhish/nvim-ts-rainbow2
     rainbow = {
       enable = true,
-      -- disable = { 'jsx', 'cpp' }, list of languages you want to disable the plugin for
-      extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-      max_file_lines = nil, -- Do not enable for files with more than n lines, int
-      -- colors = {}, -- table of hex strings
-      -- termcolors = {} -- table of colour name strings
-    }
+      hlgroups = {
+        'GruvboxRed',
+        'GruvboxYellow',
+        'GruvboxBlue',
+        'GruvboxOrange',
+        'GruvboxGreen',
+        'GruvboxPurple',
+        'GruvboxAqua'
+      },
+    },
   },
 
   config = function(_, opts)
