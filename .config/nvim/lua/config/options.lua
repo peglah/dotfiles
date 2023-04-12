@@ -34,13 +34,13 @@ vim.opt.ignorecase = true
 -- Override the 'ignorecase' option if the search pattern contains upper case characters
 vim.opt.smartcase = true
 
--- On pressing tab, insert 2 spaces
-vim.opt.expandtab = true
--- show existing tab with 2 spaces width
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
--- when indenting with '>', use 2 spaces width
-vim.opt.shiftwidth = 2
+---- On pressing tab, insert 2 spaces
+--vim.opt.expandtab = true
+---- show existing tab with 2 spaces width
+--vim.opt.tabstop = 2
+--vim.opt.softtabstop = 2
+---- when indenting with '>', use 2 spaces width
+--vim.opt.shiftwidth = 2
 
 -- netrw - suppress the banner
 vim.g.netrw_banner = 0

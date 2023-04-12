@@ -29,10 +29,18 @@ return {
       ['<leader>l?'] = { '<cmd>Lazy help<CR>', 'help' },
 
       -- ChatGPT
+<<<<<<< Updated upstream
       ['<leader>cc'] = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
       ['<leader>ca'] = { '<cmd>ChatGPTActAs<CR>', 'ChatGPTActAs' },
       ['<leader>ce'] = { '<cmd>ChatGPTEditWithInstructions<CR>', 'ChatGPTEditWithInstructions' },
       ['<leader>cn'] = { '<cmd>Neural<CR>', 'Neural' },
+=======
+      ["<leader>cg"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+      ["<leader>ca"] = { "<cmd>ChatGPTActAs<CR>", "ChatGPTActAs" },
+      ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPTEditWithInstructions" },
+      ["<leader>cb"] = { "<cmd>Backseat<CR>", "Backseat" },
+      ["<leader>cs"] = { "<cmd>BackseatAsk ", "BackseatAsk" },
+>>>>>>> Stashed changes
 
       -- LSP
       ['K'] = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
