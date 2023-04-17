@@ -29,21 +29,16 @@ return {
       ['<leader>l?'] = { '<cmd>Lazy help<CR>', 'help' },
 
       -- ChatGPT
-<<<<<<< Updated upstream
-      ['<leader>cc'] = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
+      ['<leader>cg'] = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
       ['<leader>ca'] = { '<cmd>ChatGPTActAs<CR>', 'ChatGPTActAs' },
       ['<leader>ce'] = { '<cmd>ChatGPTEditWithInstructions<CR>', 'ChatGPTEditWithInstructions' },
       ['<leader>cn'] = { '<cmd>Neural<CR>', 'Neural' },
-=======
-      ["<leader>cg"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-      ["<leader>ca"] = { "<cmd>ChatGPTActAs<CR>", "ChatGPTActAs" },
-      ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPTEditWithInstructions" },
       ["<leader>cb"] = { "<cmd>Backseat<CR>", "Backseat" },
-      ["<leader>cs"] = { "<cmd>BackseatAsk ", "BackseatAsk" },
->>>>>>> Stashed changes
+      ["<leader>cc"] = { "<cmd>BackseatClear<CR>", "Backseat clear all" },
+      ["<leader>cl"] = { "<cmd>BackseatClearLine<CR>", "Backseat clear line" },
 
       -- LSP
-      ['K'] = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
+      ['K'] = { '<cmd>lua require("pretty_hover").hover()<cr>', 'Hover' },
       ['gd'] = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Goto Definition' },
       ['gD'] = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Goto Declaration' },
       ['gi'] = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Goto Implementation' },
