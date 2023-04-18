@@ -9,6 +9,7 @@ return {
       ['<leader>c'] = { name = '+ChatGPT' },
       ['<leader>f'] = { name = '+Telescope' },
       ['<leader>l'] = { name = '+Lazy' },
+      ['<leader>m'] = { name = '+Minimap' },
       ['<leader>.'] = { '"=strftime("%F")<CR>Pa<CR><ESC>', 'Insert date' },
       ['<leader>o'] = { '<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>', 'Enable Spellcheck' },
       ['<leader>d'] = { '0f[lrxV/- [ <CR>kd/-DONE-<CR>p<cmd>noh<CR>', 'Mark done and move to Done' },
@@ -27,15 +28,6 @@ return {
       ['<leader>lp'] = { '<cmd>Lazy profile<CR>', 'profile' },
       ['<leader>ld'] = { '<cmd>Lazy debug<CR>', 'debug' },
       ['<leader>l?'] = { '<cmd>Lazy help<CR>', 'help' },
-
-      -- ChatGPT
-      ['<leader>cg'] = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
-      ['<leader>ca'] = { '<cmd>ChatGPTActAs<CR>', 'ChatGPTActAs' },
-      ['<leader>ce'] = { '<cmd>ChatGPTEditWithInstructions<CR>', 'ChatGPTEditWithInstructions' },
-      ['<leader>cn'] = { '<cmd>Neural<CR>', 'Neural' },
-      ["<leader>cb"] = { "<cmd>Backseat<CR>", "Backseat" },
-      ["<leader>cc"] = { "<cmd>BackseatClear<CR>", "Backseat clear all" },
-      ["<leader>cl"] = { "<cmd>BackseatClearLine<CR>", "Backseat clear line" },
 
       -- LSP
       ['K'] = { '<cmd>lua require("pretty_hover").hover()<cr>', 'Hover' },
