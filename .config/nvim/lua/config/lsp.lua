@@ -9,7 +9,8 @@ local lsp = require('lsp-zero').preset({
 -- Required options for PS
 require("lspconfig").powershell_es.setup{
   shell = "powershell.exe",
-  bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
+  cmd = {'powershell.exe', '-NoLogo', '-NoProfile', '-Command', "C:/Users/z002d6kr/AppData/Local/nvim-data/mason/packages/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1 ..."}
+--  bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
 }
 
 -- Fix Undefined global 'vim'
