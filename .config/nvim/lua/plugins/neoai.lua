@@ -17,11 +17,7 @@ return {
     "NeoAIInjectContextCode",
   },
   keys = {
-    { "<leader>cn", cmd = "NeoAI", desc = "NeoAI" },
-    { "<leader>ct", cmd = "NeoAIToggle", desc = "NeoAIToggle" },
-    { "<leader>cc", cmd = "NeoAIContext", desc = "NeoAIContext" },
-    { "<leader>ci", cmd = "NeoAIInject", desc = "NeoAIInject" },
-    { "<leader>cs", desc = "summarize text" },
+    { "<leader>ct", "<cmd>NeoAIToggle<cr>", desc = "NeoAIToggle" },
   },
 
   opts = {
