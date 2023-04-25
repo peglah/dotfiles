@@ -9,7 +9,7 @@ irm get.scoop.sh | iex
 scoop install mingit
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop install neovim vcredist2022 gcc nodejs ripgrep FiraCode-NF-Mono
+scoop install FiraCode-NF-Mono gcc less mingit neovim nodejs ripgrep vcredist2022
 scoop uninstall vcredist2022
 ```
 
@@ -20,14 +20,18 @@ git clone https://github.com/Peglah/dotfiles
 ```
 
 # Neovim
+## Make symlink
+```cmd
+mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\Git\dotfiles\.config\nvim
+```
+
+## Install everything in Neovim
+```cmd
+nvim --headless "+Lazy! sync" +qa
+```
+
 ## Change font
 ```
 nvim
 :set guifont=*
 ```
-
-## Make symlink
-```cmd
-mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\Git\dotfiles\.config\nvim
-```
-Open nvim and wait for everything to install
