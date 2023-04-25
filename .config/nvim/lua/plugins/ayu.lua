@@ -1,4 +1,4 @@
 return {
   'Shatur/neovim-ayu',
-  lazy = true
+  event = "User ColorSchemeLoad",
 }

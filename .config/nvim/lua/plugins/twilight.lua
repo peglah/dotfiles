@@ -1,6 +1,6 @@
 return
   { 'folke/twilight.nvim',
-  cmd = 'Twilight',
+  event = "User ColorSchemeLoad",
 
   config = function() require('twilight').setup() end
 }

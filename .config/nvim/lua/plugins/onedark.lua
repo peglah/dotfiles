@@ -1,6 +1,6 @@
 return {
   'navarasu/onedark.nvim',
-  lazy = true,
+  event = "User ColorSchemeLoad",
 
   opts = {
     -- Main options --

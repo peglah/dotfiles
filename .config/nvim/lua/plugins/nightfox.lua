@@ -1,6 +1,6 @@
 return {
   'EdenEast/nightfox.nvim',
-  lazy = true,
+  event = "User ColorSchemeLoad",
 
   opts = {
     options = {

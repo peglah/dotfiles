@@ -1,7 +1,7 @@
 return {
   'rose-pine/neovim',
   name = 'rose-pine',
-  lazy = true,
+  event = "User ColorSchemeLoad",
 
   opts = {
     --- @usage 'main' | 'moon'
