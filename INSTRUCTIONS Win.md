@@ -9,9 +9,12 @@ irm get.scoop.sh | iex
 scoop install mingit
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop install FiraCode-NF-Mono gcc less mingit neovim nodejs ripgrep vcredist2022
+scoop install FiraCode-NF-Mono gcc less neovim nodejs ripgrep vcredist2022 wezterm
 scoop uninstall vcredist2022
+reg import %userprofile%\scoop\apps\7zip\current\install-context.reg
 ```
+
+Log out and back in
 
 ## Clone dots
 ```cmd
