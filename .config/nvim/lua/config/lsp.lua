@@ -1,37 +1,50 @@
-vim.opt.signcolumn = 'yes'
+local lsp = require("lsp-zero").preset({})
 
-local lsp = require('lsp-zero').preset({
-  name = 'recommended',
-  set_lsp_keymaps = false,
-  manage_nvim_cmp = false
+lsp.ensure_installed({
+  "lua_ls",
+  "vimls",
 })
 
 -- Required options for PS
 require("lspconfig").powershell_es.setup{
+  bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
   shell = "powershell.exe",
-  cmd = {'powershell.exe', '-NoLogo', '-NoProfile', '-Command', "C:/Users/z002d6kr/AppData/Local/nvim-data/mason/packages/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1 ..."}
---  bundle_path = vim.fn.stdpath("data") .. "/mason/packages/PowerShellEditorServices/",
 }
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
+--local cmp = require("cmp")
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
 -- Add borders to completion menu
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+-- Make sure you setup `cmp` after lsp-zero
 local cmp = require('cmp')
-local cmp_config = lsp.defaults.cmp_config({
+
+cmp.setup({
   window = {
-    completion = cmp.config.window.bordered()
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   }
 })
-cmp.setup(cmp_config)
+
+cmp.setup({
+  sources = {
+    {name = "path"},
+    {name = "nvim_lsp"},
+    {name = "nvim_lua"},
+    {name = "buffer", keyword_length = 3},
+    {name = "luasnip", keyword_length = 2},
+  },
+  preselect = 'item',
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+  }
+})
+
