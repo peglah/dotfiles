@@ -7,6 +7,7 @@ return {
     wk.register({
       ['<leader>'] = { name = '+leader' },
       ['<leader>c'] = { name = '+ChatGPT' },
+      ['<leader>cb'] = { name = '+Backseat' },
       ['<leader>f'] = { name = '+Telescope' },
       ['<leader>l'] = { name = '+Lazy' },
       ['<leader>m'] = { name = '+Minimap' },

@@ -18,6 +18,7 @@ return {
   },
   keys = {
     { "<leader>ct", "<cmd>NeoAIToggle<cr>", desc = "NeoAIToggle" },
+    { "<leader>cc", "<cmd>NeoAI<cr>", desc = "NeoAI" },
   },
 
   opts = {

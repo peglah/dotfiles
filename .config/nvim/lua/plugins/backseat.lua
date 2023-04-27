@@ -4,9 +4,9 @@ return {
     'Backseat',
     'BackseatAsk' },
   keys = {
-    { "<leader>cb", "<cmd>Backseat<cr>", desc = "Backseat" },
-    { "<leader>cc", "<cmd>BackseatClear<cr>", desc = "BackseatClear" },
-    { "<leader>cl", "<cmd>BackseatClearLine<cr>", desc = "BackseatClearLine" }, },
+    { "<leader>cbb", "<cmd>Backseat<cr>", desc = "Backseat" },
+    { "<leader>cbc", "<cmd>BackseatClear<cr>", desc = "BackseatClear" },
+    { "<leader>cbl", "<cmd>BackseatClearLine<cr>", desc = "BackseatClearLine" }, },
 
 
   opts = {
