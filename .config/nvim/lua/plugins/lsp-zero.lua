@@ -6,9 +6,20 @@ return {
     {'neovim/nvim-lspconfig'},             -- Required
     {                                      -- Optional
       'williamboman/mason.nvim',
-      build = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
+      opts = {
+        ui = {
+          border = 'single',
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      },
+      build = 'MasonUpdate',
+--      build = function()
+--        pcall(vim.cmd, 'MasonUpdate')
+--      end,
     },
     {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
