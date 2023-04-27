@@ -1,4 +1,4 @@
 return {
   'Mofiqul/dracula.nvim',
-  lazy = true
+  event = "User ColorSchemeLoad",
 }

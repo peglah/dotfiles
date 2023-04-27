@@ -1,4 +1,4 @@
 return {
   'NTBBloodbath/doom-one.nvim',
-  lazy = true
+  event = "User ColorSchemeLoad",
 }

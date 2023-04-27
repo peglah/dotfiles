@@ -4,7 +4,12 @@ return {
 
   keys = {
     { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Lists open buffers' },
-    { '<leader>fc', '<cmd>Telescope colorscheme<cr>', desc = 'Choose colorscheme' },
+    { "<Leader>fc",
+      function()
+        vim.api.nvim_exec_autocmds("User", { pattern = "ColorSchemeLoad" })
+        require("telescope.builtin").colorscheme()
+      end,
+      desc = 'Choose colorscheme', noremap = true, },
     { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Search for files' },
     { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Search for a string' },
     { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Lists available help tags' },
@@ -19,7 +24,7 @@ return {
     'tsakirist/telescope-lazy.nvim'
   },
 
-    config = function() require('telescope').setup({
+  config = function() require('telescope').setup({
     extensions = {
       lazy = {
         -- Optional theme (the extension doesn't set a default theme)

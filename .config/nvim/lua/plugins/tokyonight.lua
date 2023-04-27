@@ -1,4 +1,4 @@
 return {
   'folke/tokyonight.nvim',
-  lazy = true
+  event = "User ColorSchemeLoad",
 }
