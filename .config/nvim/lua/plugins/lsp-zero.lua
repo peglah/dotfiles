@@ -16,10 +16,10 @@ return {
           }
         }
       },
-      build = 'MasonUpdate',
---      build = function()
---        pcall(vim.cmd, 'MasonUpdate')
---      end,
+--      build = 'MasonUpdate',
+      build = function()
+        pcall(vim.cmd, 'masonupdate')
+      end,
     },
     {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
