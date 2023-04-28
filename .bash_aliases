@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if command -v exa &> /dev/null; then
+  alias ls=exa
+else
+  alias ls='ls --color=auto'
+fi
+
 if command -v nvim &> /dev/null; then
   alias vim=nvim
 fi
@@ -17,5 +23,4 @@ fi
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
-alias ls='ls --color=auto'
 alias curll='curl -L -O'

@@ -176,6 +176,11 @@ apt install btop
 apt install bat
 ```
 
+### [exa]()
+```bash
+apt install exa
+```
+
 # **TODO**
 music
 Install ALSA

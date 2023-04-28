@@ -136,7 +136,7 @@ pacman -Syu
 
 # Install programs
 ```bash
-pacman -S bat feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv btop openssh firefox qutebrowser alsa-utils pulseaudio base-devel
+pacman -S bat exa feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv btop openssh firefox qutebrowser alsa-utils pulseaudio base-devel
 ```
 
 ## Paru AUR helper
