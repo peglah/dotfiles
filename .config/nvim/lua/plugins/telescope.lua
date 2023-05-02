@@ -15,7 +15,7 @@ return {
     { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Lists available help tags' },
     { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Lists available keymaps' },
     { '<leader>fl', '<cmd>Telescope lazy<cr>', desc = 'Plugins installed via lazy.nvim' },
-    { '<leader>fo', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
+    { '<leader>fr', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
   },
 
   dependencies = {
