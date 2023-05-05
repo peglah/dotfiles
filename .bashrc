@@ -122,7 +122,10 @@ if command -v nvim &> /dev/null; then
   export EDITOR=nvim
 fi
 
-#PS1="${debian_chroot:+($debian_chroot)}\u@vm:\w\$"
+if grep -q "Raspberry Pi" /proc/cpuinfo; then
+  PS1="${debian_chroot:+($debian_chroot)}\u@rpi:\w\$ "
+fi
+
 if command -v fastfetch &> /dev/null; then
   fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l ubuntu_small
 elif command -v afetch &> /dev/null; then
