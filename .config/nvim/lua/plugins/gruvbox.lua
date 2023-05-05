@@ -26,6 +26,6 @@ return {
     dim_inactive = false,
     transparent_mode = false,
 
-    pcall(vim.cmd, 'colorscheme gruvbox')
+    pcall(function() vim.cmd('colorscheme gruvbox') end)
   }) end
 }

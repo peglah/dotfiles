@@ -1,17 +1,28 @@
--- Save and load text folding
-vim.cmd([[ autocmd BufWritePost * mkview ]], false)
-vim.cmd([[ autocmd BufReadPost * silent! loadview ]], false)
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = function(name)
+  return vim.api.nvim_create_augroup("augroup" .. name, { clear = true })
+end
 
--- Highlight column after 'textwidth' in the help
---vim.cmd([[ autocmd FileType help setlocal colorcolumn=+3 ]], false)
+-- Save and load text folding
+vim.cmd([[ autocmd BufWritePost * mkview ]])
+vim.cmd([[ autocmd BufReadPost * silent! loadview ]])
+
+autocmd("TextYankPost", {
+  desc = "Highlight the yanked text for a specified time.",
+  group = augroup("yank_highlight"),
+  callback = function()
+    vim.highlight.on_yank({ timeout = 250 }) -- Keep the highlight for 250ms after yanking.
+  end,
+})
+
 -- Enable relative line numbers in the help
-vim.cmd([[ autocmd FileType help setlocal relativenumber ]], false)
+vim.cmd([[ autocmd FileType help setlocal relativenumber ]])
 
 -- Disables automatic commenting on newline
-vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]], false)
+vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]])
 
 -- Resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd("tabdo wincmd =")
   end,
