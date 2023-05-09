@@ -27,7 +27,7 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-apt install feh unclutter-xfixes
+sudo apt install feh unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
@@ -152,10 +152,12 @@ apt install mplayer
 ```
 
 ### [Neovim](https://neovim.io/)
+Dependencies:
 ```bash
-cd /tmp
-curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
-apt install ./nvim-linux64.deb
+```
+
+Download, unzip, configure, compile and install:
+```bash
 ```
 
 ### Network Manager
