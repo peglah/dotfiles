@@ -11,7 +11,7 @@ systemctl mask systemd-networkd-wait-online.service
 ```bash
 apt install make gcc
 cd ~
-git clone https://github.com/Peglah/dotfiles.git
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
 cp -r ~/dotfiles/.config ~/
 cp ~/dotfiles/.bash_aliases ~/
 cp ~/dotfiles/.bashrc ~/

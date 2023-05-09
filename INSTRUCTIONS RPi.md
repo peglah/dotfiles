@@ -15,7 +15,7 @@ timedatectl set-timezone Europe/Stockholm
 sudo apt install make gcc git
 mkdir ~/git
 cd ~/git
-git clone https://github.com/Peglah/dotfiles.git
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
 ln -s ~/git/dotfiles/.config/ ~/
 ln -s ~/git/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
