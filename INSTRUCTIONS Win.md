@@ -26,6 +26,7 @@ git clone https://github.com/Peglah/dotfiles
 ## Make symlink
 ```cmd
 mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\dotfiles\.config\nvim
+mklink %USERPROFILE% %USERPROFILE%\git\dotfiles\.config\nvim\.editorconfig
 ```
 
 ## Install everything in Neovim

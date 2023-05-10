@@ -9,25 +9,16 @@ systemctl mask systemd-networkd-wait-online.service
 
 # Initial setup
 ```bash
-<<<<<<< HEAD
 sudo apt install make gcc
 mkdir ~/git
 cd ~/git
-git clone https://github.com/Peglah/dotfiles.git
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
 ln -s ~/git/dotfiles/.config/ ~/
 ln -s ~/git/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
 ln -s ~/git/dotfiles/.bashrc ~/
 ln -s ~/git/dotfiles/.xinitrc ~/
-=======
-apt install make gcc
-cd ~
-git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
-cp -r ~/dotfiles/.config ~/
-cp ~/dotfiles/.bash_aliases ~/
-cp ~/dotfiles/.bashrc ~/
-cp ~/dotfiles/.xinitrc ~/
->>>>>>> 701e66860cca9d2e735377d8d7241483d2360c02
+ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
 chmod +x ~/.xinitrc
 ```
 
@@ -166,17 +157,13 @@ apt install mplayer
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
+TODO: No .deb from 0.9
 ```
 
 Download, unzip, configure, compile and install:
 ```bash
-<<<<<<< HEAD
-cd /tmp
-curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
-apt install ./nvim-linux64.deb
+TODO: No .deb from 0.9
 nvim --headless "+Lazy! sync" +qa
-=======
->>>>>>> 701e66860cca9d2e735377d8d7241483d2360c02
 ```
 
 ### Network Manager

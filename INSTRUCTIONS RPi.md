@@ -22,6 +22,7 @@ rm ~/.bashrc
 ln -s ~/git/dotfiles/.bashrc ~/
 ln -s ~/git/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
+ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
 ```
 
 ## Window manager
