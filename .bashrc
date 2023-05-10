@@ -131,3 +131,8 @@ if command -v fastfetch &> /dev/null; then
 elif command -v afetch &> /dev/null; then
   afetch
 fi
+
+if [ -f /usr/share/bash-completion/completions/wtwitch ]; then
+  . /usr/share/bash-completion/completions/wtwitch
+fi
+
