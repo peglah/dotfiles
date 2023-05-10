@@ -9,6 +9,7 @@ systemctl mask systemd-networkd-wait-online.service
 
 # Initial setup
 ```bash
+<<<<<<< HEAD
 sudo apt install make gcc
 mkdir ~/git
 cd ~/git
@@ -18,6 +19,15 @@ ln -s ~/git/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
 ln -s ~/git/dotfiles/.bashrc ~/
 ln -s ~/git/dotfiles/.xinitrc ~/
+=======
+apt install make gcc
+cd ~
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
+cp -r ~/dotfiles/.config ~/
+cp ~/dotfiles/.bash_aliases ~/
+cp ~/dotfiles/.bashrc ~/
+cp ~/dotfiles/.xinitrc ~/
+>>>>>>> 701e66860cca9d2e735377d8d7241483d2360c02
 chmod +x ~/.xinitrc
 ```
 
@@ -29,7 +39,7 @@ apt install libx11-dev libxft-dev libxinerama-dev xinit
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-apt install feh unclutter-xfixes
+sudo apt install feh unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
@@ -154,11 +164,19 @@ apt install mplayer
 ```
 
 ### [Neovim](https://neovim.io/)
+Dependencies:
 ```bash
+```
+
+Download, unzip, configure, compile and install:
+```bash
+<<<<<<< HEAD
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
 nvim --headless "+Lazy! sync" +qa
+=======
+>>>>>>> 701e66860cca9d2e735377d8d7241483d2360c02
 ```
 
 ### Network Manager

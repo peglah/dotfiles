@@ -166,12 +166,13 @@ systemctl start sshd.service
 ## Dotfiles
 ```bash
 cd ~/git
-git clone https://github.com/Peglah/dotfiles.git
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
 
 ln -s ~/git/dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/git/dotfiles/.bashrc ~/.bashrc
 ln -s ~/git/dotfiles/.config ~/.config
 ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
+ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
 
 chmod +x ~/.xinitrc
 
