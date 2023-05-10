@@ -155,6 +155,7 @@ unzip stable.zip
 cd neovim-stable
 vi Makefile # CMAKE_BUILD_TYPE ?=RelWithDebInfo
 make && sudo make install
+nvim --headless "+Lazy! sync" +qa
 ```
 
 ### [a4](https://a4term.com/)

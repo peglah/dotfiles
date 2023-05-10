@@ -18,14 +18,14 @@ Log out and back in
 
 ## Clone dots
 ```cmd
-mkdir Git && cd Git
+mkdir git && cd git
 git clone https://github.com/Peglah/dotfiles
 ```
 
 # Neovim
 ## Make symlink
 ```cmd
-mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\Git\dotfiles\.config\nvim
+mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\dotfiles\.config\nvim
 ```
 
 ## Install everything in Neovim

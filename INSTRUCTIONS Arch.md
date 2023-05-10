@@ -174,6 +174,8 @@ ln -s ~/git/dotfiles/.config ~/.config
 ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
 
 chmod +x ~/.xinitrc
+
+nvim --headless "+Lazy! sync" +qa
 ```
 
 ## Video driver

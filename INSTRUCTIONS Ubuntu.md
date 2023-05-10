@@ -1,21 +1,23 @@
 # Install OS
 Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
 ```bash
-add-apt-repository universe
-apt update && apt upgrade
+sudo add-apt-repository universe
+sudo apt update && sudo apt upgrade
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
 ```
 
 # Initial setup
 ```bash
-apt install make gcc
-cd ~
+sudo apt install make gcc
+mkdir ~/git
+cd ~/git
 git clone https://github.com/Peglah/dotfiles.git
-cp -r ~/dotfiles/.config ~/
-cp ~/dotfiles/.bash_aliases ~/
-cp ~/dotfiles/.bashrc ~/
-cp ~/dotfiles/.xinitrc ~/
+ln -s ~/git/dotfiles/.config/ ~/
+ln -s ~/git/dotfiles/.bash_aliases ~/
+rm ~/.bashrc
+ln -s ~/git/dotfiles/.bashrc ~/
+ln -s ~/git/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ```
 
@@ -156,6 +158,7 @@ apt install mplayer
 cd /tmp
 curl -L -O https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
 apt install ./nvim-linux64.deb
+nvim --headless "+Lazy! sync" +qa
 ```
 
 ### Network Manager
@@ -164,7 +167,25 @@ apt install network-manager
 ```
 
 ### [a4term](https://a4term.com/)
-https://github.com/martanne/dvtm/issues/10
+Dependencies:
+```bash
+sudo apt install bzr libtermkey-dev libunibilium-dev libtool-bin
+
+cd /tmp
+bzr branch https://bazaar.leonerd.org.uk/c/libtickit/
+bzr branch https://bazaar.leonerd.org.uk/c/libvterm/
+
+cd /tmp/libtickit && make && sudo make install
+cd /tmp/libvterm && make && sudo make install
+```bash
+
+Download, compile, install and reboot:
+```bash
+cd /tmp
+git clone https://github.com/rpmohn/a4
+cd /tmp/a4 && make && sudo make install
+sudo reboot
+```
 
 ### [btop++](https://github.com/aristocratos/btop)
 ```bash
