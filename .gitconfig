@@ -4,3 +4,6 @@
 
 [format]
   pretty=fuller
+
+[credential]
+  helper = store
