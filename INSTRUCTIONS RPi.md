@@ -11,6 +11,8 @@ timedatectl set-timezone Europe/Stockholm
 ```
 
 # Initial setup
+Git tip of the day :bulb:
+Add the following to your git config:
 ```bash
 sudo apt install make gcc git
 mkdir ~/git
@@ -23,6 +25,7 @@ ln -s ~/git/dotfiles/.bashrc ~/
 ln -s ~/git/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
 ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
+ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
 ```
 
 ## Window manager

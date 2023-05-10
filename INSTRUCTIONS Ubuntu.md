@@ -19,6 +19,7 @@ rm ~/.bashrc
 ln -s ~/git/dotfiles/.bashrc ~/
 ln -s ~/git/dotfiles/.xinitrc ~/
 ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
+ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
 chmod +x ~/.xinitrc
 ```
 
