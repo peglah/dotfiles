@@ -25,6 +25,15 @@ return {
   },
 
   config = function() require('telescope').setup({
+    defaults = {
+      mappings = {
+        n = {
+          ["x"] = function(...)
+            return require("telescope.actions").delete_buffer(...)
+          end,
+        },
+      },
+    },
     extensions = {
       lazy = {
         -- Optional theme (the extension doesn't set a default theme)
