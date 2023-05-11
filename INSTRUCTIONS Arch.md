@@ -173,6 +173,7 @@ ln -s ~/git/dotfiles/.bashrc ~/.bashrc
 ln -s ~/git/dotfiles/.config ~/.config
 ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
 ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
+ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
 
 chmod +x ~/.xinitrc
 

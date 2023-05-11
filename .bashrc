@@ -136,3 +136,7 @@ if [ -f /usr/share/bash-completion/completions/wtwitch ]; then
   . /usr/share/bash-completion/completions/wtwitch
 fi
 
+if [ -f /usr/share/bash-completion/completions/git ]; then
+  . /usr/share/bash-completion/completions/git
+fi
+
