@@ -36,12 +36,19 @@ sudo apt install -y feh unclutter-xfixes
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd /tmp
-. ~/git/dotfiles/suckless/dwm-dl.sh
-. ~/git/dotfiles/suckless/dmenu-dl.sh
-. ~/git/dotfiles/suckless/st-dl.sh
+cd ~/git/dotfiles/suckless
+./dmenu-dl.sh
+./dwm-dl.sh
+./st-dl.sh
+cd dmenu-*/ && git apply ../dmenu-*.patch && cd ..
+cd dwm-*/ && git apply ../dwm-*.patch && cd ..
+cd st-*/ && git apply ../st-*.patch && cd ..
+cd slstatus && git apply ../slstatus.patch && cd ..
 
-# ~/git/dotfiles/suckless/slstatus
+cd dmenu-*/ && make && sudo make install && cd ..
+cd dwm-*/ && make && sudo make install && cd ..
+cd st-*/ && make && sudo make install && cd ..
+cd slstatus/ && make && sudo make install && cd ..
 ```
 
 `reboot` and `startx`
@@ -50,7 +57,7 @@ mkdir ~/.fonts
 cd /tmp
 curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
-mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
+mv FiraCodeNerdFontMono-Medium.ttf ~/.fonts/
 fc-cache -fv
 ```
 
@@ -60,9 +67,15 @@ sudo apt install -y xrdp
 ln -s ~/.xinitrc ~/.xsession
 ```
 
-## [Mosh](https://mosh.org/)
+## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
 sudo apt install -y mosh
+cd /tmp
+curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
+tar -zxvf abduco-*.tar.gz
+cd abduco-*/
+make
+sudo make install
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
@@ -116,7 +129,7 @@ mkdir -p build
 cd build
 cmake ..
 cmake --build . --target fastfetch
-cp fastfetch /usr/local/bin/
+sudo cp fastfetch /usr/local/bin/
 ```
 
 ### [ly](https://github.com/fairyglade/ly)
@@ -189,7 +202,7 @@ bzr branch https://bazaar.leonerd.org.uk/c/libvterm/
 
 cd /tmp/libtickit && make && sudo make install
 cd /tmp/libvterm && make && sudo make install
-```bash
+```
 
 Download, compile, install and reboot:
 ```bash
