@@ -31,3 +31,5 @@ for i in $(seq 0 $((${#versions_array[@]}-1)) | tac); do
   # Extract the contents of the downloaded tarball
   tar -xzf "$selected_version"
   
+  # Remove the tarball
+  rm "$selected_version"

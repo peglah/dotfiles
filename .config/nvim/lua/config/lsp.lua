@@ -1,9 +1,9 @@
 local lsp = require("lsp-zero").preset({})
 
-lsp.ensure_installed({
-  "lua_ls",
-  "vimls",
-})
+--lsp.ensure_installed({
+--  "lua_ls",
+--  "vimls",
+--})
 
 -- Required options for PS
 require("lspconfig").powershell_es.setup{
