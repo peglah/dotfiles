@@ -1,9 +1,9 @@
 # global
-config.h
-*.o
+#config.h
+#*.o
 
 # suckless
-dmenu
-stest
-dwm
-st
+#dmenu
+#stest
+#dwm
+#st
