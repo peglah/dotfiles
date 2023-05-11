@@ -22,7 +22,9 @@ return {
     inverse = true, -- invert background for search, diffs, statuslines and errors
     contrast = '', -- can be 'hard', 'soft' or empty string
     palette_overrides = {},
-    overrides = {},
+    overrides = {
+      Todo = { fg = '#ebdbb2', bg = '#282828', bold = true, italic = false },
+    },
     dim_inactive = false,
     transparent_mode = false,
 

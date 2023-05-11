@@ -46,9 +46,11 @@ vim.opt.smartcase = true
 vim.g.netrw_banner = 0
 -- netrw - tree style listing
 vim.g.netrw_liststyle = 3
+-- netrw - show line numbers
+vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 -- suppress colorschemes that are not used
-vim.cmd([[ set wildignore+=zellner.vim,torte.vim,slate.vim,shine.vim,ron.vim,quiet.vim,peachpuff.vim,pablo.vim,murphy.vim,morning.vim,lunaperche.vim,koehler.vim,industry.vim,habamax.vim,evening.vim,elflord.vim,desert.vim,delek.vim,darkblue.vim,blue.vim ]], false)
+vim.cmd([[ set wildignore+=zellner.vim,torte.vim,slate.vim,shine.vim,ron.vim,quiet.vim,peachpuff.vim,pablo.vim,murphy.vim,morning.vim,lunaperche.vim,koehler.vim,industry.vim,habamax.vim,evening.vim,elflord.vim,desert.vim,delek.vim,darkblue.vim,blue.vim ]])
 
 -- indent-blankline
 vim.api.nvim_set_hl(0, 'IndentBlanklineIndent1', { fg = vim.g.terminal_color_1, nocombine = true })

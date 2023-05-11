@@ -6,7 +6,7 @@ Boot with a screen
 ```bash
 service NetworkManager start
 nmtui
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 timedatectl set-timezone Europe/Stockholm
 ```
 
@@ -14,7 +14,7 @@ timedatectl set-timezone Europe/Stockholm
 Git tip of the day :bulb:
 Add the following to your git config:
 ```bash
-sudo apt install make gcc git
+sudo apt install -y make gcc git
 mkdir ~/git
 cd ~/git
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
@@ -31,17 +31,17 @@ ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
 ## Window manager
 Dependencies:
 ```bash
-sudo apt install libx11-dev libxft-dev libxinerama-dev xinit
+sudo apt install -y libx11-dev libxft-dev libxinerama-dev xinit
 ```
 
 [feh](https://feh.finalrewind.org/)
 ```bash
-sudo apt install feh
+sudo apt install -y feh
 ```
 
 [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes)
 ```bash
-sudo apt install libev-dev libx11-dev libxi-dev asciidoc
+sudo apt install -y libev-dev libx11-dev libxi-dev asciidoc
 ```
 
 Clone, compile and install
@@ -73,7 +73,7 @@ mv "Fira Code Medium Nerd Font Complete Mono.ttf" ~/.fonts/
 
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
-sudo apt install mosh
+sudo apt install -y mosh
 cd /tmp
 curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
 tar -zxvf abduco-0.6.tar.gz
@@ -95,7 +95,7 @@ systemctl mask hybrid-sleep.target
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
-sudo apt install cmake
+sudo apt install -y cmake
 ```
 
 Download, compile and install:
@@ -113,7 +113,7 @@ sudo cp fastfetch /usr/local/bin/
 ### [ly](https://github.com/fairyglade/ly)
 Dependencies:
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev
+sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev
 ```
 
 Download, compile and install:
@@ -133,18 +133,18 @@ systemctl disable getty@tty2.service
 
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
-sudo apt install ranger highlight ffmpegthumbnailer
+sudo apt install -y ranger highlight ffmpegthumbnailer
 ```
 
 ### [mpv](https://mpv.io/)
 ```bash
-sudo apt install mpv
+sudo apt install -y mpv
 ```
 
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen nodejs
+sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen nodejs
 
 cd /tmp
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
@@ -157,15 +157,16 @@ Download, unzip, configure, compile and install:
 curl -LO https://github.com/neovim/neovim/archive/refs/tags/stable.zip
 unzip stable.zip
 cd neovim-stable
-vi Makefile # CMAKE_BUILD_TYPE ?=RelWithDebInfo
-make && sudo make install
+Makefile # CMAKE_BUILD_TYPE ?=RelWithDebInfo
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 nvim --headless "+Lazy! sync" +qa
 ```
 
 ### [a4](https://a4term.com/)
 Dependencies:
 ```bash
-sudo apt install bzr libtermkey-dev libunibilium-dev libtool-bin
+sudo apt install -y bzr libtermkey-dev libunibilium-dev libtool-bin
 
 cd /tmp
 bzr branch https://bazaar.leonerd.org.uk/c/libtickit/
@@ -194,7 +195,7 @@ sudo cp /tmp/btop/bin/btop /usr/local/
 
 ### [bat](https://github.com/sharkdp/bat)
 ```bash
-sudo apt install bat
+sudo apt install -y bat
 ```
 
 # **TODO**
@@ -225,7 +226,7 @@ For further CLI commands see also the Pulse Audio Wiki
 To configure Pulseaudio Server to our needs we may need to edit /etc/pulse/default.pa and /etc/pulse/daemon.conf that come with self-explanatory. notes.
 
 
-apt install ncmpcpp mopidy mopidy-mpd mopidy-alsamixer
+sudo apt install -y ncmpcpp mopidy mopidy-mpd mopidy-alsamixer
 usermod -a -G audio peglah
 make sure aplay can play
 curl -O https://www.kozco.com/tech/piano2.wav

@@ -2,14 +2,14 @@
 Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
 ```bash
 sudo add-apt-repository universe
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 timedatectl set-timezone Europe/Stockholm
 systemctl mask systemd-networkd-wait-online.service
 ```
 
 # Initial setup
 ```bash
-sudo apt install make gcc
+sudo apt install -y make gcc
 mkdir ~/git
 cd ~/git
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
@@ -26,20 +26,22 @@ chmod +x ~/.xinitrc
 ## [Suckless](https://suckless.org/)
 Dependencies:
 ```bash
-apt install libx11-dev libxft-dev libxinerama-dev xinit
+sudo apt install -y libx11-dev libxft-dev libxinerama-dev xinit
 ```
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
 ```bash
-sudo apt install feh unclutter-xfixes
+sudo apt install -y feh unclutter-xfixes
 ```
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/dotfiles/suckless/dwm && make clean install
-cd ~/dotfiles/suckless/dmenu && make clean install
-cd ~/dotfiles/suckless/st && make clean install
-cd ~/dotfiles/suckless/slstatus && make clean install
+cd /tmp
+. ~/git/dotfiles/suckless/dwm-dl.sh
+. ~/git/dotfiles/suckless/dmenu-dl.sh
+. ~/git/dotfiles/suckless/st-dl.sh
+
+# ~/git/dotfiles/suckless/slstatus
 ```
 
 `reboot` and `startx`
@@ -54,13 +56,13 @@ fc-cache -fv
 
 ## [Remote desktop](http://xrdp.org/)
 ```bash
-apt install xrdp
+sudo apt install -y xrdp
 ln -s ~/.xinitrc ~/.xsession
 ```
 
 ## [Mosh](https://mosh.org/)
 ```bash
-apt install mosh
+sudo apt install -y mosh
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
@@ -79,7 +81,7 @@ systemctl mask hybrid-sleep.target
 
 ## [Touchpad tap-to-click](https://linux.die.net/man/1/synclient)
 ```bash
-apt install xserver-xorg-input-synaptics
+sudo apt install -y xserver-xorg-input-synaptics
 synclient MaxSpeed=1
 synclient VertEdgeScroll=0
 ```
@@ -94,7 +96,7 @@ reboot
 
 ## [Power management](https://pm-utils.freedesktop.org/wiki/)
 ```bash
-apt install pm-utils
+sudo apt install -y pm-utils
 ```
 
 # Software setup
@@ -102,7 +104,7 @@ apt install pm-utils
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
-apt install cmake
+sudo apt install -y cmake
 ```
 
 Download, compile and install:
@@ -120,7 +122,7 @@ cp fastfetch /usr/local/bin/
 ### [ly](https://github.com/fairyglade/ly)
 Dependencies:
 ```bash
-apt install build-essential libpam0g-dev libxcb-xkb-dev
+sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev
 ```
 
 Download, compile and install:
@@ -137,45 +139,49 @@ systemctl disable getty@tty2.service
 
 ### [Ranger](https://github.com/ranger/ranger)
 ```bash
-apt install ranger
+sudo apt install -y ranger
 ```
 
 [Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
 ```bash
-apt install highlight
+sudo apt install -y highlight
 ```
 
 [Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
 ```bash
-apt install ffmpegthumbnailer
+sudo apt install -y ffmpegthumbnailer
 ```
 
 ### [Mplayer](http://www.mplayerhq.hu/)
 ```bash
-apt install mplayer
+sudo apt install -y mplayer
 ```
 
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-TODO: No .deb from 0.9
+sudo apt-get install ninja-build gettext cmake unzip curl
 ```
 
-Download, unzip, configure, compile and install:
+Clone, checkout branch, compile and install:
 ```bash
-TODO: No .deb from 0.9
+git clone https://github.com/neovim/neovim /tmp/neovim
+cd /tmp/neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 nvim --headless "+Lazy! sync" +qa
 ```
 
 ### Network Manager
 ```bash
-apt install network-manager
+sudo apt install -y network-manager
 ```
 
 ### [a4term](https://a4term.com/)
 Dependencies:
 ```bash
-sudo apt install bzr libtermkey-dev libunibilium-dev libtool-bin
+sudo apt install -y bzr libtermkey-dev libunibilium-dev libtool-bin
 
 cd /tmp
 bzr branch https://bazaar.leonerd.org.uk/c/libtickit/
@@ -195,17 +201,17 @@ sudo reboot
 
 ### [btop++](https://github.com/aristocratos/btop)
 ```bash
-apt install btop
+sudo apt install -y btop
 ```
 
 ### [bat](https://github.com/sharkdp/bat)
 ```bash
-apt install bat
+sudo apt install -y bat
 ```
 
 ### [exa]()
 ```bash
-apt install exa
+sudo apt install -y exa
 ```
 
 # **TODO**
@@ -236,7 +242,7 @@ For further CLI commands see also the Pulse Audio Wiki
 To configure Pulseaudio Server to our needs we may need to edit /etc/pulse/default.pa and /etc/pulse/daemon.conf that come with self-explanatory. notes.
 
 
-apt install ncmpcpp mopidy mopidy-mpd mopidy-alsamixer
+sudo apt install -y ncmpcpp mopidy mopidy-mpd mopidy-alsamixer
 usermod -a -G audio peglah
 make sure aplay can play
 curl -O https://www.kozco.com/tech/piano2.wav
