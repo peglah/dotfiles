@@ -1,8 +1,8 @@
 dwm-*.tar.gz
-dwm-*/
+#dwm-*/
 
 dmenu-*.tar.gz
-dmenu-*/
+#dmenu-*/
 
 st-*.tar.gz
-st-*/
+#st-*/
