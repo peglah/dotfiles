@@ -1,10 +1,81 @@
+diff --git a/PKGBUILD b/PKGBUILD
+new file mode 100644
+index 0000000..9332e1e
+--- /dev/null
++++ b/PKGBUILD
+@@ -0,0 +1,65 @@
++# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
++# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
++# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
++
++pkgname=dmenu
++pkgver=5.1
++pkgrel=1
++pkgdesc="A generic menu for X"
++url="http://tools.suckless.org/dmenu/"
++arch=('i686' 'x86_64')
++license=('MIT')
++depends=('sh' 'libxinerama' 'libxft')
++provides=($pkgname)
++conflicts=($pkgname)
++source=(LICENSE
++        Makefile
++        PKGBUILD
++        README
++        arg.h
++        config.def.h
++        config.mk
++        dmenu.1
++        dmenu.c
++        dmenu_path
++        dmenu_run
++        drw.c
++        drw.h
++        stest.1
++        stest.c
++        util.c
++        util.h)
++sha256sums=('SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP')
++
++prepare() {
++  cd "$srcdir"
++  cp config.def.h config.h
++}
++
++build() {
++  cd "$srcdir"
++  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
++}
++
++package() {
++  cd "$srcdir"
++  make PREFIX=/usr DESTDIR="$pkgdir" install
++  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
++  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
++}
 diff --git a/config.def.h b/config.def.h
 index 1edb647..ea09d37 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -2,22 +2,29 @@
  /* Default settings; can be overriden by command line. */
- 
+
  static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 +static int centered = 0;                    /* -c option; centers dmenu on screen */
 +static int min_width = 500;                    /* minimum width when centered */
@@ -27,7 +98,7 @@ index 1edb647..ea09d37 100644
 +/* -l and -g options; controls number of lines and columns in grid if > 0 */
  static unsigned int lines      = 0;
 +static unsigned int columns    = 0;
- 
+
  /*
   * Characters not considered part of a word while deleting words
   * for example: " /?\"&[]"
@@ -78,17 +149,17 @@ index d95e6c6..de5367c 100644
 --- a/dmenu.c
 +++ b/dmenu.c
 @@ -21,7 +21,7 @@
- 
+
  /* macros */
  #define INTERSECT(x,y,w,h,r)  (MAX(0, MIN((x)+(w),(r).x_org+(r).width)  - MAX((x),(r).x_org)) \
 -                             * MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
 +                            && MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
  #define LENGTH(X)             (sizeof X / sizeof X[0])
  #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
- 
+
 @@ -77,7 +77,7 @@ calcoffsets(void)
  	int i, n;
- 
+
  	if (lines > 0)
 -		n = lines * bh;
 +		n = lines * columns * bh;
@@ -98,7 +169,7 @@ index d95e6c6..de5367c 100644
 @@ -89,6 +89,15 @@ calcoffsets(void)
  			break;
  }
- 
+
 +static int
 +max_textw(void)
 +{
@@ -113,7 +184,7 @@ index d95e6c6..de5367c 100644
  {
 @@ -159,9 +168,15 @@ drawmenu(void)
  	}
- 
+
  	if (lines > 0) {
 -		/* draw vertical list */
 -		for (item = curr; item != next; item = item->right)
@@ -141,7 +212,7 @@ index d95e6c6..de5367c 100644
 @@ -655,9 +671,16 @@ setup(void)
  				if (INTERSECT(x, y, 1, 1, info[i]))
  					break;
- 
+
 -		x = info[i].x_org;
 -		y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
 -		mw = info[i].width;
@@ -178,7 +249,7 @@ index d95e6c6..de5367c 100644
 -	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
  	inputw = MIN(inputw, mw/3);
  	match();
- 
+
 @@ -677,10 +705,12 @@ setup(void)
  	swa.override_redirect = True;
  	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
@@ -191,8 +262,8 @@ index d95e6c6..de5367c 100644
 +  if (border_width)
 +    XSetWindowBorder(dpy, win, scheme[SchemeSel][ColBg].pixel);
 +  XSetClassHint(dpy, win, &ch);
- 
- 
+
+
  	/* input methods */
 @@ -727,15 +757,21 @@ main(int argc, char *argv[])
  			topbar = 0;
@@ -227,10 +298,10 @@ index d95e6c6..de5367c 100644
 +	    border_width = atoi(argv[++i]); /* border width */
 +    else
  			usage();
- 
+
  	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 @@ -787,3 +825,4 @@ main(int argc, char *argv[])
- 
+
  	return 1; /* unreachable */
  }
 +

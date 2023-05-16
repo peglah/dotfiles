@@ -12,12 +12,78 @@ index 77bcbc0..346142c 100644
  	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
  	gzip dwm-${VERSION}.tar
  	rm -rf dwm-${VERSION}
+diff --git a/PKGBUILD b/PKGBUILD
+new file mode 100644
+index 0000000..b2ea779
+--- /dev/null
++++ b/PKGBUILD
+@@ -0,0 +1,60 @@
++# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
++# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
++# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
++
++pkgname=dwm
++pkgver=6.3
++pkgrel=1
++pkgdesc="A dynamic window manager for X"
++url="https://dwm.suckless.org"
++arch=('i686' 'x86_64')
++license=('MIT')
++options=(zipman)
++depends=('libx11' 'libxinerama' 'libxft' 'freetype2')
++source=(LICENSE
++        README
++        Makefile
++        config.def.h
++        config.mk
++        drw.c
++        drw.h
++        dwm.1
++        dwm.c
++        fibonacci.c
++        layouts.c
++        tcl.c
++        transient.c
++        util.c
++        util.h)
++sha256sums=('SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP')
++
++prepare() {
++  cd "$srcdir"
++  cp config.def.h config.h
++}
++
++build() {
++  cd "$srcdir"
++  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
++}
++
++package() {
++  cd "$srcdir"
++  make PREFIX=/usr DESTDIR="$pkgdir" install
++  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
++  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
++}
 diff --git a/config.def.h b/config.def.h
 index a2ac963..3fd91aa 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -2,20 +2,23 @@
- 
+
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
 +static const unsigned int gappx     = 6;        /* gaps between windows */
@@ -46,7 +112,7 @@ index a2ac963..3fd91aa 100644
 -	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 +	[SchemeSel]  = { col_gray4, col_gray5,  col_orange  },
  };
- 
+
  /* tagging */
 @@ -34,14 +37,21 @@ static const Rule rules[] = {
  /* layout(s) */
@@ -55,7 +121,7 @@ index a2ac963..3fd91aa 100644
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
  static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
- 
+
 +#include "tcl.c"
 +#include "fibonacci.c"
 +#include "layouts.c"
@@ -69,17 +135,17 @@ index a2ac963..3fd91aa 100644
 + 	{ "[\\]",     dwindle },
 +	{ "HHH",      grid },
  };
- 
+
  /* key definitions */
 @@ -57,13 +67,15 @@ static const Layout layouts[] = {
- 
+
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 +static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "6", "-g", "3", "-bw", "2", "-c", NULL };
  static const char *termcmd[]  = { "st", NULL };
 +static const char *firefoxcmd[]  = { "firefox", NULL };
- 
+
  static Key keys[] = {
  	/* modifier                     key        function        argument */
  	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -113,7 +179,7 @@ index a96f33c..aebd0c6 100644
 +#define HEIGHT(X)               ((X)->h + 2 * (X)->bw + gappx)
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
- 
+
 @@ -163,7 +163,6 @@ static void detachstack(Client *c);
  static Monitor *dirtomon(int dir);
  static void drawbar(Monitor *m);
@@ -145,7 +211,7 @@ index a96f33c..aebd0c6 100644
  	[UnmapNotify] = unmapnotify
  };
 @@ -425,16 +421,23 @@ buttonpress(XEvent *e)
- 
+
  	click = ClkRootWin;
  	/* focus monitor if necessary */
 -	if ((m = wintomon(ev->window)) && m != selmon) {
@@ -202,7 +268,7 @@ index a96f33c..aebd0c6 100644
 @@ -755,25 +757,6 @@ drawbars(void)
  		drawbar(m);
  }
- 
+
 -void
 -enternotify(XEvent *e)
 -{
@@ -228,7 +294,7 @@ index a96f33c..aebd0c6 100644
 @@ -1119,23 +1102,6 @@ monocle(Monitor *m)
  		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
  }
- 
+
 -void
 -motionnotify(XEvent *e)
 -{
@@ -257,7 +323,7 @@ index a96f33c..aebd0c6 100644
 +	unsigned int gapoffset;
 +	unsigned int gapincr;
 +	Client *nbc;
- 
+
 -	c->oldx = c->x; c->x = wc.x = x;
 -	c->oldy = c->y; c->y = wc.y = y;
 -	c->oldw = c->w; c->w = wc.width = w;
@@ -304,3 +370,190 @@ index a96f33c..aebd0c6 100644
  	return EXIT_SUCCESS;
  }
 +
+diff --git a/fibonacci.c b/fibonacci.c
+new file mode 100644
+index 0000000..9d0b7c5
+--- /dev/null
++++ b/fibonacci.c
+@@ -0,0 +1,67 @@
++void
++fibonacci(Monitor *mon, int s) {
++	unsigned int i, n, nx, ny, nw, nh;
++	Client *c;
++
++	for(n = 0, c = nexttiled(mon->clients); c; c = nexttiled(c->next), n++);
++	if(n == 0)
++		return;
++
++	nx = mon->wx;
++	ny = 0;
++	nw = mon->ww;
++	nh = mon->wh;
++
++	for(i = 0, c = nexttiled(mon->clients); c; c = nexttiled(c->next)) {
++		if((i % 2 && nh / 2 > 2 * c->bw)
++		   || (!(i % 2) && nw / 2 > 2 * c->bw)) {
++			if(i < n - 1) {
++				if(i % 2)
++					nh /= 2;
++				else
++					nw /= 2;
++				if((i % 4) == 2 && !s)
++					nx += nw;
++				else if((i % 4) == 3 && !s)
++					ny += nh;
++			}
++			if((i % 4) == 0) {
++				if(s)
++					ny += nh;
++				else
++					ny -= nh;
++			}
++			else if((i % 4) == 1)
++				nx += nw;
++			else if((i % 4) == 2)
++				ny += nh;
++			else if((i % 4) == 3) {
++				if(s)
++					nx += nw;
++				else
++					nx -= nw;
++			}
++			if(i == 0)
++			{
++				if(n != 1)
++					nw = mon->ww * mon->mfact;
++				ny = mon->wy;
++			}
++			else if(i == 1)
++				nw = mon->ww - nw;
++			i++;
++		}
++		resize(c, nx, ny, nw - 2 * c->bw, nh - 2 * c->bw, False);
++	}
++}
++
++void
++dwindle(Monitor *mon) {
++	fibonacci(mon, 1);
++}
++
++void
++spiral(Monitor *mon) {
++	fibonacci(mon, 0);
++}
++
+diff --git a/layouts.c b/layouts.c
+new file mode 100644
+index 0000000..de24c44
+--- /dev/null
++++ b/layouts.c
+@@ -0,0 +1,28 @@
++void
++grid(Monitor *m) {
++	unsigned int i, n, cx, cy, cw, ch, aw, ah, cols, rows;
++	Client *c;
++
++	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next))
++		n++;
++
++	/* grid dimensions */
++	for(rows = 0; rows <= n/2; rows++)
++		if(rows*rows >= n)
++			break;
++	cols = (rows && (rows - 1) * rows >= n) ? rows - 1 : rows;
++
++	/* window geoms (cell height/width) */
++	ch = m->wh / (rows ? rows : 1);
++	cw = m->ww / (cols ? cols : 1);
++	for(i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next)) {
++		cx = m->wx + (i / rows) * cw;
++		cy = m->wy + (i % rows) * ch;
++		/* adjust height/width of last row/column's windows */
++		ah = ((i + 1) % rows == 0) ? m->wh - ch * rows : 0;
++		aw = (i >= rows * (cols - 1)) ? m->ww - cw * cols : 0;
++		resize(c, cx, cy, cw - 2 * c->bw + aw, ch - 2 * c->bw + ah, False);
++		i++;
++	}
++}
++
+diff --git a/tcl.c b/tcl.c
+new file mode 100644
+index 0000000..4c94914
+--- /dev/null
++++ b/tcl.c
+@@ -0,0 +1,74 @@
++void
++tcl(Monitor * m)
++{
++	int x, y, h, w, mw, sw, bdw;
++	unsigned int i, n;
++	Client * c;
++
++	for (n = 0, c = nexttiled(m->clients); c;
++	        c = nexttiled(c->next), n++);
++
++	if (n == 0)
++		return;
++
++	c = nexttiled(m->clients);
++
++	mw = m->mfact * m->ww;
++	sw = (m->ww - mw) / 2;
++	bdw = (2 * c->bw);
++	resize(c,
++	       n < 3 ? m->wx : m->wx + sw,
++	       m->wy,
++	       n == 1 ? m->ww - bdw : mw - bdw,
++	       m->wh - bdw,
++	       False);
++
++	if (--n == 0)
++		return;
++
++	w = (m->ww - mw) / ((n > 1) + 1);
++	c = nexttiled(c->next);
++
++	if (n > 1)
++	{
++		x = m->wx + ((n > 1) ? mw + sw : mw);
++		y = m->wy;
++		h = m->wh / (n / 2);
++
++		if (h < bh)
++			h = m->wh;
++
++		for (i = 0; c && i < n / 2; c = nexttiled(c->next), i++)
++		{
++			resize(c,
++			       x,
++			       y,
++			       w - bdw,
++			       (i + 1 == n / 2) ? m->wy + m->wh - y - bdw : h - bdw,
++			       False);
++
++			if (h != m->wh)
++				y = c->y + HEIGHT(c);
++		}
++	}
++
++	x = (n + 1 / 2) == 1 ? mw : m->wx;
++	y = m->wy;
++	h = m->wh / ((n + 1) / 2);
++
++	if (h < bh)
++		h = m->wh;
++
++	for (i = 0; c; c = nexttiled(c->next), i++)
++	{
++		resize(c,
++		       x,
++		       y,
++		       (i + 1 == (n + 1) / 2) ? w - bdw : w - bdw,
++		       (i + 1 == (n + 1) / 2) ? m->wy + m->wh - y - bdw : h - bdw,
++		       False);
++
++		if (h != m->wh)
++			y = c->y + HEIGHT(c);
++	}
++}
