@@ -1,7 +1,78 @@
-diff --git a/config.def.h b/config.def.h
+diff --git a/suckless/dmenu-5.1/PKGBUILD b/suckless/dmenu-5.1/PKGBUILD
+new file mode 100644
+index 0000000..9332e1e
+--- /dev/null
++++ b/suckless/dmenu-5.1/PKGBUILD
+@@ -0,0 +1,65 @@
++# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
++# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
++# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
++
++pkgname=dmenu
++pkgver=5.1
++pkgrel=1
++pkgdesc="A generic menu for X"
++url="http://tools.suckless.org/dmenu/"
++arch=('i686' 'x86_64')
++license=('MIT')
++depends=('sh' 'libxinerama' 'libxft')
++provides=($pkgname)
++conflicts=($pkgname)
++source=(LICENSE
++        Makefile
++        PKGBUILD
++        README
++        arg.h
++        config.def.h
++        config.mk
++        dmenu.1
++        dmenu.c
++        dmenu_path
++        dmenu_run
++        drw.c
++        drw.h
++        stest.1
++        stest.c
++        util.c
++        util.h)
++sha256sums=('SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP')
++
++prepare() {
++  cd "$srcdir"
++  cp config.def.h config.h
++}
++
++build() {
++  cd "$srcdir"
++  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
++}
++
++package() {
++  cd "$srcdir"
++  make PREFIX=/usr DESTDIR="$pkgdir" install
++  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
++  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
++}
+diff --git a/suckless/dmenu-5.1/config.def.h b/suckless/dmenu-5.1/config.def.h
 index 1edb647..ea09d37 100644
---- a/config.def.h
-+++ b/config.def.h
+--- a/suckless/dmenu-5.1/config.def.h
++++ b/suckless/dmenu-5.1/config.def.h
 @@ -2,22 +2,29 @@
  /* Default settings; can be overriden by command line. */
  
@@ -37,10 +108,10 @@ index 1edb647..ea09d37 100644
 +/* Size of the window border */
 +static unsigned int border_width = 0;
 +
-diff --git a/dmenu.1 b/dmenu.1
+diff --git a/suckless/dmenu-5.1/dmenu.1 b/suckless/dmenu-5.1/dmenu.1
 index 323f93c..57ea184 100644
---- a/dmenu.1
-+++ b/dmenu.1
+--- a/suckless/dmenu-5.1/dmenu.1
++++ b/suckless/dmenu-5.1/dmenu.1
 @@ -4,6 +4,8 @@ dmenu \- dynamic menu
  .SH SYNOPSIS
  .B dmenu
@@ -73,10 +144,10 @@ index 323f93c..57ea184 100644
  .TP
  .BI \-m " monitor"
  dmenu is displayed on the monitor number supplied. Monitor numbers are starting
-diff --git a/dmenu.c b/dmenu.c
+diff --git a/suckless/dmenu-5.1/dmenu.c b/suckless/dmenu-5.1/dmenu.c
 index d95e6c6..de5367c 100644
---- a/dmenu.c
-+++ b/dmenu.c
+--- a/suckless/dmenu-5.1/dmenu.c
++++ b/suckless/dmenu-5.1/dmenu.c
 @@ -21,7 +21,7 @@
  
  /* macros */
