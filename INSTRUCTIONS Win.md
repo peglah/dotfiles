@@ -48,6 +48,7 @@ scoop install^
   taskbarx^
   telegram^
   vscode^
+  wezterm^
   windows-terminal^
   youtube-music
 ```
@@ -58,13 +59,15 @@ Log out and back in
 ```cmd
 mkdir %USERPROFILE%\git && cd %USERPROFILE%\git
 git clone https://github.com/Peglah/dotfiles.git
+
+mklink %USERPROFILE%\.gitconfig %USERPROFILE%\git\dotfiles\.gitconfig
+mklink /D %USERPROFILE%\.config %USERPROFILE%\git\dotfiles\.config
 ```
 
 # Neovim
 ## Make symlink
 ```cmd
 mklink %USERPROFILE%\.editorconfig %USERPROFILE%\git\dotfiles\.config\nvim\.editorconfig
-mklink %USERPROFILE%\.gitconfig %USERPROFILE%\git\dotfiles\.gitconfig
 mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\dotfiles\.config\nvim
 ```
 
