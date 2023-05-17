@@ -40,7 +40,12 @@ return {
           color = { fg = '#FE8019' },
         }
       },
-      lualine_z = { 'progress' }
+      lualine_z = {
+        {
+        'datetime',
+        style = "%H:%M",
+        }
+      }
     },
   }
 }
