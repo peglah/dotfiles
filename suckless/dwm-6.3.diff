@@ -1,7 +1,7 @@
-diff --git a/Makefile b/Makefile
+diff --git a/suckless/dwm-6.3/Makefile b/suckless/dwm-6.3/Makefile
 index 77bcbc0..346142c 100644
---- a/Makefile
-+++ b/Makefile
+--- a/suckless/dwm-6.3/Makefile
++++ b/suckless/dwm-6.3/Makefile
 @@ -31,7 +31,8 @@ clean:
  dist: clean
  	mkdir -p dwm-${VERSION}
@@ -12,11 +12,11 @@ index 77bcbc0..346142c 100644
  	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
  	gzip dwm-${VERSION}.tar
  	rm -rf dwm-${VERSION}
-diff --git a/PKGBUILD b/PKGBUILD
+diff --git a/suckless/dwm-6.3/PKGBUILD b/suckless/dwm-6.3/PKGBUILD
 new file mode 100644
 index 0000000..b2ea779
 --- /dev/null
-+++ b/PKGBUILD
++++ b/suckless/dwm-6.3/PKGBUILD
 @@ -0,0 +1,60 @@
 +# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
 +# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
@@ -78,12 +78,12 @@ index 0000000..b2ea779
 +  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 +  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
 +}
-diff --git a/config.def.h b/config.def.h
+diff --git a/suckless/dwm-6.3/config.def.h b/suckless/dwm-6.3/config.def.h
 index a2ac963..3fd91aa 100644
---- a/config.def.h
-+++ b/config.def.h
+--- a/suckless/dwm-6.3/config.def.h
++++ b/suckless/dwm-6.3/config.def.h
 @@ -2,20 +2,23 @@
-
+ 
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
 +static const unsigned int gappx     = 6;        /* gaps between windows */
@@ -112,7 +112,7 @@ index a2ac963..3fd91aa 100644
 -	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 +	[SchemeSel]  = { col_gray4, col_gray5,  col_orange  },
  };
-
+ 
  /* tagging */
 @@ -34,14 +37,21 @@ static const Rule rules[] = {
  /* layout(s) */
@@ -121,7 +121,7 @@ index a2ac963..3fd91aa 100644
 -static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 +static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
  static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-
+ 
 +#include "tcl.c"
 +#include "fibonacci.c"
 +#include "layouts.c"
@@ -135,17 +135,17 @@ index a2ac963..3fd91aa 100644
 + 	{ "[\\]",     dwindle },
 +	{ "HHH",      grid },
  };
-
+ 
  /* key definitions */
 @@ -57,13 +67,15 @@ static const Layout layouts[] = {
-
+ 
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 +static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "6", "-g", "3", "-bw", "2", "-c", NULL };
  static const char *termcmd[]  = { "st", NULL };
 +static const char *firefoxcmd[]  = { "firefox", NULL };
-
+ 
  static Key keys[] = {
  	/* modifier                     key        function        argument */
  	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -165,10 +165,10 @@ index a2ac963..3fd91aa 100644
  	{ MODKEY,                       XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
  	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-diff --git a/dwm.c b/dwm.c
+diff --git a/suckless/dwm-6.3/dwm.c b/suckless/dwm-6.3/dwm.c
 index a96f33c..aebd0c6 100644
---- a/dwm.c
-+++ b/dwm.c
+--- a/suckless/dwm-6.3/dwm.c
++++ b/suckless/dwm-6.3/dwm.c
 @@ -52,8 +52,8 @@
  #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
  #define LENGTH(X)               (sizeof X / sizeof X[0])
@@ -179,7 +179,7 @@ index a96f33c..aebd0c6 100644
 +#define HEIGHT(X)               ((X)->h + 2 * (X)->bw + gappx)
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
-
+ 
 @@ -163,7 +163,6 @@ static void detachstack(Client *c);
  static Monitor *dirtomon(int dir);
  static void drawbar(Monitor *m);
@@ -211,7 +211,7 @@ index a96f33c..aebd0c6 100644
  	[UnmapNotify] = unmapnotify
  };
 @@ -425,16 +421,23 @@ buttonpress(XEvent *e)
-
+ 
  	click = ClkRootWin;
  	/* focus monitor if necessary */
 -	if ((m = wintomon(ev->window)) && m != selmon) {
@@ -268,7 +268,7 @@ index a96f33c..aebd0c6 100644
 @@ -755,25 +757,6 @@ drawbars(void)
  		drawbar(m);
  }
-
+ 
 -void
 -enternotify(XEvent *e)
 -{
@@ -294,7 +294,7 @@ index a96f33c..aebd0c6 100644
 @@ -1119,23 +1102,6 @@ monocle(Monitor *m)
  		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
  }
-
+ 
 -void
 -motionnotify(XEvent *e)
 -{
@@ -323,7 +323,7 @@ index a96f33c..aebd0c6 100644
 +	unsigned int gapoffset;
 +	unsigned int gapincr;
 +	Client *nbc;
-
+ 
 -	c->oldx = c->x; c->x = wc.x = x;
 -	c->oldy = c->y; c->y = wc.y = y;
 -	c->oldw = c->w; c->w = wc.width = w;
@@ -370,11 +370,11 @@ index a96f33c..aebd0c6 100644
  	return EXIT_SUCCESS;
  }
 +
-diff --git a/fibonacci.c b/fibonacci.c
+diff --git a/suckless/dwm-6.3/fibonacci.c b/suckless/dwm-6.3/fibonacci.c
 new file mode 100644
 index 0000000..9d0b7c5
 --- /dev/null
-+++ b/fibonacci.c
++++ b/suckless/dwm-6.3/fibonacci.c
 @@ -0,0 +1,67 @@
 +void
 +fibonacci(Monitor *mon, int s) {
@@ -443,11 +443,11 @@ index 0000000..9d0b7c5
 +	fibonacci(mon, 0);
 +}
 +
-diff --git a/layouts.c b/layouts.c
+diff --git a/suckless/dwm-6.3/layouts.c b/suckless/dwm-6.3/layouts.c
 new file mode 100644
 index 0000000..de24c44
 --- /dev/null
-+++ b/layouts.c
++++ b/suckless/dwm-6.3/layouts.c
 @@ -0,0 +1,28 @@
 +void
 +grid(Monitor *m) {
@@ -477,11 +477,11 @@ index 0000000..de24c44
 +	}
 +}
 +
-diff --git a/tcl.c b/tcl.c
+diff --git a/suckless/dwm-6.3/tcl.c b/suckless/dwm-6.3/tcl.c
 new file mode 100644
 index 0000000..4c94914
 --- /dev/null
-+++ b/tcl.c
++++ b/suckless/dwm-6.3/tcl.c
 @@ -0,0 +1,74 @@
 +void
 +tcl(Monitor * m)
