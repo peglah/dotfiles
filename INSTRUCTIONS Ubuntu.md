@@ -37,13 +37,15 @@ sudo apt install -y feh unclutter-xfixes
 Compile and install dwm, dmenu, st and slstatus
 ```bash
 cd ~/git/dotfiles/suckless
+
 ./dmenu-dl.sh
 ./dwm-dl.sh
 ./st-dl.sh
-cd dmenu-*/ && git apply ../dmenu-*.patch && cd ..
-cd dwm-*/ && git apply ../dwm-*.patch && cd ..
-cd st-*/ && git apply ../st-*.patch && cd ..
-cd slstatus && git apply ../slstatus.patch && cd ..
+
+git apply dmenu-*.patch
+git apply dwm-*.patch
+git apply st-*.patch
+git apply slstatus.patch
 
 cd dmenu-*/ && make && sudo make install && cd ..
 cd dwm-*/ && make && sudo make install && cd ..
