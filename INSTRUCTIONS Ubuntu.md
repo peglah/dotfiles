@@ -72,13 +72,12 @@ ln -s ~/.xinitrc ~/.xsession
 
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
-sudo apt install -y mosh
-cd /tmp
-curl -L -O https://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz
-tar -zxvf abduco-*.tar.gz
-cd abduco-*/
-make
-sudo make install
+cd ~/git/dotfiles/bin/mosh/
+./autogen.sh && ./configure
+make && sudo make install
+
+cd ~/git/dotfiles/bin/abduco/
+./configure && make && sudo make install
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
