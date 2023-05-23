@@ -19,7 +19,7 @@ scoop bucket add nerd-fonts
 
 REM These are packages for Neovim
 scoop install^
-  FiraCode-NF-Mono^
+  firacode^
   fzf^
   gcc^
   less^
