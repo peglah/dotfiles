@@ -14,6 +14,7 @@ mkdir ~/git
 cd ~/git
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
 ln -s ~/git/dotfiles/.config/ ~/
+sudo ln -s ~/git/dotfiles/.config/ /root/
 ln -s ~/git/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
 ln -s ~/git/dotfiles/.bashrc ~/
@@ -186,6 +187,8 @@ git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --headless "+Lazy! sync" +qa
+sudo ln -s ~/.local/share/nvim /root/.local/share/
+sudo ln -s ~/.local/state/nvim /root/.local/state/
 ```
 
 ### Network Manager
