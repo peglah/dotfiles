@@ -128,6 +128,10 @@ fi
 
 if [ -f /usr/local/bin/a4 ]; then
   ABDUCO_CMD=a4
+elif [ -f /usr/local/bin/dvtm ]; then
+  ABDUCO_CMD=
+else
+  ABDUCO_CMD=bash
 fi
 
 if command -v fastfetch &> /dev/null; then
