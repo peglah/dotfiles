@@ -71,9 +71,13 @@ ln -s ~/.xinitrc ~/.xsession
 ```
 
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
+Dependencies:
 ```bash
 sudo apt install -y perl protobuf-compiler libncurses5-dev zlib1g-dev libutempter-dev libssl-dev
+```
 
+Configure, compile and install:
+```bash
 cd ~/git/dotfiles/bin/mosh/
 ./autogen.sh && ./configure
 make && sudo make install
