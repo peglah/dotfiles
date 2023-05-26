@@ -126,14 +126,6 @@ if grep -q "Raspberry Pi" /proc/cpuinfo; then
   PS1="${debian_chroot:+($debian_chroot)}\u@rpi:\w\$ "
 fi
 
-if [ -f /usr/local/bin/a4 ]; then
-  ABDUCO_CMD=a4
-elif [ -f /usr/local/bin/dvtm ]; then
-  ABDUCO_CMD=
-else
-  ABDUCO_CMD=bash
-fi
-
 if command -v fastfetch &> /dev/null; then
   fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l ubuntu_small
 elif command -v afetch &> /dev/null; then

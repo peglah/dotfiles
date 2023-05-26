@@ -9,7 +9,7 @@ systemctl mask systemd-networkd-wait-online.service
 
 # Initial setup
 ```bash
-sudo apt install -y make gcc
+sudo apt install -y make gcc g++ clang
 mkdir ~/git
 cd ~/git
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
@@ -72,6 +72,8 @@ ln -s ~/.xinitrc ~/.xsession
 
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 ```bash
+sudo apt install -y perl protobuf-compiler libncurses5-dev zlib1g-dev libutempter-dev libssl-dev
+
 cd ~/git/dotfiles/bin/mosh/
 ./autogen.sh && ./configure
 make && sudo make install
