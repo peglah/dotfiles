@@ -58,8 +58,7 @@ cd slstatus/ && make && sudo make install && cd ..
 ```bash
 mkdir ~/.fonts
 cd /tmp
-curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
-unzip FiraCode.zip
+curl https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip | unzip -
 mv FiraCodeNerdFontMono-Medium.ttf ~/.fonts/
 fc-cache -fv
 ```
@@ -204,22 +203,23 @@ sudo apt install -y network-manager
 ### [a4term](https://a4term.com/)
 Dependencies:
 ```bash
-sudo apt install -y bzr libtermkey-dev libunibilium-dev libtool-bin
+sudo apt install -y libtermkey-dev libunibilium-dev libtool-bin
 
 cd /tmp
-bzr branch https://bazaar.leonerd.org.uk/c/libtickit/
-bzr branch https://bazaar.leonerd.org.uk/c/libvterm/
+curl https://www.leonerd.org.uk/code/libtickit/libtickit-0.4.3.tar.gz | tar xzf -
+curl https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.1.tar.gz | tar xzf -
 
-cd /tmp/libtickit && make && sudo make install
-cd /tmp/libvterm && make && sudo make install
+cd /tmp/libtickit-*
+make && sudo make install
+cd /tmp/libvterm-*
+make && sudo make install
 ```
 
-Download, compile, install and reboot:
+Download, compile and install:
 ```bash
 cd /tmp
 git clone https://github.com/rpmohn/a4
 cd /tmp/a4 && make && sudo make install
-sudo reboot
 ```
 
 ### [btop++](https://github.com/aristocratos/btop)
