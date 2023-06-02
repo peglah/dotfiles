@@ -26,3 +26,8 @@ vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Increas
 vim.api.nvim_create_user_command('Wbd', 'write <bar> bdelete', {})
 -- Save and source file
 vim.api.nvim_create_user_command('Wso', 'write <bar> source', {})
+
+-- Write as sudo using tee invocation
+--vim.keymap.set("c", "w!!", "w !sudo tee > /dev/null %", { silent = true, desc = "Write as Sudo" })
+vim.api.nvim_create_user_command("Wsu", "w !sudo tee > /dev/null %", {})
+
