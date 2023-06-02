@@ -14,7 +14,7 @@ return {
       ['<leader>.'] = { '"=strftime("%F")<CR>Pa<CR><ESC>', 'Insert date' },
       ['<leader>o'] = { '<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>', 'Enable Spellcheck' },
       ['<leader>d'] = { '0f[lrxV/- [ <CR>kd/-DONE-<CR>p<cmd>noh<CR>', 'Mark done and move to Done' },
-      ['<leader><leader>'] = { '<C-^>', 'Go to last buffer' },
+      --['<leader><leader>'] = { '<C-^>', 'Go to last buffer' },
       ['<leader>b'] = { '<cmd>e $MYVIMRC | cd %:p:h<cr>', 'Edit init.lua' },
 
       -- Lazy

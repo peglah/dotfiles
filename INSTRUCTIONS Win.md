@@ -82,7 +82,13 @@ nvim
 :set guifont=*
 ```
 
-# Firefox addons
+# Firefox 
+## Settings
+Never remember password
+
+Highlight search results
+
+## Addons
 [Bitwarden](https://addons.mozilla.org/sv-SE/firefox/addon/bitwarden-password-manager/)
 
 [Consent-O-Matic](https://addons.mozilla.org/sv-SE/firefox/addon/consent-o-matic/)

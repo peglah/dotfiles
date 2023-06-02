@@ -1,11 +1,17 @@
--- Easier split navigations
-vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
-vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
-vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
-vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
+-- Move to window using the <ctrl> hjkl keys
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Esc to exit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+-- buffers
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader><leader>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete buffer" })
 
 -- Change to Normal mode by pressing "jj" in quick succession
 vim.keymap.set("i", "jj", "<esc>", { desc = "Change to Normal mode" })
