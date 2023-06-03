@@ -1,3 +1,6 @@
+-- Cursor does not jump back on yank
+vim.keymap.set("v", "y", "ygv<Esc>", { desc = "Go to left window", remap = true })
+
 -- Move to window using the <ctrl> hjkl keys
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
