@@ -1,5 +1,9 @@
+vim.keymap.set("n", "<leader>o", "<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>", { desc = "Enable Spellcheck" })
+vim.keymap.set("n", "<leader>d", "0f[lrxV/- [ <CR>kd/-DONE-<CR>p<cmd>noh<CR>", { desc = "Mark done and move to Done" })
+vim.keymap.set("n", "<leader>.", '"=strftime("%F")<CR>Pa<CR><ESC>', { desc = "Insert date" })
+
 -- Cursor does not jump back on yank
-vim.keymap.set("v", "y", "ygv<Esc>", { desc = "Go to left window", remap = true })
+vim.keymap.set("v", "y", "ygv<Esc>", { desc = "Yank", remap = true })
 
 -- Move to window using the <ctrl> hjkl keys
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
@@ -14,7 +18,10 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader><leader>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>e $MYVIMRC | cd %:p:h<cr>", { desc= "Edit init.lua" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bs", "<cmd>split<cr>", { desc = "Open split" })
+vim.keymap.set("n", "<leader>bv", "<cmd>vs<cr>", { desc = "Open vertical split" })
 
 -- Change to Normal mode by pressing "jj" in quick succession
 vim.keymap.set("i", "jj", "<esc>", { desc = "Change to Normal mode" })
