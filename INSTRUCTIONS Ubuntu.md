@@ -38,15 +38,6 @@ Compile and install dwm, dmenu, st and slstatus
 ```bash
 cd ~/git/dotfiles/bin/suckless
 
-./dmenu-dl.sh
-./dwm-dl.sh
-./st-dl.sh
-
-git apply dmenu-*.diff
-git apply dwm-*.diff
-git apply st-*.diff
-git apply slstatus.diff
-
 cd dmenu-*/ && make && sudo make install && cd ..
 cd dwm-*/ && make && sudo make install && cd ..
 cd st-*/ && make && sudo make install && cd ..
