@@ -170,7 +170,7 @@ sudo apt install -y mplayer
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-sudo apt-get install ninja-build gettext cmake unzip curl
+sudo apt install -y ninja-build gettext cmake unzip curl
 ```
 
 Clone, checkout branch, compile and install:
