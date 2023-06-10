@@ -201,6 +201,7 @@ cd /tmp/libtickit-*
 make && sudo make install
 cd /tmp/libvterm-*
 make && sudo make install
+sudo ldconfig
 ```
 
 Download, compile and install:
