@@ -62,7 +62,7 @@ ln -s ~/.xinitrc ~/.xsession
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 Dependencies:
 ```bash
-sudo apt install -y perl protobuf-compiler libncurses5-dev zlib1g-dev libutempter-dev libssl-dev autoconf
+sudo apt install automake libtool g++ protobuf-compiler libprotobuf-dev libboost-dev libutempter-dev libncurses5-dev zlib1g-dev libio-pty-perl libssl-dev pkg-config
 ```
 
 Configure, compile and install:
