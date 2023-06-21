@@ -4,12 +4,13 @@ return {
 
   keys = {
     { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Lists open buffers' },
-    { "<Leader>fc",
+    { '<Leader>fc',
       function()
         vim.api.nvim_exec_autocmds("User", { pattern = "ColorSchemeLoad" })
         require("telescope.builtin").colorscheme()
       end,
       desc = 'Choose colorscheme', noremap = true, },
+    { '<leader>fe', '<cmd>Telescope file_browser<cr>', desc = 'File Browser' },
     { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Search for files' },
     { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Search for a string' },
     { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Lists available help tags' },
@@ -21,7 +22,8 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'BurntSushi/ripgrep',
-    'tsakirist/telescope-lazy.nvim'
+    'tsakirist/telescope-lazy.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
   },
 
   config = function() require('telescope').setup({
@@ -51,9 +53,14 @@ return {
           open_lazy_root_live_grep = '<C-r>g',
         },
       },
+      file_browser = {
+        -- disables netrw and use telescope-file-browser in its place
+        hijack_netrw = true,
+      },
     },
 
     require('telescope').load_extension 'lazy',
+    require('telescope').load_extension 'file_browser',
 
     pickers = {
       colorscheme = {
