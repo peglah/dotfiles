@@ -1,5 +1,8 @@
 return {
   'norcalli/nvim-colorizer.lua',
 
-  config = function() require('colorizer').setup() end
+  opts = {
+    '*'; -- Highlight all files, but customize some others.
+    '!lazy'; -- Exclude vim from highlighting.
+  }
 }
