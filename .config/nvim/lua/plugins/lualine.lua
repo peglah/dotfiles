@@ -33,6 +33,7 @@ return {
           max_length = vim.o.columns * 2 / 3,
         }
       },
+      lualine_x = { require("lsp-progress").progress },
       lualine_y = {
         {
           require('lazy.status').updates,
