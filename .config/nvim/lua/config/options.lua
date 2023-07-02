@@ -13,7 +13,9 @@ vim.opt.relativenumber = true
 --vim.opt.textwidth = 80
 -- Highlight column after 'textwidth'
 --vim.opt.colorcolumn = '+1'
--- Hide mode since Airline handles this
+-- The last window will have a status line always and ONLY the last window
+vim.opt.laststatus = 3
+-- Hide mode since lualine handles this
 vim.opt.showmode = false
 -- Use system clipboard
 vim.o.clipboard = 'unnamedplus'
