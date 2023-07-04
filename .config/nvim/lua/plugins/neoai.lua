@@ -3,6 +3,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
+  enabled = vim.fn.getenv("OPENAI_API_KEY") ~= vim.NIL,
   cmd = {
     "NeoAI",
     "NeoAIOpen",
