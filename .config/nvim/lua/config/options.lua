@@ -43,7 +43,8 @@ vim.opt.smartcase = true
 --vim.opt.softtabstop = 2
 ---- when indenting with '>', use 2 spaces width
 --vim.opt.shiftwidth = 2
-
+-- Use a dialog when an operation has to be confirmed.
+vim.opt.confirm = true
 -- netrw - suppress the banner
 vim.g.netrw_banner = 0
 -- netrw - tree style listing
