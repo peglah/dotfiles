@@ -1,5 +1,6 @@
 return {
   "james1236/backseat.nvim",
+  enabled = vim.fn.getenv("OPENAI_API_KEY") ~= vim.NIL,
   cmd = {
     'Backseat',
     'BackseatAsk' },
