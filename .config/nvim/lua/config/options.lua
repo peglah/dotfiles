@@ -18,7 +18,7 @@ vim.opt.laststatus = 3
 -- Hide mode since lualine handles this
 vim.opt.showmode = false
 -- Use system clipboard
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'autoselect'
 -- Disable mouse
 vim.opt.mouse={ i = false, n = false, v = false }
 -- Enable autocompletion
