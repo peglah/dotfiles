@@ -19,6 +19,26 @@ vim.opt.laststatus = 3
 vim.opt.showmode = false
 -- Use system clipboard
 vim.o.clipboard = 'unnamedplus'
+-- Use clip if WSL
+local f = io.open("/proc/version", "rb")
+local content = f:read("*all")
+f:close()
+
+if string.find(content, "microsoft") then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
+
 -- Disable mouse
 vim.opt.mouse={ i = false, n = false, v = false }
 -- Enable autocompletion
