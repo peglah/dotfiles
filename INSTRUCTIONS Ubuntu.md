@@ -11,8 +11,7 @@ systemctl mask systemd-networkd-wait-online.service
 ```bash
 sudo apt install -y make gcc g++ clang
 mkdir ~/git
-cd ~/git
-git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git
 ln -s ~/git/dotfiles/.config/ ~/
 ln -s ~/git/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
@@ -62,7 +61,7 @@ ln -s ~/.xinitrc ~/.xsession
 ## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
 Dependencies:
 ```bash
-sudo apt install automake libtool g++ protobuf-compiler libprotobuf-dev libboost-dev libutempter-dev libncurses5-dev zlib1g-dev libio-pty-perl libssl-dev pkg-config
+sudo apt install -y automake libtool g++ protobuf-compiler libprotobuf-dev libboost-dev libutempter-dev libncurses5-dev zlib1g-dev libio-pty-perl libssl-dev pkg-config
 ```
 
 Configure, compile and install:
@@ -119,9 +118,8 @@ sudo apt install -y cmake
 
 Download, compile and install:
 ```bash
-cd /tmp
-git clone https://github.com/LinusDierheimer/fastfetch
-cd fastfetch
+git clone https://github.com/LinusDierheimer/fastfetch /tmp/fastfetch
+cd /tmp/fastfetch
 mkdir -p build
 cd build
 cmake ..
@@ -137,9 +135,8 @@ sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev
 
 Download, compile and install:
 ```bash
-cd /tmp
-git clone --recurse-submodules https://github.com/nullgemm/ly
-cd ly
+git clone --recurse-submodules https://github.com/nullgemm/ly /tmp/ly
+cd /tmp/ly
 make
 make run
 make install
@@ -206,8 +203,7 @@ sudo ldconfig
 
 Download, compile and install:
 ```bash
-cd /tmp
-git clone https://github.com/rpmohn/a4
+git clone https://github.com/rpmohn/a4 /tmp/a4
 cd /tmp/a4 && make && sudo make install
 ```
 
