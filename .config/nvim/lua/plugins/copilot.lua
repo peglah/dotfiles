@@ -4,11 +4,7 @@ return {
   event = 'InsertEnter',
 
   opts = {
---    panel = {
---      autorefresh = true
---    },
-    suggestion = {
-      auto_trigger = true
-    }
+    suggestion = {enabled = false},
+    panel = {enabled = false},
   }
 }

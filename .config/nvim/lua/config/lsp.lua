@@ -24,6 +24,7 @@ cmp.setup({
 
 cmp.setup({
   sources = {
+    {name = 'copilot'},
     {name = "path"},
     {name = "nvim_lsp"},
     {name = "nvim_lua"},
@@ -35,7 +36,12 @@ cmp.setup({
     completeopt = 'menu,menuone,noinsert'
   },
   mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<CR>'] = cmp.mapping.confirm({
+      -- documentation says this is important.
+      -- I don't know why.
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    })
   }
 })
 
