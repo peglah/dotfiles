@@ -28,7 +28,7 @@ fdisk /dev/sda
 
 ## Make filesystem
 ```bash
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 mkswap /dev/sda2
 swapon /dev/sda2
 mkfs.ext4 /dev/sda3
@@ -56,7 +56,7 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
 hwclock --systohc
 pacman -S neovim
-nvim /etc/locale.gen
+nvim /etc/locale.gen # en_US-UTF8
 locale-gen
 nvim /etc/hostname
 nvim /etc/hosts
