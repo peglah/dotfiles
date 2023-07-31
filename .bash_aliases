@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v exa &> /dev/null; then
-  alias ls=exa
+  alias ls='exa --icons --group-directories-first'
 else
   alias ls='ls --color=auto'
 fi
