@@ -25,6 +25,7 @@ return {
     'BurntSushi/ripgrep',
     'tsakirist/telescope-lazy.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
+    "debugloop/telescope-undo.nvim",
   },
 
   config = function() require('telescope').setup({
@@ -58,10 +59,15 @@ return {
         -- disables netrw and use telescope-file-browser in its place
         hijack_netrw = true,
       },
+      undo = {
+        -- telescope-undo.nvim config
+      },
     },
 
     require('telescope').load_extension 'lazy',
     require('telescope').load_extension 'file_browser',
+    require("telescope").load_extension("undo"),
+    vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>"),
 
     pickers = {
       colorscheme = {
