@@ -6,6 +6,7 @@ return {
     { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Lists open buffers' },
     { '<Leader>fc',
       function()
+        -- put "event = "User ColorSchemeLoad" in the colorscheme to lazy load by this:
         vim.api.nvim_exec_autocmds("User", { pattern = "ColorSchemeLoad" })
         require("telescope.builtin").colorscheme()
       end,
