@@ -1,8 +1,5 @@
-if true then
-    return {}
-end
-
 return {
+  --[[
   'Shatur/neovim-ayu',
   event = "User ColorSchemeLoad",
 
@@ -40,4 +37,5 @@ return {
 
   'folke/tokyonight.nvim',
   event = "User ColorSchemeLoad",
+  --]]
 }
