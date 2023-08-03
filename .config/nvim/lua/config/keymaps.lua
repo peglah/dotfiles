@@ -1,3 +1,5 @@
+vim.keymap.set("n", "n", "nzzzv", { desc = "Move to next search result" })
+
 vim.keymap.set("n", "<leader>o", "<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>", { desc = "Enable Spellcheck" })
 vim.keymap.set("n", "<leader>d", "0f[lrxV/- [ <CR>kd/-DONE-<CR>p<cmd>noh<CR>", { desc = "Mark done and move to Done" })
 vim.keymap.set("n", "<leader>.", '"=strftime("%F")<CR>Pa<CR><ESC>', { desc = "Insert date" })
