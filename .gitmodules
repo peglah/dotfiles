@@ -7,3 +7,6 @@
 [submodule "bin/mosh"]
 	path = bin/mosh
 	url = https://github.com/mobile-shell/mosh
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
