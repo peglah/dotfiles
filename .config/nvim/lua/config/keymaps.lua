@@ -7,12 +7,6 @@ vim.keymap.set("n", "<leader>.", '"=strftime("%F")<CR>Pa<CR><ESC>', { desc = "In
 -- Cursor does not jump back on yank
 vim.keymap.set("v", "y", "ygv<Esc>", { desc = "Yank", remap = true })
 
--- Move to window using the <ctrl> hjkl keys
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
-
 -- Esc to exit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
