@@ -1,9 +1,9 @@
-local undodir = vim.fn.expand("~") .. "/.undodir_"
+local undodir = vim.fn.expand("~") .. "/.nvim_undo"
 if not vim.fn.isdirectory(undodir) then
     vim.fn.mkdir(undodir, "", 0700)
 end
 vim.o.undodir = undodir
-vim.cmd('set undofile')
+vim.o.undofile = true
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
