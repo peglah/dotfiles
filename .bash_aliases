@@ -25,8 +25,13 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias curll='curl -L -O'
 
-if command -v fd &> /dev/null; then
-  alias v='fd --type f --hidden --exclude .git --color=always | fzf-tmux -p 80%,50% --ansi | xargs -o $(command -v nvim || command -v vim || command -v vi)'
-else
-  alias v='find . -name .git -prune -o -type f -print | fzf-tmux -p 80%,50% --ansi | xargs -o $(command -v nvim || command -v vim || command -v vi)'
-fi
+alias v='{
+  if fd --version >/dev/null 2>&1; then
+    fd_cmd="fd --type f --hidden --exclude .git --color=always"
+  else
+    fd_cmd="find . -type d -name ".git" -prune -o -type f -print"
+  fi
+  editor="$(command -v nvim || command -v vim || command -v vi)"
+  chosen_file=$($fd_cmd | fzf-tmux -p 80%,50% --ansi)
+  [ -n "$chosen_file" ] && $editor "$chosen_file"
+}'
