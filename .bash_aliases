@@ -24,3 +24,9 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias curll='curl -L -O'
+
+if command -v fd &> /dev/null; then
+  alias v='fd --type f --hidden --exclude .git --color=always | fzf-tmux -p 80%,50% --ansi | xargs -o $(command -v nvim || command -v vim || command -v vi)'
+else
+  alias v='find . -name .git -prune -o -type f -print | fzf-tmux -p 80%,50% --ansi | xargs -o $(command -v nvim || command -v vim || command -v vi)'
+fi
