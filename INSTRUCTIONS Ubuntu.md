@@ -58,10 +58,10 @@ sudo apt install -y xrdp
 ln -s ~/.xinitrc ~/.xsession
 ```
 
-## [Mosh](https://mosh.org/) and [abduco](https://github.com/martanne/abduco)
+## [Mosh](https://mosh.org/)
 Dependencies:
 ```bash
-sudo apt install -y automake libtool g++ protobuf-compiler libprotobuf-dev libboost-dev libutempter-dev libncurses5-dev zlib1g-dev libio-pty-perl libssl-dev pkg-config
+sudo apt install -y perl protobuf-compiler libprotobuf-dev libncurses5-dev zlib1g-dev libutempter-dev libssl-dev pkg-config
 ```
 
 Configure, compile and install:
@@ -69,9 +69,6 @@ Configure, compile and install:
 cd ~/git/dotfiles/bin/mosh/
 ./autogen.sh && ./configure
 make && sudo make install
-
-cd ~/git/dotfiles/bin/abduco/
-./configure && make && sudo make install
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)
@@ -109,7 +106,22 @@ sudo apt install -y pm-utils
 ```
 
 # Software setup
-## Programs
+## Quality of life
+```bash
+sudo apt install -y \
+bat \
+btop \
+exa \
+ffmpegthumbnailer \
+git-delta \
+highlight \
+mplayer \
+network-manager \
+ranger \
+rust-fd-find \
+```
+
+## Compiled programs
 ### [fastfetch](https://github.com/LinusDierheimer/fastfetch)
 Dependencies:
 ```bash
@@ -144,26 +156,6 @@ systemctl enable ly.service
 systemctl disable getty@tty2.service
 ```
 
-### [Ranger](https://github.com/ranger/ranger)
-```bash
-sudo apt install -y ranger
-```
-
-[Ranger - Syntax for preview](https://unix.stackexchange.com/questions/435696/how-to-enable-syntax-highlighting-in-ranger-preview)
-```bash
-sudo apt install -y highlight
-```
-
-[Ranger - Preview for video](https://github.com/ranger/ranger/wiki/Video-Previews)
-```bash
-sudo apt install -y ffmpegthumbnailer
-```
-
-### [Mplayer](http://www.mplayerhq.hu/)
-```bash
-sudo apt install -y mplayer
-```
-
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
@@ -178,48 +170,6 @@ git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --headless "+Lazy! sync" +qa
-```
-
-### Network Manager
-```bash
-sudo apt install -y network-manager
-```
-
-### [a4term](https://a4term.com/)
-Dependencies:
-```bash
-sudo apt install -y libtermkey-dev libunibilium-dev libtool-bin
-
-cd /tmp
-curl https://www.leonerd.org.uk/code/libtickit/libtickit-0.4.3.tar.gz | tar xzf -
-curl https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.1.tar.gz | tar xzf -
-
-cd /tmp/libtickit-*
-make && sudo make install
-cd /tmp/libvterm-*
-make && sudo make install
-sudo ldconfig
-```
-
-Download, compile and install:
-```bash
-git clone https://github.com/rpmohn/a4 /tmp/a4
-cd /tmp/a4 && make && sudo make install
-```
-
-### [btop++](https://github.com/aristocratos/btop)
-```bash
-sudo apt install -y btop
-```
-
-### [bat](https://github.com/sharkdp/bat)
-```bash
-sudo apt install -y bat
-```
-
-### [exa]()
-```bash
-sudo apt install -y exa
 ```
 
 # **TODO**
