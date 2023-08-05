@@ -13,9 +13,11 @@ vim.opt.shortmess:append("I")
 -- Set title to: filename [+=-] (path) - NVIM
 vim.opt.title = true
 -- Enables the window bar and determines its contents
-vim.opt.winbar="%f"
+vim.opt.winbar = "%f"
 -- Enable line number and relative line numbers
 vim.opt.relativenumber = true
+-- Signs share colimns with line numbers
+vim.o.signcolumn = "number"
 -- Maximum width of text that is being inserted.
 --vim.opt.textwidth = 80
 -- Highlight column after 'textwidth'
