@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>", { silent = true, desc = "Clear highlight" })
+
 vim.keymap.set("n", "n", "nzzzv", { desc = "Move to next search result" })
 
 vim.keymap.set("n", "<leader>o", "<cmd>setlocal spell spelllang=sv,en<CR>:set complete+=kspell<CR>", { desc = "Enable Spellcheck" })
