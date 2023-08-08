@@ -27,6 +27,10 @@ if command -v nvim &> /dev/null; then
   alias vim=nvim
 fi
 
+if command -v fastfetch &> /dev/null; then
+  alias cls='clear && fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l small'
+fi
+
 if command -v batcat &> /dev/null; then
   alias cat=batcat
 elif command -v bat &> /dev/null; then
