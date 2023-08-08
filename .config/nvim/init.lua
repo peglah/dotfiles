@@ -1,6 +1,7 @@
 local load = function(mod)
-	package.loaded[mod] = nil
-	require(mod)
+	local success, loadedModule = pcall(require, mod)
+	if success then return loadedModule end
+	vim.cmd.echo ("Error loading " .. mod)
 end
 
 load('config.lazy')
