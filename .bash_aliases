@@ -28,7 +28,7 @@ if command -v nvim &> /dev/null; then
 fi
 
 if command -v fastfetch &> /dev/null; then
-  alias cls='clear && fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l small'
+  alias cls='clear && fastfetch --structure Title:OS:Host:Packages:Memory:Colors --logo-type small'
 fi
 
 if command -v batcat &> /dev/null; then

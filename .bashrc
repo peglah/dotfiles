@@ -127,7 +127,7 @@ if grep -q "Raspberry Pi" /proc/cpuinfo; then
 fi
 
 if command -v fastfetch &> /dev/null; then
-  fastfetch --structure Title:OS:Host:Packages:Memory:Colors -l small
+  fastfetch --structure Title:OS:Host:Packages:Memory:Colors --logo-type small
 elif command -v afetch &> /dev/null; then
   afetch
 fi
