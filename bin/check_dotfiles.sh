@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_DIR="~/git/dotfiles"
+REPO_DIR="$HOME/git/dotfiles"
 
 cd "$REPO_DIR" || exit
 
