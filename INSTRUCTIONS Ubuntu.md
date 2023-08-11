@@ -1,5 +1,5 @@
 # Install OS
-Download and install [Ubuntu Server LTS](https://ubuntu.com/download/server)
+Download and install [Ubuntu Server](https://ubuntu.com/download/server)
 ```bash
 sudo add-apt-repository universe
 sudo apt update && sudo apt upgrade -y
