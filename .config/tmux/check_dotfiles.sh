@@ -10,8 +10,8 @@ LOCAL_HASH=$(git rev-parse HEAD)
 REMOTE_HASH=$(git rev-parse origin/main)
 
 if [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
-  tmux popup "echo 'Dotfiles update available'"
-else
-  tmux popup "echo 'Dotfiles are up to date'"
+  tmux popup -w27 -h4 "echo 'Dotfiles update available'"
+#else
+#  tmux popup -w27 -h4 "echo 'Dotfiles are up to date'"
 fi
 
