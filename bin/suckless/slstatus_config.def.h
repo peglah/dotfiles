@@ -74,7 +74,7 @@ static const struct arg args[] = {
   { battery_state, "%s",     "BAT0" },
   { battery_perc, "%s%% ",      "BAT0" },
   { battery_remaining, "%s | ", "BAT0" },
-	{ run_command, "墳%s | ", "amixer sget Master | tail -1 | awk '{print $4 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
+	{ run_command, "󰕾%s | ", "amixer sget Master | tail -1 | awk '{print $4 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
 	{ datetime, "%s",           "%F %R" },
 };
 
