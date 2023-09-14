@@ -16,7 +16,7 @@ local copilot_indicator = function()
 end
 
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
 
   opts = {
