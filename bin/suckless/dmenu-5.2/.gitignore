@@ -1,0 +1,9 @@
+/*.pkg.tar.xz
+/pkg/
+/src/
+/dmenu-*.tar.zst
+*.o
+config.h
+dmenu*
+dmenu_path*
+dmenu_run*

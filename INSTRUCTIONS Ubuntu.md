@@ -131,9 +131,8 @@ sudo apt install -y cmake
 Download, compile and install:
 ```bash
 git clone https://github.com/LinusDierheimer/fastfetch /tmp/fastfetch
-cd /tmp/fastfetch
-mkdir -p build
-cd build
+mkdir -p /tmp/fastfetch/build
+cd /tmp/fastfetch/build
 cmake ..
 cmake --build . --target fastfetch
 sudo cp fastfetch /usr/local/bin/
