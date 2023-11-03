@@ -15,8 +15,10 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'GruvboxDark'
 
---config.font = wezterm.font('Fira Code', { weight = 'Bold' })
-config.font = wezterm.font('FiraCode Nerd Font Mono Med', { weight = 'Bold' })
+config.font = wezterm.font('Fira Code', { weight = 'Bold' })
+
+-- wezterm will by default create a WslDomain with the name "WSL:Ubuntu"
+config.default_domain = "WSL:Ubuntu"
 
 -- and finally, return the configuration to wezterm
 return config
