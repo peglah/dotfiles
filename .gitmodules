@@ -1,9 +1,12 @@
 [submodule "bin/suckless/slstatus"]
 	path = bin/suckless/slstatus
 	url = https://git.suckless.org/slstatus
+	branch = master
 [submodule "bin/abduco"]
 	path = bin/abduco
 	url = https://github.com/martanne/abduco.git
+	branch = master
 [submodule "bin/mosh"]
 	path = bin/mosh
 	url = https://github.com/mobile-shell/mosh
+	branch = master
