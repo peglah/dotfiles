@@ -1,9 +1,8 @@
+*.o
 /*.pkg.tar.xz
+/dmenu-*.tar.zst
 /pkg/
 /src/
-/dmenu-*.tar.zst
-*.o
 config.h
-dmenu*
-dmenu_path*
-dmenu_run*
+dmenu
+stest
