@@ -1,8 +1,8 @@
 *.o
 /*.pkg.tar.xz
-/dwm-*.tar.zst
+/slstatus-*.tar.zst
 /pkg/
 /src/
 config.h
-dwm
+slstatus
 stest

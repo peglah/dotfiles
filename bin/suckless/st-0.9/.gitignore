@@ -1,7 +1,8 @@
+*.o
 /*.pkg.tar.xz
+/st-*.tar.zst
 /pkg/
 /src/
-/st-*.tar.zst
-*.o
 config.h
-st*
+st
+stest
