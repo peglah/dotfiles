@@ -1,0 +1,39 @@
+- name: Install Neovim dependencies
+  apt:
+    name:
+      - ninja-build
+      - gettext
+      - npm
+      - cmake
+      - unzip
+      - curl
+    state: present
+  become: yes
+
+- name: Clone Neovim repository
+  git:
+    repo: https://github.com/neovim/neovim
+    dest: /tmp/neovim
+    version: stable
+    force: yes
+    update: yes
+  register: neovim_cloned
+
+- name: Build Neovim
+  command: make CMAKE_BUILD_TYPE=RelWithDebInfo
+  args:
+    chdir: /tmp/neovim
+  become: yes
+  when: neovim_cloned.changed
+
+- name: Install Neovim
+  command: make install
+  args:
+    chdir: /tmp/neovim
+  become: yes
+  when: neovim_cloned.changed
+
+- name: Run Neovim headlessly for plugin installation
+  command: nvim --headless "+Lazy! sync" +qa
+  when: neovim_cloned.changed
+

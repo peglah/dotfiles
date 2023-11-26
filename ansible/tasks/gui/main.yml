@@ -1,0 +1,10 @@
+- name: Import tasks for Ubuntu
+  import_tasks: ubuntu.yml
+  when: "'Debian' in ansible_facts['os_family']"
+
+- import_tasks: ../programs/dmenu.yml
+- import_tasks: ../programs/dwm.yml
+- import_tasks: ../programs/slstatus.yml
+- import_tasks: ../programs/st.yml
+
+- import_tasks: ../programs/unclutter-xfixes.yml

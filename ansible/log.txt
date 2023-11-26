@@ -1,0 +1,207 @@
+
+PLAY [Configure System] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm02]
+
+TASK [Check if snap is installed] **********************************************
+ok: [vm02]
+
+TASK [Remove snaps] ************************************************************
+skipping: [vm02]
+
+TASK [Stop snapd service] ******************************************************
+ok: [vm02]
+
+TASK [Disable snapd service] ***************************************************
+ok: [vm02]
+
+TASK [Mask snapd service] ******************************************************
+ok: [vm02]
+
+TASK [Uninstall snapd package] *************************************************
+ok: [vm02]
+
+TASK [Mark snapd package as hold] **********************************************
+skipping: [vm02]
+
+TASK [Create APT preferences for nosnap] ***************************************
+ok: [vm02]
+
+TASK [Insert APT preferences for nosnap] ***************************************
+ok: [vm02]
+
+TASK [Remove snap directories] *************************************************
+ok: [vm02] => (item=/home/peglah/snap)
+ok: [vm02] => (item=/var/snap)
+ok: [vm02] => (item=/var/lib/snapd)
+
+TASK [Attempt to remove /snap directory] ***************************************
+ok: [vm02]
+
+TASK [Reboot and wait for system to come back online] **************************
+skipping: [vm02]
+
+TASK [Attempt to remove /snap directory again after reboot] ********************
+skipping: [vm02]
+
+TASK [Update and upgrade packages] *********************************************
+ok: [vm02]
+
+TASK [Install packages] ********************************************************
+ok: [vm02]
+
+TASK [Set timezone to Europe/Stockholm] ****************************************
+ok: [vm02]
+
+TASK [Mask systemd targets] ****************************************************
+ok: [vm02] => (item=systemd-networkd-wait-online.service)
+ok: [vm02] => (item=sleep.target)
+ok: [vm02] => (item=suspend.target)
+ok: [vm02] => (item=hibernate.target)
+ok: [vm02] => (item=hybrid-sleep.target)
+
+TASK [Clone dotfiles repository] ***********************************************
+ok: [vm02]
+
+TASK [Creating symlinks] *******************************************************
+ok: [vm02] => (item={'src': '.config', 'dest': '.config'})
+ok: [vm02] => (item={'src': '.bash_aliases', 'dest': '.bash_aliases'})
+ok: [vm02] => (item={'src': '.bashrc', 'dest': '.bashrc'})
+ok: [vm02] => (item={'src': '.xinitrc', 'dest': '.xinitrc'})
+ok: [vm02] => (item={'src': '.xinitrc', 'dest': '.xsession'})
+ok: [vm02] => (item={'src': '.config/nvim/.editorconfig', 'dest': '.editorconfig'})
+ok: [vm02] => (item={'src': '.gitconfig', 'dest': '.gitconfig'})
+
+TASK [Install Mosh dependencies] ***********************************************
+ok: [vm02]
+
+TASK [Clone Mosh repository] ***************************************************
+ok: [vm02]
+
+TASK [Compile and Install Mosh] ************************************************
+skipping: [vm02]
+
+TASK [Install Fastfetch dependencies] ******************************************
+ok: [vm02]
+
+TASK [Clone fastfetch repository] **********************************************
+ok: [vm02]
+
+TASK [Create build directory] **************************************************
+ok: [vm02]
+
+TASK [Configure fastfetch] *****************************************************
+skipping: [vm02]
+
+TASK [Build fastfetch] *********************************************************
+skipping: [vm02]
+
+TASK [Install fastfetch] *******************************************************
+skipping: [vm02]
+
+TASK [Install Neovim dependencies] *********************************************
+ok: [vm02]
+
+TASK [Clone Neovim repository] *************************************************
+ok: [vm02]
+
+TASK [Build Neovim] ************************************************************
+skipping: [vm02]
+
+TASK [Install Neovim] **********************************************************
+skipping: [vm02]
+
+TASK [Run Neovim headlessly for plugin installation] ***************************
+skipping: [vm02]
+
+TASK [Install X Server and dependencies] ***************************************
+ok: [vm02]
+
+TASK [Create "/home/peglah/.fonts directory] ***********************************
+ok: [vm02]
+
+TASK [Unzip Nerd Fonts] ********************************************************
+ok: [vm02]
+
+TASK [Update font cache] *******************************************************
+skipping: [vm02]
+
+TASK [Compile dmenu] ***********************************************************
+ok: [vm02]
+
+TASK [Install dmenu] ***********************************************************
+ok: [vm02]
+
+TASK [Compile dwm] *************************************************************
+ok: [vm02]
+
+TASK [Install dwm] *************************************************************
+ok: [vm02]
+
+TASK [Compile slstatus] ********************************************************
+ok: [vm02]
+
+TASK [Install slstatus] ********************************************************
+ok: [vm02]
+
+TASK [Compile st] **************************************************************
+ok: [vm02]
+
+TASK [Install st] **************************************************************
+ok: [vm02]
+
+TASK [Install unclutter-xfixes dependencies] ***********************************
+ok: [vm02]
+
+TASK [Clone unclutter-xfixes repository] ***************************************
+ok: [vm02]
+
+TASK [Build unclutter-xfixes] **************************************************
+skipping: [vm02]
+
+TASK [Install unclutter-xfixes] ************************************************
+skipping: [vm02]
+
+TASK [Install laptop stuff] ****************************************************
+ok: [vm02]
+
+TASK [Update HandleLidSwitch setting in logind.conf] ***************************
+ok: [vm02]
+
+TASK [Create Synaptics Touchpad config file] ***********************************
+ok: [vm02]
+
+TASK [Configure Synaptics Touchpad] ********************************************
+ok: [vm02]
+
+TASK [Modify XKB Symbols - Swap Caps Lock and Escape] **************************
+ok: [vm02]
+
+TASK [Modify XKB Symbols - Swap Escape and Caps Lock] **************************
+ok: [vm02]
+
+TASK [Remove xkb cache] ********************************************************
+ok: [vm02]
+
+TASK [Install ly dependencies] *************************************************
+ok: [vm02]
+
+TASK [Clone ly repository with submodules] *************************************
+ok: [vm02]
+
+TASK [Build ly] ****************************************************************
+skipping: [vm02]
+
+TASK [Install ly] **************************************************************
+skipping: [vm02]
+
+TASK [Enable ly.service] *******************************************************
+ok: [vm02]
+
+TASK [Disable getty@tty2.service] **********************************************
+ok: [vm02]
+
+PLAY RECAP *********************************************************************
+vm02                       : ok=47   changed=0    unreachable=0    failed=0    skipped=16   rescued=0    ignored=0   
+

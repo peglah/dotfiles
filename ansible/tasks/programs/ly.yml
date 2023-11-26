@@ -1,0 +1,41 @@
+- name: Install ly dependencies
+  apt:
+    name:
+      - build-essential
+      - libpam0g-dev
+      - libxcb-xkb-dev
+  become: yes
+
+- name: Clone ly repository with submodules
+  git:
+    repo: https://github.com/fairyglade/ly
+    dest: /tmp/ly
+    version: master
+    recursive: yes
+    force: yes
+    update: yes
+  register: ly_cloned
+
+- name: Build ly
+  command: make
+  args:
+    chdir: /tmp/ly
+  when: ly_cloned.changed
+
+- name: Install ly
+  command: make install installsystemd
+  args:
+    chdir: /tmp/ly
+  become: yes
+  when: ly_cloned.changed
+
+- name: Enable ly.service
+  systemd:
+    name: ly.service
+    enabled: yes
+  become: yes
+
+- name: Disable getty@tty2.service
+  systemd:
+    name: getty@tty2.service
+    enabled: no

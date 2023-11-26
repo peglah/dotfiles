@@ -1,0 +1,50 @@
+- name: Install laptop stuff
+  apt:
+    name: "{{ laptop_packages }}"
+    state: present
+  become: yes
+
+- name: Update HandleLidSwitch setting in logind.conf
+  lineinfile:
+    path: /etc/systemd/logind.conf
+    regexp: '^#?HandleLidSwitch='
+    line: 'HandleLidSwitch=ignore'
+  become: yes
+
+- name: Create Synaptics Touchpad config file
+  file:
+    path: /etc/X11/xorg.conf.d/70-synaptics.conf
+    state: touch
+    modification_time: preserve
+    access_time: preserve
+  become: yes
+
+- name: Configure Synaptics Touchpad
+  blockinfile:
+    path: /etc/X11/xorg.conf.d/70-synaptics.conf
+    block: |
+      MaxSpeed=1
+      VertEdgeScroll=0
+  become: yes
+
+- name: Modify XKB Symbols - Swap Caps Lock and Escape
+  replace:
+    path: /usr/share/X11/xkb/symbols/pc
+    regexp: 'key <CAPS> {\[. Caps_Lock. \]};'
+    replace: 'key <CAPS> {[  Escape  ]};'
+  become: yes
+
+- name: Modify XKB Symbols - Swap Escape and Caps Lock
+  replace:
+    path: /usr/share/X11/xkb/symbols/pc
+    regexp: 'key. <ESC> {\[. Escape. \]};'
+    replace: 'key  <ESC> {[  Caps_Lock  ]};'
+  become: yes
+
+- name: Remove xkb cache
+  file:
+    path: /var/lib/xkb/
+    state: absent
+  become: yes
+
+- import_tasks: programs/ly.yml

@@ -1,0 +1,39 @@
+- name: Install Fastfetch dependencies
+  apt:
+    name:
+      - cmake
+  become: yes
+
+- name: Clone fastfetch repository
+  git:
+    repo: https://github.com/LinusDierheimer/fastfetch
+    dest: /tmp/fastfetch
+    version: master
+    force: yes
+    update: yes
+  register: fastfetch_cloned
+
+- name: Create build directory
+  file:
+    path: /tmp/fastfetch/build
+    state: directory
+
+- name: Configure fastfetch
+  command: cmake ..
+  args:
+    chdir: /tmp/fastfetch/build
+  when: fastfetch_cloned.changed
+
+- name: Build fastfetch
+  command: cmake --build . --target fastfetch
+  args:
+    chdir: /tmp/fastfetch/build
+  when: fastfetch_cloned.changed
+
+- name: Install fastfetch
+  command: cp fastfetch /usr/local/bin/
+  args:
+    chdir: /tmp/fastfetch/build
+  become: yes
+  when: fastfetch_cloned.changed
+

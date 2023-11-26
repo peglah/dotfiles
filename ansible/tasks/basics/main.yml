@@ -1,0 +1,38 @@
+- name: Import tasks for Ubuntu
+  import_tasks: ubuntu.yml
+  when: "'Debian' in ansible_facts['os_family']"
+
+- name: Clone dotfiles repository
+  git:
+    repo: https://github.com/Peglah/dotfiles.git
+    dest: "{{ ansible_env.HOME }}/git/dotfiles"
+    version: main
+    force: yes
+    update: yes
+
+- name: Creating symlinks
+  file:
+    src: "{{ ansible_env.HOME }}/git/dotfiles/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
+    state: link
+    force: yes
+  with_items:
+  - src: ".config"
+    dest: ".config"
+  - src: ".bash_aliases"
+    dest: ".bash_aliases"
+  - src: ".bashrc"
+    dest: ".bashrc"
+  - src: ".xinitrc"
+    dest: ".xinitrc"
+  - src: ".xinitrc"
+    dest: ".xsession"
+  - src: ".config/nvim/.editorconfig"
+    dest: ".editorconfig"
+  - src: ".gitconfig"
+    dest: ".gitconfig"
+
+- import_tasks: ../programs/mosh.yml
+- import_tasks: ../programs/fastfetch.yml
+- import_tasks: ../programs/neovim.yml
+

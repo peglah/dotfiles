@@ -1,0 +1,14 @@
+- name: Compile slstatus
+  ansible.builtin.command:
+    cmd: make
+    creates: /usr/local/bin/slstatus
+  args:
+    chdir: "{{ ansible_env.HOME }}/git/dotfiles/bin/suckless/slstatus-1.0/"
+
+- name: Install slstatus
+  ansible.builtin.command:
+    cmd: make install
+    creates: /usr/local/bin/slstatus
+  args:
+    chdir: "{{ ansible_env.HOME }}/git/dotfiles/bin/suckless/slstatus-1.0/"
+  become: yes

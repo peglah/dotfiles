@@ -1,0 +1,14 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Configure System
+  hosts: all
+
+  tasks:
+    - import_tasks: tasks/basics/main.yml
+      when: basics | default(false)
+
+    - import_tasks: tasks/gui/main.yml
+      when: gui | default(false)
+
+    - import_tasks: tasks/laptop.yml
+      when: laptop | default(false)

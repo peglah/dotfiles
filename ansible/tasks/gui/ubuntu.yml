@@ -1,0 +1,21 @@
+- name: Install X Server and dependencies
+  apt:
+    name: "{{ gui_packages }}"
+    state: present
+  become: yes
+
+- name: Create "{{ ansible_env.HOME }}/.fonts directory
+  file:
+    path: "{{ ansible_env.HOME }}/.fonts"
+    state: directory
+
+- name: Unzip Nerd Fonts
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+    dest: "{{ ansible_env.HOME }}/.fonts/"
+    remote_src: yes
+  register: font_dl
+
+- name: Update font cache
+  command: fc-cache -fv
+  when: font_dl.changed

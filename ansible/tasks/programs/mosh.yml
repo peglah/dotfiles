@@ -1,0 +1,27 @@
+- name: Install Mosh dependencies
+  apt:
+    name:
+      - protobuf-compiler
+      - libprotobuf-dev
+      - libncurses5-dev
+      - zlib1g-dev
+      - libutempter-dev
+      - libssl-dev
+      - pkg-config
+      - autoconf
+  become: yes
+
+- name: Clone Mosh repository
+  git:
+    repo: https://github.com/mobile-shell/mosh
+    dest: /tmp/mosh
+    force: yes
+    update: yes
+  register: mosh_cloned
+
+- name: Compile and Install Mosh
+  shell:
+    cmd: cd /tmp/mosh/ && ./autogen.sh && ./configure && make && make install
+  become: yes
+  when: mosh_cloned.changed
+

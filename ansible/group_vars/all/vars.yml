@@ -1,0 +1,33 @@
+basic_packages:
+  - bat
+  - btop
+  - clang
+  - exa
+  - fd-find
+  - g++
+  - gcc
+  - git-delta
+  - highlight
+  - make
+  - ranger
+  - ripgrep
+  - unzip
+
+gui_packages:
+  - libx11-dev
+  - mpv
+  - libxft-dev
+  - libxinerama-dev
+  - xinit
+  - ffmpegthumbnailer
+  - mplayer
+  - feh
+  - xrdp
+
+laptop_packages:
+  - xserver-xorg-input-synaptics
+  - pm-utils
+  - network-manager
+  - build-essential
+  - libpam0g-dev
+  - libxcb-xkb-dev

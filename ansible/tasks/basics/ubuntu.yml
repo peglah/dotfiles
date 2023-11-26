@@ -1,0 +1,31 @@
+- import_tasks: remove_snap.yml
+
+- name: Update and upgrade packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+  become: yes
+
+- name: Install packages
+  apt:
+    name: "{{ basic_packages }}"
+  become: yes
+
+- name: Set timezone to Europe/Stockholm
+  timezone:
+    name: Europe/Stockholm
+  become: yes
+
+- name: Mask systemd targets
+  systemd:
+    name: "{{ item }}"
+    masked: yes
+  become: yes
+  with_items:
+    - systemd-networkd-wait-online.service
+    - sleep.target
+    - suspend.target
+    - hibernate.target
+    - hybrid-sleep.target
+
+

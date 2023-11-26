@@ -1,0 +1,88 @@
+- name: Check if snap is installed
+  stat:
+    path: /usr/bin/snap
+  register: snap_installed
+
+- name: Remove snaps
+  shell: snap remove --purge $(snap list --all | awk '/Name/{print $1}')
+  when: snap_installed.stat.exists
+  become: yes
+
+- name: Stop snapd service
+  ansible.builtin.systemd:
+    name: snapd
+    state: stopped
+  become: yes
+
+- name: Disable snapd service
+  ansible.builtin.systemd:
+    name: snapd
+    enabled: no
+  become: yes
+
+- name: Mask snapd service
+  ansible.builtin.systemd:
+    name: snapd
+    masked: yes
+  become: yes
+
+- name: Uninstall snapd package
+  apt:
+    name: snapd
+    state: absent
+  become: yes
+
+- name: Mark snapd package as hold
+  dpkg_selections:
+    name: snapd
+    selection: hold
+  when: snap_installed.stat.exists
+  become: yes
+
+- name: Create APT preferences for nosnap
+  file:
+    path: /etc/apt/preferences.d/nosnap.pref
+    state: touch
+    modification_time: preserve
+    access_time: preserve
+  become: yes
+
+- name: Insert APT preferences for nosnap
+  blockinfile:
+    path: /etc/apt/preferences.d/nosnap.pref
+    block: |
+      Package: snapd
+      Pin: release a=*
+      Pin-Priority: -10
+  become: yes
+
+- name: Remove snap directories
+  file:
+    path: "{{ item }}"
+    force: true
+    state: absent
+  become: yes
+  loop:
+    - "{{ ansible_env.HOME }}/snap"
+    - /var/snap
+    - /var/lib/snapd
+
+- name: Attempt to remove /snap directory
+  ansible.builtin.file:
+    path: /snap
+    state: absent
+  become: yes
+  register: remove_snap_result
+  ignore_errors: yes
+
+- name: Reboot and wait for system to come back online
+  ansible.builtin.reboot:
+  become: yes
+  when: (remove_snap_result.failed == true) and (inventory_hostname != 'localhost')
+
+- name: Attempt to remove /snap directory again after reboot
+  ansible.builtin.file:
+    path: /snap
+    state: absent
+  become: yes
+  when: (remove_snap_result.failed == true) and (inventory_hostname != 'localhost')

@@ -1,0 +1,16 @@
+all:
+  hosts:
+    vm01:
+#      ansible_host: localhost
+#
+#      basics: yes
+#      gui: no
+#      laptop: no
+
+    vm02:
+      ansible_host: 192.168.0.10
+      ansible_user: user
+
+      basics: yes
+      gui: yes
+      laptop: yes

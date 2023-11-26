@@ -1,0 +1,14 @@
+- name: Compile dwm
+  ansible.builtin.command:
+    cmd: make
+    creates: /usr/local/bin/dwm
+  args:
+    chdir: "{{ ansible_env.HOME }}/git/dotfiles/bin/suckless/dwm-6.4/"
+
+- name: Install dwm
+  ansible.builtin.command:
+    cmd: make install
+    creates: /usr/local/bin/dwm
+  args:
+    chdir: "{{ ansible_env.HOME }}/git/dotfiles/bin/suckless/dwm-6.4/"
+  become: yes

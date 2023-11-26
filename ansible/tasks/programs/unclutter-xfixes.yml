@@ -1,0 +1,30 @@
+- name: Install unclutter-xfixes dependencies
+  apt:
+    name:
+      - libev-dev
+      - libx11-dev
+      - libxi-dev
+      - asciidoc
+    state: present
+  become: yes
+
+- name: Clone unclutter-xfixes repository
+  git:
+    repo: https://github.com/Airblader/unclutter-xfixes
+    dest: /tmp/unclutter-xfixes
+    force: yes
+    update: yes
+  register: unclutter_cloned
+
+- name: Build unclutter-xfixes
+  command: make
+  args:
+    chdir: /tmp/unclutter-xfixes
+  when: unclutter_cloned.changed
+
+- name: Install unclutter-xfixes
+  command: make install
+  args:
+    chdir: /tmp/unclutter-xfixes
+  become: yes
+  when: unclutter_cloned.changed
