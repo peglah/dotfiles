@@ -12,24 +12,28 @@
   ansible.builtin.systemd:
     name: snapd
     state: stopped
+  when: snap_installed.stat.exists
   become: yes
 
 - name: Disable snapd service
   ansible.builtin.systemd:
     name: snapd
     enabled: no
+  when: snap_installed.stat.exists
   become: yes
 
 - name: Mask snapd service
   ansible.builtin.systemd:
     name: snapd
     masked: yes
+  when: snap_installed.stat.exists
   become: yes
 
 - name: Uninstall snapd package
   apt:
     name: snapd
     state: absent
+  when: snap_installed.stat.exists
   become: yes
 
 - name: Mark snapd package as hold
