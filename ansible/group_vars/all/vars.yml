@@ -11,6 +11,7 @@ basic_packages:
   - make
   - ranger
   - ripgrep
+  - tmux
   - unzip
 
 gui_packages:
