@@ -111,7 +111,7 @@ sudo apt install -y pm-utils
 sudo apt install -y \
 bat \
 btop \
-exa \
+eza \
 ffmpegthumbnailer \
 git-delta \
 highlight \

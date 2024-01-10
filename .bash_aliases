@@ -17,8 +17,8 @@ edit_file() {
   [ -n "$chosen_file" ] && $editor "$chosen_file"
 }
 
-if command -v exa &> /dev/null; then
-  alias ls='exa --icons --group-directories-first'
+if command -v eza &> /dev/null; then
+  alias ls='eza --icons --group-directories-first'
 else
   alias ls='ls --color=auto'
 fi

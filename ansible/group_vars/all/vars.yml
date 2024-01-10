@@ -2,7 +2,7 @@ basic_packages:
   - bat
   - btop
   - clang
-  - exa
+  - eza
   - fd-find
   - g++
   - gcc

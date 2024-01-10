@@ -126,7 +126,7 @@ pacman -Syu
 
 # Install programs
 ```bash
-pacman -S bat exa feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv btop openssh firefox qutebrowser alsa-utils pulseaudio fakeroot pkg-config make patch autoconf automake
+pacman -S bat eza feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv btop openssh firefox qutebrowser alsa-utils pulseaudio fakeroot pkg-config make patch autoconf automake
 ```
 
 ## Paru AUR helper
