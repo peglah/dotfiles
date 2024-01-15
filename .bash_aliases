@@ -23,6 +23,10 @@ else
   alias ls='ls --color=auto'
 fi
 
+if command -v nala &> /dev/null; then
+  alias apt=nala
+fi
+
 if command -v nvim &> /dev/null; then
   alias vim=nvim
 fi
@@ -42,5 +46,6 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias pfd=apt_search
+alias sudo='sudo '
 alias v=edit_file
 alias wt=wtwitch

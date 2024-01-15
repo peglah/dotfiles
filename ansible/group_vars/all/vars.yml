@@ -9,6 +9,7 @@ basic_packages:
   - git-delta
   - highlight
   - make
+  - nala
   - ranger
   - ripgrep
   - tmux

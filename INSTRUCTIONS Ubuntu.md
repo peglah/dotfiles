@@ -116,6 +116,7 @@ ffmpegthumbnailer \
 git-delta \
 highlight \
 mplayer \
+nala \
 network-manager \
 ranger \
 rust-fd-find \
