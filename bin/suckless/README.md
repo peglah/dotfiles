@@ -20,6 +20,11 @@
 
 [useless gap](https://dwm.suckless.org/patches/uselessgap/dwm-uselessgap-20211119-58414bee958f2.diff)
 
+### slock
+[dpms](https://tools.suckless.org/slock/patches/dpms/)
+
+[foreground-and-background](https://tools.suckless.org/slock/patches/foreground-and-background/)
+
 ### st
 [anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.4.diff)
 
