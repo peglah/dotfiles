@@ -33,6 +33,8 @@ fi
 
 if command -v fastfetch &> /dev/null; then
   alias cls='clear && fastfetch --structure Title:OS:Host:Packages:Memory:Colors --logo-type small'
+else
+  alias cls=clear
 fi
 
 if command -v batcat &> /dev/null; then
