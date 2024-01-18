@@ -25,7 +25,7 @@ chmod +x ~/.xinitrc
 ## [Suckless](https://suckless.org/)
 Dependencies:
 ```bash
-sudo apt install -y libx11-dev libxft-dev libxinerama-dev xinit
+sudo apt install -y libimlib2-dev libx11-dev libxft-dev libxinerama-dev libxrandr-dev xinit 
 ```
 
 [feh](https://feh.finalrewind.org/) and [font-manager](https://github.com/FontManager/font-manager)
@@ -39,8 +39,9 @@ cd ~/git/dotfiles/bin/suckless
 
 cd dmenu-*/ && make && sudo make install && cd ..
 cd dwm-*/ && make && sudo make install && cd ..
-cd st-*/ && make && sudo make install && cd ..
+cd slock-*/ && make && sudo make install && cd ..
 cd slstatus/ && make && sudo make install && cd ..
+cd st-*/ && make && sudo make install && cd ..
 ```
 
 `reboot` and `startx`

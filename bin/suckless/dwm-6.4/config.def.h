@@ -57,6 +57,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define SPRKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -68,8 +69,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-l", "6", "-g", "3", "-bw", "2", "-c", NULL };
-static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
+//static const char *firefoxcmd[]  = { "flatpak", "run", "org.mozilla.firefox", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *wtwitchcmd[] = { "sh", "-c", "wtwitch c | grep -oP '^\\s+\\K\\S+(?=:)'" " | grep -v 'Settings' | sed 's/\\x1B\\[[0-9;]\\{1,\\}[A-Za-z]//g' | dmenu -fn 'FiraCode Nerd Font Mono:style=Retina,Regular:pixelsize=16:antialias=true:autohint=true' -l 6 -g 3 -bw 2 -c | xargs -r wtwitch w", NULL };
 
 static const Key keys[] = {
@@ -85,6 +88,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ SPRKEY,                       XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
