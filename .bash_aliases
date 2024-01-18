@@ -23,8 +23,22 @@ else
   alias ls='ls --color=auto'
 fi
 
+if command -v doas &> /dev/null; then
+  alias sudo='doas '
+else
+  alias sudo='sudo '
+fi
+
 if command -v nala &> /dev/null; then
   alias apt=nala
+fi
+
+if ! command -v reboot &> /dev/null; then
+  alias reboot='systemctl reboot'
+fi
+
+if ! command -v shutdown &> /dev/null; then
+  alias shutdown='systemctl poweroff'
 fi
 
 if command -v nvim &> /dev/null; then
@@ -48,6 +62,5 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias pfd=apt_search
-alias sudo='sudo '
 alias v=edit_file
 alias wt=wtwitch
