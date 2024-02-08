@@ -11,15 +11,10 @@ systemctl mask systemd-networkd-wait-online.service
 ```bash
 sudo apt install -y make gcc g++ clang
 mkdir ~/git
-git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git
-ln -s ~/git/dotfiles/.config/ ~/
-ln -s ~/git/dotfiles/.bash_aliases ~/
+git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git/dotfiles
 rm ~/.bashrc
-ln -s ~/git/dotfiles/.bashrc ~/
-ln -s ~/git/dotfiles/.xinitrc ~/
-ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
-ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
-chmod +x ~/.xinitrc
+cd ~/git/dotfiles
+stow . -t $HOME
 ```
 
 ## [Suckless](https://suckless.org/)
@@ -40,7 +35,7 @@ cd ~/git/dotfiles/bin/suckless
 cd dmenu-*/ && make && sudo make install && cd ..
 cd dwm-*/ && make && sudo make install && cd ..
 cd slock-*/ && make && sudo make install && cd ..
-cd slstatus/ && make && sudo make install && cd ..
+cd slstatus-*/ && make && sudo make install && cd ..
 cd st-*/ && make && sudo make install && cd ..
 ```
 
@@ -62,7 +57,7 @@ ln -s ~/.xinitrc ~/.xsession
 ## [Mosh](https://mosh.org/)
 Dependencies:
 ```bash
-sudo apt install -y perl protobuf-compiler libprotobuf-dev libncurses5-dev zlib1g-dev libutempter-dev libssl-dev pkg-config
+sudo apt install -y perl protobuf-compiler libprotobuf-dev libncurses5-dev zlib1g-dev libutempter-dev libssl-dev pkg-config autoconf
 ```
 
 Configure, compile and install:
@@ -120,7 +115,7 @@ mplayer \
 nala \
 network-manager \
 ranger \
-rust-fd-find \
+rust-fd-find
 ```
 
 ## Compiled programs
