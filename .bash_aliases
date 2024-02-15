@@ -62,5 +62,6 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias pfd=apt_search
+alias tree='tree -C'
 alias v=edit_file
 alias wt=wtwitch
