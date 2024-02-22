@@ -114,6 +114,7 @@ highlight \
 mplayer \
 nala \
 network-manager \
+newsboat \
 ranger \
 rust-fd-find
 ```
