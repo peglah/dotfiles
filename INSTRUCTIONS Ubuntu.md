@@ -115,7 +115,8 @@ mplayer \
 nala \
 network-manager \
 newsboat \
-rust-fd-find
+rust-fd-find \
+zathura
 ```
 
 ## [Yazi](https://github.com/sxyazi/yazi)

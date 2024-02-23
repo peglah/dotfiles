@@ -1,2 +1,7 @@
- https://larmetgar.rtog.se/rss/larmetgar.xml ! Räddningstjänsten
- "query:Räddningstjänsten:(content =~ \"Norrköpings kommun\")"
+https://www.reddit.com/r/neovim.rss "~/r/neovim"
+
+https://larmetgar.rtog.se/rss/larmetgar.xml ! Räddningstjänsten
+"query:Räddningstjänsten:(content =~ \"Norrköpings kommun\")"
+
+https://api.sr.se/rss/channel?id=160&formatId=1 "~SR P4"
+http://svt.se/rss/nyheter/ostnytt/ "~SVT Öst"
