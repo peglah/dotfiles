@@ -1,3 +1,11 @@
+if [ -f $HOME/.bashrc ]; then
+  source $HOME/.bashrc
+fi
+
+if [ -f /usr/share/bash-completion/completions/git ]; then
+  . /usr/share/bash-completion/completions/git
+fi
+
 # use vi mode/keybindings
 set -o vi
 if command -v nvim &> /dev/null; then
