@@ -1,6 +1,4 @@
-if [ -f $HOME/.bashrc ]; then
-  source $HOME/.bashrc
-fi
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
 if [ -f /usr/share/bash-completion/completions/git ]; then
   . /usr/share/bash-completion/completions/git
