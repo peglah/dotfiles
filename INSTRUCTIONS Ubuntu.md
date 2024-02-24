@@ -9,10 +9,9 @@ systemctl mask systemd-networkd-wait-online.service
 
 # Initial setup
 ```bash
-sudo apt install -y make gcc g++ clang
+sudo apt install -y make gcc g++ clang stow
 mkdir ~/git
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git/dotfiles
-rm ~/.bashrc
 cd ~/git/dotfiles
 stow . -t $HOME
 ```
