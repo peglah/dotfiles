@@ -1,0 +1,56 @@
+# Newsboat colour scheme to work with the Gruvbox palette
+# Inspired by the vim theme https://github.com/morhetz/gruvbox
+# Tested with the Kitty gruvbox terminal colour scheme
+# https://github.com/wdomitrz/kitty-gruvbox-theme
+
+color background          color223   color0
+color listnormal          color223   color0
+color listnormal_unread   color2     color0
+color listfocus           color223   color237
+color listfocus_unread    color223   color237
+color info                color8     color0
+color article             color223   color0
+
+# highlights
+highlight article "^(Feed|Link):.*$" color11 default bold
+highlight article "^(Title|Date|Author):.*$" color11 default bold
+highlight article "https?://[^ ]+" color2 default underline
+highlight article "\\[[0-9]+\\]" color2 default bold
+highlight article "\\[image\\ [0-9]+\\]" color2 default bold
+highlight feedlist "^─.*$" color6 color6 bold
+
+# If set to yes, then for all feed items with no content but with a link,
+# the link is downloaded and the result used as content instead.
+# This may significantly increase the download times of "empty" feeds.
+download-full-page yes
+
+# If set to yes, then all query feeds are prepopulated with articles on startup.
+prepopulate-query-feeds yes
+
+# If set to yes, all feeds will be automatically reloaded at start up and then
+# continuously after a certain time has passed (see reload-time). See also
+# refresh-on-startup to only reload the feeds at start up, but not continuously.
+# Enabling suppress-first-reload omits the reload on start up.
+auto-reload yes
+
+# The number of minutes between automatic reloads.
+reload-time 5
+
+# If set to yes, then the description will always be displayed
+# even if e.g. a <content:encoded> tag has been found.
+always-display-description yes
+
+unbind-key g # bound to `sort` by default
+bind-key g home
+unbind-key G # bound to `rev-sort` by default
+bind-key G end
+
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
