@@ -13,7 +13,7 @@ edit_file() {
     fd_cmd="find . -type d -name ".git" -prune -o -type f -print"
   fi
   editor="$(command -v nvim || command -v vim || command -v vi)"
-  chosen_file=$($fd_cmd | fzf-tmux -p 80%,50% --ansi)
+  chosen_file=$($fd_cmd | fzf-tmux -p 80%,80% --ansi --preview "batcat --style numbers,changes --color=always {}")
   [ -n "$chosen_file" ] && $editor "$chosen_file"
 }
 
