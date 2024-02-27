@@ -1,4 +1,4 @@
-if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+if [ -f ~/.profile ]; then . ~/.profile; fi
 
 # use vi mode/keybindings
 set -o vi
@@ -8,7 +8,7 @@ if command -v nvim &> /dev/null; then
 fi
 
 if [ -n "$TMUX" ]; then
-    PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\]'
+    PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\] '
 elif grep -q "Raspberry Pi" /proc/cpuinfo; then
     PS1="${debian_chroot:+($debian_chroot)}\u@rpi:\w\$ "
 else
