@@ -8,6 +8,10 @@ if command -v nvim &> /dev/null; then
   export EDITOR=nvim
 fi
 
+if command -v batcat &> /dev/null; then
+  export BAT_THEME=gruvbox-dark
+fi
+
 if [ -n "$TMUX" ]; then
     PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\] '
 elif grep -q "Raspberry Pi" /proc/cpuinfo; then
