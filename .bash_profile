@@ -1,15 +1,19 @@
 if [ -f ~/.profile ]; then . ~/.profile; fi
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
-# use vi mode/keybindings
-set -o vi
+set -o vi # use vi mode/keybindings
 
 if command -v nvim &> /dev/null; then
   export EDITOR=nvim
 fi
 
-if command -v batcat &> /dev/null; then
+if command -v batcat &> /dev/null || command -v bat &> /dev/null; then
   export BAT_THEME=gruvbox-dark
+fi
+
+# morhetz/gruvbox
+if command -v fzf &> /dev/null; then
+  export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
 fi
 
 if [ -n "$TMUX" ]; then

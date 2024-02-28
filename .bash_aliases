@@ -7,13 +7,18 @@ apt_search() {
 }
 
 edit_file() {
+  if command -v batcat &> /dev/null; then
+    bat="batcat"
+  else
+    bat="bat"
+  fi
   if fd --version >/dev/null 2>&1; then
     fd_cmd="fd --type f --hidden --exclude .git --color=always"
   else
     fd_cmd="find . -type d -name ".git" -prune -o -type f -print"
   fi
   editor="$(command -v nvim || command -v vim || command -v vi)"
-  chosen_file=$($fd_cmd | fzf-tmux -p 80%,80% --ansi --preview "batcat --style numbers,changes --color=always {}")
+  chosen_file=$($fd_cmd | fzf-tmux -p 80%,80% --ansi --preview "$bat --style numbers,changes --color=always {}")
   [ -n "$chosen_file" ] && $editor "$chosen_file"
 }
 
