@@ -4,7 +4,7 @@ return {
 
   opts = {
     colorcolumn = '80',
-    disabled_filetypes = { 'help', 'lazy', 'markdown', 'mason', 'text' },
+    disabled_filetypes = { 'help', 'lazy', 'man', 'markdown', 'mason', 'text' },
     custom_colorcolumn = {},
     scope = 'line',
   }

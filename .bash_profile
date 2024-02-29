@@ -5,6 +5,7 @@ set -o vi # use vi mode/keybindings
 
 if command -v nvim &> /dev/null; then
   export EDITOR=nvim
+  export MANPAGER="nvim +Man! -c 'set laststatus=0 number'"
 fi
 
 if command -v batcat &> /dev/null || command -v bat &> /dev/null; then
@@ -17,7 +18,7 @@ if command -v fzf &> /dev/null; then
 fi
 
 if [ -n "$TMUX" ]; then
-    PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\] '
+    PS1='\[\e[0;32m\]\w\[\e[0m\]\[\e[0;97m\]\$\[\e[0m\] '
 elif grep -q "Raspberry Pi" /proc/cpuinfo; then
     #PS1="${debian_chroot:+($debian_chroot)}\u@rpi:\w\$ "
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@rpi\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
