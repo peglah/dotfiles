@@ -62,7 +62,7 @@ elif command -v bat &> /dev/null; then
   alias cat=bat
 fi
 
-alias c='bash $(find ~/ssh/ -type f -name "*.sh" | fzf)'
+alias c='FILE=$(find ~/ssh/ -type f -name "*.sh" | fzf-tmux -p 75%,25% --ansi); if [ $? -eq 0 ]; then bash $FILE; fi'
 alias curll='curl -L -O'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
