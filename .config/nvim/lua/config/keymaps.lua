@@ -16,10 +16,10 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader><leader>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n", "<leader>bb", "<cmd>e $MYVIMRC | lcd %:p:h<cr>", { desc= "Edit init.lua" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete buffer" })
 vim.keymap.set("n", "<leader>bs", "<cmd>split<cr>", { desc = "Open split" })
 vim.keymap.set("n", "<leader>bv", "<cmd>vs<cr>", { desc = "Open vertical split" })
+vim.keymap.set("n", "<leader>nn", "<cmd>e $MYVIMRC | lcd %:p:h<cr>", { desc= "Edit init.lua" })
 
 -- Change to Normal mode by pressing "jj" in quick succession
 vim.keymap.set("i", "jj", "<esc>", { desc = "Change to Normal mode" })

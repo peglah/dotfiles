@@ -6,6 +6,20 @@ require("lspconfig").powershell_es.setup{
   shell = "powershell.exe",
 }
 
+require("lspconfig").lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {
+          'vim',
+        }
+      }
+    }
+  }
+}
+
+require('lspconfig.ui.windows').default_options.border = 'rounded'
+
 lsp.setup()
 
 require("luasnip.loaders.from_vscode").lazy_load()

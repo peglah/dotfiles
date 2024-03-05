@@ -164,7 +164,7 @@ systemctl disable getty@tty2.service
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-sudo apt install -y ninja-build gettext cmake unzip curl
+sudo apt install -y cmake curl gcc gettext ninja-build nodejs ripgrep unzip
 ```
 
 Clone, checkout branch, compile and install:

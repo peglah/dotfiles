@@ -17,6 +17,7 @@ return {
     { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Lists available help tags' },
     { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Lists available keymaps' },
     { '<leader>fl', '<cmd>Telescope lazy<cr>', desc = 'Plugins installed via lazy.nvim' },
+    { '<leader>fn', function() require("telescope.builtin").find_files { cwd = vim.fn.stdpath 'config' } end, desc = 'File Browser' },
     { '<leader>fr', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
   },
 
