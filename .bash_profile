@@ -1,9 +1,3 @@
-fzf_history() {
-  local selected_command=$(cat ~/.bash_history | fzf-tmux -p 75%,50% --ansi)
-  READLINE_LINE=$selected_command
-  READLINE_POINT=${#selected_command}
-}
-
 if [ -f ~/.profile ]; then . ~/.profile; fi
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
@@ -21,7 +15,18 @@ fi
 # morhetz/gruvbox
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
-  bind -x '"\C-r": fzf_history'
+
+  if [ -f /usr/share/bash-completion/completions/fzf ]; then
+    . /usr/share/bash-completion/completions/fzf
+  elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+    . /usr/share/doc/fzf/examples/key-bindings.bash
+  fi
+
+  if [ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ]; then
+    . /data/data/com.termux/files/usr/share/fzf/completion.bash
+  elif [ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.bash ]; then
+    . /data/data/com.termux/files/usr/share/fzf/key-bindings.bash
+  fi
 fi
 
 if [ -n "$TMUX" ]; then
