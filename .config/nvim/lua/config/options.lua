@@ -83,7 +83,7 @@ vim.g.netrw_liststyle = 3
 -- netrw - show line numbers
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 -- Number of screen lines to use for the command-line.
-vim.opt.cmdheight = 0
+--vim.opt.cmdheight = 0 -- macro is not possible with this
 
 -- suppress colorschemes that are not used
 vim.cmd([[ set wildignore+=zellner.vim,torte.vim,slate.vim,shine.vim,ron.vim,quiet.vim,peachpuff.vim,pablo.vim,murphy.vim,morning.vim,lunaperche.vim,koehler.vim,industry.vim,habamax.vim,evening.vim,elflord.vim,desert.vim,delek.vim,darkblue.vim,blue.vim ]])

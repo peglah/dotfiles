@@ -18,12 +18,13 @@ if command -v fzf &> /dev/null; then
 
   if [ -f /usr/share/bash-completion/completions/fzf ]; then
     . /usr/share/bash-completion/completions/fzf
-  elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-    . /usr/share/doc/fzf/examples/key-bindings.bash
+  elif [ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ]; then
+    . /data/data/com.termux/files/usr/share/fzf/completion.bash
   fi
 
-  if [ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ]; then
-    . /data/data/com.termux/files/usr/share/fzf/completion.bash
+  if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+    . /usr/share/doc/fzf/examples/key-bindings.bash
+    echo "sourced" > /tmp/kb.txt
   elif [ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.bash ]; then
     . /data/data/com.termux/files/usr/share/fzf/key-bindings.bash
   fi
