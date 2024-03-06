@@ -118,6 +118,14 @@ rust-fd-find \
 zathura
 ```
 
+## [sysz](https://github.com/joehillen/sysz)
+```bash
+cd /tmp/
+git clone https://github.com/joehillen/sysz.git
+cd sysz
+sudo make install # /usr/local/bin/sysz
+```
+
 ## [Yazi](https://github.com/sxyazi/yazi)
 ```bash
 cd /tmp/
