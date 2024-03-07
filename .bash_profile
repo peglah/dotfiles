@@ -24,9 +24,14 @@ if command -v fzf &> /dev/null; then
 
   if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
     . /usr/share/doc/fzf/examples/key-bindings.bash
-    echo "sourced" > /tmp/kb.txt
+    if command -v tree &> /dev/null; then
+      export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+    fi
   elif [ -f /data/data/com.termux/files/usr/share/fzf/key-bindings.bash ]; then
     . /data/data/com.termux/files/usr/share/fzf/key-bindings.bash
+    if command -v tree &> /dev/null; then
+      export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+    fi
   fi
 fi
 
