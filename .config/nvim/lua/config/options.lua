@@ -5,9 +5,6 @@ end
 vim.o.undodir = undodir
 vim.o.undofile = true
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Suppress intro message
 vim.opt.shortmess:append("I")
 -- Set title to: filename [+=-] (path) - NVIM
