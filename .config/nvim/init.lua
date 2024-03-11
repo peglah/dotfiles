@@ -8,7 +8,6 @@ load('config.lazy')
 load('config.options')
 load('config.autocmds')
 load('config.keymaps')
-load('config.lsp')
 
 -- Add ChatGPT API key to environment variable OPENAI_API_KEY
 -- Add and point environment variable HOME to %USERPROFILE%
