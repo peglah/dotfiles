@@ -32,7 +32,7 @@ return {
       ['gi'] = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Goto Implementation' },
       ['go'] = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Goto Type Definition' },
       ['gr'] = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
---      ['c-k'] = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature Help' }, -- should be only insert mode
+      ['c-k'] = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature Help' }, -- should be only insert mode
       ['<F2>'] = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
       ['<F4>'] = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
       ['gl'] = { '<cmd>lua vim.diagnostic.open_float()<cr>', 'Line Diagnostics' },
