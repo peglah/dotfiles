@@ -108,6 +108,7 @@ bat \
 btop \
 eza \
 ffmpegthumbnailer \
+fzf \
 git-delta \
 highlight \
 mplayer \
@@ -115,14 +116,14 @@ nala \
 network-manager \
 newsboat \
 rust-fd-find \
+tmux \
 zathura
 ```
 
 ## [sysz](https://github.com/joehillen/sysz)
 ```bash
-cd /tmp/
-git clone https://github.com/joehillen/sysz.git
-cd sysz
+git clone https://github.com/joehillen/sysz.git /tmp/sysz
+cd /tmp/sysz
 sudo make install # /usr/local/bin/sysz
 ```
 
@@ -172,7 +173,7 @@ systemctl disable getty@tty2.service
 ### [Neovim](https://neovim.io/)
 Dependencies:
 ```bash
-sudo apt install -y cmake curl gcc gettext ninja-build nodejs ripgrep unzip
+sudo apt install -y cmake curl gcc gettext ninja-build npm ripgrep unzip
 ```
 
 Clone, checkout branch, compile and install:
