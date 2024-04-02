@@ -1,11 +1,5 @@
 #!/bin/sh
 
-apt_search() {
-  apt-cache search "$1" | \
-  sed 's/ - / /' | \
-  fzf --preview 'echo {} | cut -d " " -f2-' --preview-window=up:3:wrap --delimiter ' ' --with-nth 1
-}
-
 edit_file() {
   if command -v batcat &> /dev/null; then
     bat="batcat"
@@ -64,10 +58,10 @@ fi
 
 alias c='FILE=$(find ~/ssh/ -type f -name "*.sh" | fzf-tmux -p 75%,25% --ansi); if [ $? -eq 0 ]; then bash $FILE; fi'
 alias curll='curl -L -O'
+alias debcrawler='apt-cache pkgnames | fzf --multi --cycle --reverse --preview "apt-cache show {1}" --preview-window=:57%:wrap:hidden --bind=space:toggle-preview | xargs -ro sudo apt install'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
-alias pfd=apt_search
 alias tree='tree -C'
 alias v=edit_file
 alias wt=wtwitch
