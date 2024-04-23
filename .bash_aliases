@@ -56,9 +56,14 @@ elif command -v bat &> /dev/null; then
   alias cat=bat
 fi
 
+if command -v pacman &> /dev/null; then
+  alias fdz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+elif command -v apt &> /dev/null; then
+  alias fdz='apt-cache pkgnames | fzf --multi --cycle --reverse --preview "apt-cache show {1}" --preview-window=:57%:wrap:hidden --bind=space:toggle-preview | xargs -ro sudo apt install'
+fi
+
 alias c='FILE=$(find ~/ssh/ -type f -name "*.sh" | fzf-tmux -p 75%,25% --ansi); if [ $? -eq 0 ]; then bash $FILE; fi'
 alias curll='curl -L -O'
-alias debcrawler='apt-cache pkgnames | fzf --multi --cycle --reverse --preview "apt-cache show {1}" --preview-window=:57%:wrap:hidden --bind=space:toggle-preview | xargs -ro sudo apt install'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
