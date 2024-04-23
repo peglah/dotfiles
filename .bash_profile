@@ -16,8 +16,18 @@ fi
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
 
+  # Debian bindings
   if [ -f /usr/share/bash-completion/completions/fzf ]; then
     . /usr/share/bash-completion/completions/fzf
+
+  # Arch bindings
+  elif [ -f /usr/share/fzf/completion.bash ]; then
+    . /usr/share/fzf/completion.bash
+    if [ -f /usr/share/fzf/key-bindings.bash ]; then
+      . /usr/share/fzf/key-bindings.bash
+    fi
+
+  # Termux bindings
   elif [ -f /data/data/com.termux/files/usr/share/fzf/completion.bash ]; then
     . /data/data/com.termux/files/usr/share/fzf/completion.bash
   fi
