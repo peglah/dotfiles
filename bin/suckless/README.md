@@ -1,24 +1,26 @@
 ### dmenu
-[gruvbox](https://tools.suckless.org/dmenu/patches/gruvbox/dmenu-gruvbox-20210329-9ae8ea5.diff)
+[gruvbox](https://tools.suckless.org/dmenu/patches/gruvbox/)
 
-[grid](https://tools.suckless.org/dmenu/patches/grid/dmenu-grid-4.9.diff)
+[grid](https://tools.suckless.org/dmenu/patches/grid/)
 
-[center](https://tools.suckless.org/dmenu/patches/center/dmenu-center-20200111-8cd37e1.diff)
+[center](https://tools.suckless.org/dmenu/patches/center/)
 
-[border](https://tools.suckless.org/dmenu/patches/border/dmenu-border-20201112-1a13d04.diff)
+[border](https://tools.suckless.org/dmenu/patches/border/)
 
 ### dwm
-[fibonacci](https://dwm.suckless.org/patches/fibonacci/dwm-fibonacci-20200418-c82db69.diff)
+[fibonacci](https://dwm.suckless.org/patches/fibonacci/)
 
-[focusonclick](https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff)
+[focusonclick](https://dwm.suckless.org/patches/focusonclick/)
 
-[hide_vacant_tags](https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.3.diff)
+[gridmode](https://dwm.suckless.org/patches/gridmode/)
 
-[gridmode](https://dwm.suckless.org/patches/gridmode/dwm-gridmode-20170909-ceac8c9.diff)
+[hide_vacant_tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
 
-[three-column](https://dwm.suckless.org/patches/three-column/tcl.c)
+[pertag](https://dwm.suckless.org/patches/pertag/)
 
-[useless gap](https://dwm.suckless.org/patches/uselessgap/dwm-uselessgap-20211119-58414bee958f2.diff)
+[three-column](https://dwm.suckless.org/patches/three-column/)
+
+[useless gap](https://dwm.suckless.org/patches/uselessgap/)
 
 ### slock
 [dpms](https://tools.suckless.org/slock/patches/dpms/)
@@ -26,10 +28,10 @@
 [foreground-and-background](https://tools.suckless.org/slock/patches/foreground-and-background/)
 
 ### st
-[anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.4.diff)
+[anysize](https://st.suckless.org/patches/anysize/)
 
-[boxdraw](https://st.suckless.org/patches/boxdraw/st-boxdraw_v2-0.8.5.diff)
+[boxdraw](https://st.suckless.org/patches/boxdraw/)
 
-[csi_22_23](https://st.suckless.org/patches/csi_22_23/st-csi_22_23-0.8.5.diff)
+[csi_22_23](https://st.suckless.org/patches/csi_22_23/)
 
-[gruvbox](https://st.suckless.org/patches/gruvbox/st-gruvbox-dark-0.8.5.diff)
+[gruvbox](https://st.suckless.org/patches/gruvbox/)
