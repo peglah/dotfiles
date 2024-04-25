@@ -8,3 +8,21 @@ spotify-tui/
 streamlink/
 wtwitch/
 
+.gsd-keyboard.settings-ported
+QtProject.conf
+Signal/
+Slack/
+autorandr/
+background
+bluetuith/
+chromium/
+dconf/
+evolution/
+gtk-3.0/
+monitors.xml
+monitors.xml~
+syncthing-gtk/
+systemd/
+teams-for-linux/
+user-dirs.dirs
+user-dirs.locale

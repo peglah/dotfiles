@@ -1,11 +1,11 @@
 ### dmenu
-[gruvbox](https://tools.suckless.org/dmenu/patches/gruvbox/)
-
-[grid](https://tools.suckless.org/dmenu/patches/grid/)
+[border](https://tools.suckless.org/dmenu/patches/border/)
 
 [center](https://tools.suckless.org/dmenu/patches/center/)
 
-[border](https://tools.suckless.org/dmenu/patches/border/)
+[grid](https://tools.suckless.org/dmenu/patches/grid/)
+
+[gruvbox](https://tools.suckless.org/dmenu/patches/gruvbox/)
 
 ### dwm
 [fibonacci](https://dwm.suckless.org/patches/fibonacci/)
