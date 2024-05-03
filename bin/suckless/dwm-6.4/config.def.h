@@ -74,6 +74,7 @@ static const char *firefoxcmd[]  = { "firefox", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *wtwitchcmd[] = { "sh", "-c", "~/git/dotfiles/bin/dtwitch.sh", NULL };
+static const char *shotgunxclipcmd[] = { "sh", "-c", "~/git/dotfiles/bin/ssxclip.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -81,6 +82,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } },
   { MODKEY,                       XK_c,      spawn,          {.v = wtwitchcmd } },
+  { 0,                            XK_Print,  spawn,          {.v = shotgunxclipcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
