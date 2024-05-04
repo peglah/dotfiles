@@ -17,8 +17,8 @@ static const int monitortime = 60;
 /* insert grid pattern with scale 1:1, the size can be changed with logosize */
 static const int logosize = 75;
 /* grid width and height for right center alignment */
-static const int logow = 6;
-static const int logoh = 12;
+static const int logow = 8;
+static const int logoh = 13;
 
 static XRectangle rectangles[9] = {
 	/* x    y       w       h */
