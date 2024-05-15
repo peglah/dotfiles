@@ -15,10 +15,14 @@ Slack/
 autorandr/
 background
 bluetuith/
+btop/
 chromium/
 dconf/
 evolution/
 gtk-3.0/
+gtk-4.0/
+htop/
+lazysql/
 monitors.xml
 monitors.xml~
 syncthing-gtk/
