@@ -67,6 +67,8 @@ alias curll='curl -L -O'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
+alias la='ls -lah'
+alias ll='ls -lh'
 alias tree='tree -C'
 alias v=edit_file
 alias wt=wtwitch

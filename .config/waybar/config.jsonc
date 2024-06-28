@@ -8,8 +8,6 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad",
         "custom/media"
     ],
     "modules-center": [
@@ -28,7 +26,6 @@
         "keyboard-state",
         "hyprland/language",
         "battery",
-        "battery#bat2",
         "clock",
         "tray"
     ],

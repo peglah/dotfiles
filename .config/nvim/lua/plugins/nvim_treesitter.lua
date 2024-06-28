@@ -44,6 +44,11 @@ return {
         'GruvboxAqua'
       },
     },
+
+    -- Hyprlang
+    vim.filetype.add({
+      pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    })
   },
 
   config = function(_, opts)

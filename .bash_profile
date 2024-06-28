@@ -3,6 +3,14 @@ if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
 set -o vi # use vi mode/keybindings
 
+# Dark theme
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+
+# Grimblast output folder
+export XDG_SCREENSHOTS_DIR=$HOME/pictures/screenshots/
+
 if command -v nvim &> /dev/null; then
   export EDITOR=nvim
   export MANPAGER="nvim +Man! -c 'set laststatus=0'"
