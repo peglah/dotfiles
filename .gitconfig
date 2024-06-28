@@ -9,10 +9,10 @@
   helper = store
 
 [core]
-  pager = delta
+  pager = bat
 
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = bat
 
 [delta]
   navigate = true    # use n and N to move between diff sections
@@ -25,3 +25,6 @@
   colorMoved = default
 [color]
 	status = always
+
+[alias]
+    dif = "!git diff --name-only --relative --diff-filter=d | xargs -I {} bat --diff {}"

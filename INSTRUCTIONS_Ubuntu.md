@@ -109,7 +109,6 @@ btop \
 eza \
 ffmpegthumbnailer \
 fzf \
-git-delta \
 highlight \
 mplayer \
 nala \

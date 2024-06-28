@@ -4,10 +4,10 @@ Welcome to the rice fields
 
 ## Instructions
 
-[Arch](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Arch.md)
+[Arch](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS_Arch.md)
 
-[RPi](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20RPi.md)
+[RPi](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS_RPi.md)
 
-[Ubuntu](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Ubuntu.md)
+[Ubuntu](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS_Ubuntu.md)
 
-[Win](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS%20Win.md)
+[Win](https://github.com/Peglah/dotfiles/blob/main/INSTRUCTIONS_Win.md)

@@ -6,7 +6,6 @@ basic_packages:
   - fd-find
   - g++
   - gcc
-  - git-delta
   - highlight
   - make
   - nala
