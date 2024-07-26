@@ -14,6 +14,10 @@ if command -v unclutter &> /dev/null; then
   unclutter &
 fi
 
+if command -v xbindkeys &> /dev/null; then
+  xbindkeys &
+fi
+
 if command -v slstatus &> /dev/null; then
   slstatus &
 else
