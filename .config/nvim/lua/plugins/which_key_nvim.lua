@@ -4,7 +4,7 @@ return {
   config = function()
 
     local wk = require('which-key')
-    wk.register({
+    wk.add({
       ['<leader>'] = { name = '+leader' },
       ['<leader>c'] = { name = '+ChatGPT' },
       ['<leader>cb'] = { name = '+Backseat' },

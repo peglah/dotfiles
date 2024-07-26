@@ -67,14 +67,14 @@ static const struct arg args[] = {
 	/* function format          argument */
 	//{ netspeed_rx, " %s ",    "enp1s0" },
 	//{ netspeed_tx, "%s | ",   "enp1s0" },
-	{ netspeed_rx, " %s ",    "wlp3s0" },
-	{ netspeed_tx, " %s | ",   "wlp3s0" },
+	{ netspeed_rx, " %s ",    "wlan0" },
+	{ netspeed_tx, " %s | ",   "wlan0" },
   { load_avg, "%s | ",         NULL },
   //{ uptime, "Up %s | ",        NULL },
   { battery_state, "%s",     "BAT0" },
   { battery_perc, "%s%% ",      "BAT0" },
   { battery_remaining, "%s | ", "BAT0" },
-	{ run_command, "󰕾%s | ", "amixer sget Master | tail -1 | awk '{print $4 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
+	{ run_command, "󰕾%s | ", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)\"%%\"}'" },
 	{ datetime, "%s",           "%F %R" },
 };
 

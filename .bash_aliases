@@ -56,6 +56,14 @@ elif command -v bat &> /dev/null; then
   alias cat=bat
 fi
 
+if command -v tree &> /dev/null; then
+  alias tree='tree -C'
+fi
+
+if command -v wtwitch &> /dev/null; then
+  alias wt=wtwitch
+fi
+
 if command -v pacman &> /dev/null; then
   alias fdz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 elif command -v apt &> /dev/null; then
@@ -69,6 +77,4 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias la='ls -lah'
 alias ll='ls -lh'
-alias tree='tree -C'
 alias v=edit_file
-alias wt=wtwitch
