@@ -192,13 +192,7 @@ cd ~/git/dotfiles/bin/suckless/dwm* && makepkg -sifc
 
 ## xrdp
 ```bash
-pacman -S sbc
-paru -S xrdp pulseaudio-module-xrdp
-mkdir /etc/systemd/system/pulseaudio.service.d
-nvim /etc/systemd/system/pulseaudio.service.d/xrdp.conf
-  [Service]
-  Environment="PULSE_SCRIPT=/etc/xrdp/pulse/default.pa"
-ln -s ~/.xinitrc ~/.xsession
+paru -S xorgxrdp
 ```
 
 # Fixes
