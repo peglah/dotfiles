@@ -18,7 +18,7 @@ config.color_scheme = 'GruvboxDark'
 config.font = wezterm.font('Fira Code', { weight = 'Bold' })
 
 -- wezterm will by default create a WslDomain with the name "WSL:Ubuntu"
-config.default_domain = "WSL:Ubuntu"
+--config.default_domain = "WSL:Ubuntu"
 
 config.audible_bell = "Disabled"
 
