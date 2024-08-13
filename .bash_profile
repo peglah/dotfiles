@@ -50,7 +50,7 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 fi
 
 if command -v fastfetch &> /dev/null; then
-  fastfetch --structure Title:OS:Host:Packages:Memory:Colors --logo-type small
+  fastfetch --structure Title:OS:Host:LocalIp:Memory:Colors --logo-type small
 elif command -v afetch &> /dev/null; then
   afetch
 fi

@@ -45,7 +45,7 @@ if command -v nvim &> /dev/null; then
 fi
 
 if command -v fastfetch &> /dev/null; then
-  alias cls='clear && fastfetch --structure Title:OS:Host:Packages:Memory:Colors --logo-type small'
+  alias cls='clear && fastfetch --structure Title:OS:Host:LocalIp:Memory:Colors --logo-type small'
 else
   alias cls=clear
 fi
