@@ -15,17 +15,17 @@ Git tip of the day :bulb:
 Add the following to your git config:
 ```bash
 sudo apt install -y make gcc git
-mkdir ~/git
-cd ~/git
+mkdir -p ~/git/Peglah
+cd ~/git/Peglah
 git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git
-ln -s ~/git/dotfiles/.config/ ~/
-ln -s ~/git/dotfiles/.bash_aliases ~/
+ln -s ~/git/Peglah/dotfiles/.config/ ~/
+ln -s ~/git/Peglah/dotfiles/.bash_aliases ~/
 rm ~/.bashrc
-ln -s ~/git/dotfiles/.bashrc ~/
-ln -s ~/git/dotfiles/.xinitrc ~/
+ln -s ~/git/Peglah/dotfiles/.bashrc ~/
+ln -s ~/git/Peglah/dotfiles/.xinitrc ~/
 chmod +x ~/.xinitrc
-ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
-ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/git/Peglah/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
+ln -s ~/git/Peglah/dotfiles/.gitconfig ~/.gitconfig
 ```
 
 ## Window manager
@@ -56,10 +56,10 @@ sudo make install
 ### [Suckless](https://suckless.org/)
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/git/dotfiles/suckless/dwm* && sudo make clean install
-cd ~/git/dotfiles/suckless/dmenu* && sudo make clean install
-cd ~/git/dotfiles/suckless/st* && sudo make clean install
-cd ~/git/dotfiles/suckless/slstatus* && sudo make clean install
+cd ~/git/Peglah/dotfiles/suckless/dwm* && sudo make clean install
+cd ~/git/Peglah/dotfiles/suckless/dmenu* && sudo make clean install
+cd ~/git/Peglah/dotfiles/suckless/st* && sudo make clean install
+cd ~/git/Peglah/dotfiles/suckless/slstatus* && sudo make clean install
 ```
 
 `reboot` and `startx`

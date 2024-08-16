@@ -105,11 +105,8 @@ localectl set-keymap --no-convert sv-latin1
 ```bash
 systemctl enable systemd-networkd
 nmtui
-mkdir ~/git
+mkdir -p ~/git/Peglah
 pacman -S git
-git config --global user.name "username"
-git config --global user.email "usern@name.com"
-git config --global credential.helper cache
 ```
 
 ## Fix pacman again
@@ -131,8 +128,8 @@ pacman -S bat eza feh unclutter mosh ranger highlight w3m ffmpegthumbnailer mpv 
 
 ## Paru AUR helper
 ```bash
-git clone https://aur.archlinux.org/paru.git ~/git/paru
-cd ~/git/paru
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+cd /tmp/paru
 makepkg -si
 ```
 
@@ -154,16 +151,16 @@ systemctl start sshd.service
 
 ## Dotfiles
 ```bash
-git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git/dotfiles
+git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
 
-ln -s ~/git/dotfiles/.bash_aliases ~/.bash_aliases
+ln -s ~/git/Peglah/dotfiles/.bash_aliases ~/.bash_aliases
 rm ~/.bashrc
-ln -s ~/git/dotfiles/.bashrc ~/.bashrc
-ln -s ~/git/dotfiles/.config ~/.config
-ln -s ~/git/dotfiles/.xinitrc ~/.xinitrc
-ln -s ~/git/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
+ln -s ~/git/Peglah/dotfiles/.bashrc ~/.bashrc
+ln -s ~/git/Peglah/dotfiles/.config ~/.config
+ln -s ~/git/Peglah/dotfiles/.xinitrc ~/.xinitrc
+ln -s ~/git/Peglah/dotfiles/.config/nvim/.editorconfig ~/.editorconfig
 rm ~/.gitconfig
-ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/git/Peglah/dotfiles/.gitconfig ~/.gitconfig
 
 chmod +x ~/.xinitrc
 
@@ -184,10 +181,10 @@ pacman -S xorg xorg-xinit ttf-firacode-nerd
 
 ## Suckless
 ```bash
-cd ~/git/dotfiles/bin/suckless/dmenu* && makepkg -sifc
-cd ~/git/dotfiles/bin/suckless/slstatus && makepkg -sifc
-cd ~/git/dotfiles/bin/suckless/st* && makepkg -sifc
-cd ~/git/dotfiles/bin/suckless/dwm* && makepkg -sifc
+cd ~/git/Peglah/dotfiles/bin/suckless/dmenu* && makepkg -sifc
+cd ~/git/Peglah/dotfiles/bin/suckless/slstatus && makepkg -sifc
+cd ~/git/Peglah/dotfiles/bin/suckless/st* && makepkg -sifc
+cd ~/git/Peglah/dotfiles/bin/suckless/dwm* && makepkg -sifc
 ```
 
 ## xrdp

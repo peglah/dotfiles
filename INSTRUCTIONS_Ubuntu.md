@@ -10,9 +10,9 @@ systemctl mask systemd-networkd-wait-online.service
 # Initial setup
 ```bash
 sudo apt install -y make gcc g++ clang stow
-mkdir ~/git
-git clone --recurse-submodules -j8 https://github.com/Peglah/dotfiles.git ~/git/dotfiles
-cd ~/git/dotfiles
+mkdir -p ~/git/Peglah
+git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+cd ~/git/Peglah/dotfiles
 stow . -t $HOME
 ```
 
@@ -29,7 +29,7 @@ sudo apt install -y feh unclutter-xfixes
 
 Compile and install dwm, dmenu, st and slstatus
 ```bash
-cd ~/git/dotfiles/bin/suckless
+cd ~/git/Peglah/dotfiles/bin/suckless
 
 cd dmenu-*/ && make && sudo make install && cd ..
 cd dwm-*/ && make && sudo make install && cd ..
@@ -51,19 +51,6 @@ fc-cache -fv
 ```bash
 sudo apt install -y xrdp
 ln -s ~/.xinitrc ~/.xsession
-```
-
-## [Mosh](https://mosh.org/)
-Dependencies:
-```bash
-sudo apt install -y perl protobuf-compiler libprotobuf-dev libncurses5-dev zlib1g-dev libutempter-dev libssl-dev pkg-config autoconf
-```
-
-Configure, compile and install:
-```bash
-cd ~/git/dotfiles/bin/mosh/
-./autogen.sh && ./configure
-make && sudo make install
 ```
 
 ## [Ignore laptop lid](https://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed)

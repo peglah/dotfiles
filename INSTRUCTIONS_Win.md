@@ -60,15 +60,15 @@ Log out and back in
 mkdir %USERPROFILE%\git && cd %USERPROFILE%\git
 git clone https://github.com/Peglah/dotfiles.git
 
-mklink %USERPROFILE%\.gitconfig %USERPROFILE%\git\dotfiles\.gitconfig
-mklink /D %USERPROFILE%\.config %USERPROFILE%\git\dotfiles\.config
+mklink %USERPROFILE%\.gitconfig %USERPROFILE%\git\Peglah\dotfiles\.gitconfig
+mklink /D %USERPROFILE%\.config %USERPROFILE%\git\Peglah\dotfiles\.config
 ```
 
 # Neovim
 ## Make symlink
 ```cmd
-mklink %USERPROFILE%\.editorconfig %USERPROFILE%\git\dotfiles\.config\nvim\.editorconfig
-mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\dotfiles\.config\nvim
+mklink %USERPROFILE%\.editorconfig %USERPROFILE%\git\Peglah\dotfiles\.config\nvim\.editorconfig
+mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\Peglah\dotfiles\.config\nvim
 ```
 
 ## Install everything in Neovim
@@ -84,20 +84,29 @@ nvim
 
 # Firefox 
 ## Settings
-Never remember password
+Disable "Ask to save passwords"
 
-Highlight search results
+about:config
+findbar.highlightAll
+
+about:support
+Open Profile Folder
+mkdir chrome
+Edit chrome\userChrome.css
+#TabsToolbar-customization-target { visibility: collapse !important; }
+about:config
+toolkit.legacyUserProfileCustomizations.stylesheets
 
 ## Addons
 [Bitwarden](https://addons.mozilla.org/sv-SE/firefox/addon/bitwarden-password-manager/)
 
-[Consent-O-Matic](https://addons.mozilla.org/sv-SE/firefox/addon/consent-o-matic/)
+[I still don't care about cookies](https://addons.mozilla.org/en-US/firefox/addon/istilldontcareaboutcookies/)
 
 [Dark Reader](https://addons.mozilla.org/sv-SE/firefox/addon/darkreader/)
 
 [Humble Gruvbox](https://addons.mozilla.org/sv-SE/firefox/addon/humble-gruvbox/)
 
-[Tree Style Tab](https://addons.mozilla.org/sv-SE/firefox/addon/tree-style-tab/)
+[Sidebery](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 
 # Visual Studio Code addons
 [Gruvbox Themes](https://marketplace.visualstudio.com/items?itemName=tomphilbin.gruvbox-themes)
