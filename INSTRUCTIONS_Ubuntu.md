@@ -171,6 +171,7 @@ make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --headless "+Lazy! sync" +qa
 ```
+[sshs](https://github.com/quantumsheep/sshs)
 
 # **TODO**
 music

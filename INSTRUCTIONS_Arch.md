@@ -134,7 +134,7 @@ makepkg -si
 ```
 
 ```bash
-paru -S fastfetch ly ncpamixer
+paru -S fastfetch ly ncpamixer sshs
 ```
 
 ## Ly
