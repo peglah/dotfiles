@@ -21,9 +21,6 @@ vim.keymap.set("n", "<leader>bs", "<cmd>split<cr>", { desc = "Open split" })
 vim.keymap.set("n", "<leader>bv", "<cmd>vs<cr>", { desc = "Open vertical split" })
 vim.keymap.set("n", "<leader>n", "<cmd>e $MYVIMRC | lcd %:p:h<cr>", { desc= "Edit init.lua" })
 
--- Change to Normal mode by pressing "jj" in quick succession
-vim.keymap.set("i", "jj", "<esc>", { desc = "Change to Normal mode" })
-
 -- Resize windows using <Ctrl + Arrow keys>
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
