@@ -52,6 +52,7 @@ fi
 
 if command -v batcat &> /dev/null; then
   alias cat=batcat
+  alias bat=batcat
 elif command -v bat &> /dev/null; then
   alias cat=bat
 fi
