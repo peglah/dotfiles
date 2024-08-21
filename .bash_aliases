@@ -18,6 +18,7 @@ edit_file() {
 
 if command -v eza &> /dev/null; then
   alias ls='eza --icons --group-directories-first'
+  alias tree='eza --icons --tree'
 else
   alias ls='ls --color=auto'
 fi
@@ -55,10 +56,6 @@ if command -v batcat &> /dev/null; then
   alias bat=batcat
 elif command -v bat &> /dev/null; then
   alias cat=bat
-fi
-
-if command -v tree &> /dev/null; then
-  alias tree='tree -C'
 fi
 
 if command -v wtwitch &> /dev/null; then
