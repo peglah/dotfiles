@@ -13,13 +13,12 @@ irm get.scoop.sh | iex
 
 ## Install
 ```cmd
-scoop install mingit
 scoop bucket add extras
 scoop bucket add nerd-fonts
 
 REM These are packages for Neovim
 scoop install^
-  firacode^
+  FiraCode-NF^
   fzf^
   gcc^
   less^
