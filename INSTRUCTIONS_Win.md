@@ -75,27 +75,7 @@ mklink /D %LOCALAPPDATA%\nvim %USERPROFILE%\git\Peglah\dotfiles\.config\nvim
 nvim --headless "+Lazy! sync" +qa
 ```
 
-## Change font
-```
-nvim
-:set guifont=*
-```
-
 # Firefox 
-## Settings
-Disable "Ask to save passwords"
-
-about:config
-findbar.highlightAll
-
-about:support
-Open Profile Folder
-mkdir chrome
-Edit chrome\userChrome.css
-#TabsToolbar-customization-target { visibility: collapse !important; }
-about:config
-toolkit.legacyUserProfileCustomizations.stylesheets
-
 ## Addons
 [Bitwarden](https://addons.mozilla.org/sv-SE/firefox/addon/bitwarden-password-manager/)
 
@@ -107,6 +87,23 @@ toolkit.legacyUserProfileCustomizations.stylesheets
 
 [Sidebery](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 
+## Settings
+* Disable "Ask to save passwords"
+
+1) about:support
+2) Open Profile Folder
+3) mkdir chrome
+4) Edit chrome\userChrome.css
+```css
+#TabsToolbar-customization-target { visibility: collapse !important; }
+```
+
+```
+about:config
+findbar.highlightAll
+toolkit.legacyUserProfileCustomizations.stylesheets
+```
+
 # Visual Studio Code addons
 [Gruvbox Themes](https://marketplace.visualstudio.com/items?itemName=tomphilbin.gruvbox-themes)
 
@@ -114,5 +111,5 @@ toolkit.legacyUserProfileCustomizations.stylesheets
 
 # [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
 ```cmd
-wsl --install
+wsl --install -d Debian
 ```
