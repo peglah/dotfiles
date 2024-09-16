@@ -21,8 +21,14 @@ if command -v batcat &> /dev/null || command -v bat &> /dev/null; then
 fi
 
 if command -v fzf &> /dev/null; then
+  FZF_VERSION=$(fzf --version | awk '{print $1}')
+
   # Set up fzf key bindings and fuzzy completion
-  eval "$(fzf --bash)"
+  if [[ "$FZF_VERSION" == "0.48" || "$FZF_VERSION" > "0.48" ]]; then
+    eval "$(fzf --bash)"
+  else
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+  fi
 
   # morhetz/gruvbox
   export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
