@@ -4,6 +4,7 @@ mkdir -p ~/git/Peglah
 git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
 
 rm ~/.bashrc
+rm ~/.bash_profile
 
 cd ~/git/Peglah/dotfiles
 stow . -t $HOME

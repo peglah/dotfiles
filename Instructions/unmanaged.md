@@ -12,7 +12,10 @@ cd /tmp/
 wget # https://github.com/sxyazi/yazi/releases/latest
 unzip yazi*.zip
 sudo cp yazi*/yazi /usr/local/bin/
+# Debian?
 sudo cp yazi*/completions/yazi.bash /etc/bash_completion.d/
+# Arch
+sudo cp yazi-x86_64-unknown-linux-gnu/completions/yazi.bash /usr/share/bash-completion/completions/
 ```
 
 # Compiled

@@ -1,6 +1,6 @@
 # Arch
 ```bash
-pacman -S \
+sudo pacman -S --needed \
 xorg \
 xorg-xinit \
 ttf-firacode-nerd
@@ -23,7 +23,7 @@ xinit
 ```bash
 mkdir ~/.fonts
 cd /tmp
-curl https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 mv Fira* ~/.fonts/
 fc-cache -fv

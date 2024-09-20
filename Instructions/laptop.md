@@ -10,10 +10,10 @@ service systemd-logind restart
 
 # [Disable sleep](https://linux-tips.us/how-to-disable-sleep-and-hibernation-on-ubuntu-server/)
 ```bash
-systemctl mask sleep.target
-systemctl mask suspend.target
-systemctl mask hibernate.target
-systemctl mask hybrid-sleep.target
+sudo systemctl mask sleep.target
+sudo systemctl mask suspend.target
+sudo systemctl mask hibernate.target
+sudo systemctl mask hybrid-sleep.target
 ```
 
 # Change Caps Lock and ESC

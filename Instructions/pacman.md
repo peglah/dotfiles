@@ -1,29 +1,22 @@
 # pacman
 ```bash
-pacman -S \
-autoconf \
-automake
+sudo pacman -S \
 bat \
 btop \
 eza \
-fakeroot \
 feh \
 ffmpegthumbnailer \
 firefox \
 git \
 highlight \
-make \
-mosh \
 mpv \
-openssh \
-patch \
-pkg-config \
-pulseaudio \
+neovim \
 qutebrowser \
 ranger \
 stow \
+tmux \
 unclutter \
-w3m \
+w3m
 ```
 
 # Paru AUR
@@ -34,6 +27,6 @@ makepkg -si
 ```
 
 ```bash
-paru -S fastfetch ncpamixer sshs
+paru -S fastfetch sshs
 ```
 
