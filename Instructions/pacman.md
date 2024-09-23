@@ -27,6 +27,6 @@ makepkg -si
 ```
 
 ```bash
-paru -S fastfetch sshs
+paru -S fastfetch sshs-bin
 ```
 
