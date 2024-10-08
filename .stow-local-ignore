@@ -22,6 +22,7 @@ _darcs
 ^/COPYING
 
 # Custom ignores below
+Instructions
 ansible
 bin
 pictures
