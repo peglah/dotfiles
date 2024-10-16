@@ -83,6 +83,7 @@ fi
 
 alias curll='curl -L -O'
 alias diff='diff --color=auto'
+alias gp='git --git-dir=$HOME/git/Peglah/dotfiles/.git --work-tree=$HOME/git/Peglah/dotfiles pull'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias la='ls -lah'
