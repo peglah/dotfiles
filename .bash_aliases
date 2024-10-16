@@ -64,6 +64,15 @@ if command -v wtwitch &> /dev/null; then
       wtwitch w "$value"
     done
   }
+
+  _wt_completions() {
+    # Simulate the command line arguments for wtwitch
+    COMP_WORDS=(wtwitch w "${COMP_WORDS[@]:1}")
+    COMP_CWORD=$((COMP_CWORD + 1))
+    _wtwitch_completions
+  }
+
+  complete -F _wt_completions wt
 fi
 
 if command -v pacman &> /dev/null; then
