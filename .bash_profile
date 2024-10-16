@@ -11,6 +11,11 @@ export QT_STYLE_OVERRIDE=Adwaita-Dark
 # Grimblast output folder
 export XDG_SCREENSHOTS_DIR=$HOME/pictures/screenshots/
 
+# Local display on laptop
+if [[ $(hostname) == "tatyana" && -n "$TMUX" ]]; then
+    export DISPLAY=:0
+fi
+
 if command -v nvim &> /dev/null; then
   export EDITOR=nvim
   export MANPAGER="nvim +Man! -c 'set laststatus=0'"

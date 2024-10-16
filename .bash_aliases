@@ -59,7 +59,11 @@ elif command -v bat &> /dev/null; then
 fi
 
 if command -v wtwitch &> /dev/null; then
-  alias wt=wtwitch
+  wt() {
+    for value in "$@"; do
+      wtwitch w "$value"
+    done
+  }
 fi
 
 if command -v pacman &> /dev/null; then
