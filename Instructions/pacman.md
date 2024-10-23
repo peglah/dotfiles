@@ -9,6 +9,7 @@ ffmpegthumbnailer \
 firefox \
 git \
 highlight \
+inetutils \
 mpv \
 neovim \
 qutebrowser \
