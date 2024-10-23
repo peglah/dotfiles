@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/usr/bin/bash"   # Use the command `whereis bash` or `which bash` to verify the location of your bash executable
 args = ["-l"]
 
@@ -42,3 +42,5 @@ white   = '#ebdbb2'
 
 [window]
 opacity = 0.8
+
+[terminal]
