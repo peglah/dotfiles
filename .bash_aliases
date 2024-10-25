@@ -47,8 +47,10 @@ fi
 
 if command -v fastfetch &> /dev/null; then
   alias cls='clear && fastfetch --structure Title:OS:Host:LocalIp:Memory:Colors --logo-type small'
+  alias c='clear && fastfetch --structure Title:OS:Host:LocalIp:Memory:Colors --logo-type small'
 else
   alias cls=clear
+  alias c=clear
 fi
 
 if command -v batcat &> /dev/null; then
