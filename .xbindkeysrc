@@ -66,11 +66,11 @@
 #  Control + b:2 + Release
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+"pactl set-sink-volume @DEFAULT_SINK@ +1000 && notify-send -t 1000 "Volume Update" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)"%"}')""
   XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+"pactl set-sink-volume @DEFAULT_SINK@ -1000 && notify-send -t 1000 "Volume Update" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)"%"}')""
   XF86AudioLowerVolume
 
 # Mute volume
@@ -81,9 +81,14 @@
 "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
   XF86AudioMicMute
 
-# Launch wtwitch dmenu
-"sh -c $HOME/git/dotfiles/bin/dtwitch.sh"
-  XF86Launch1
+"brightnessctl set +10% && notify-send -t 1000 "Brightness Update" "$(echo $(( $(brightnessctl get) * 100 / $(brightnessctl max) )))%""
+  XF86MonBrightnessUp
+
+"brightnessctl set 10%- && notify-send -t 1000 "Brightness Update" "$(echo $(( $(brightnessctl get) * 100 / $(brightnessctl max) )))%""
+  XF86MonBrightnessDown
+
+"arandr"
+  Mod4 + p
 
 ##################################
 # End of xbindkeys configuration #
