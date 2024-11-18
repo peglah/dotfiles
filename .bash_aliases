@@ -42,6 +42,7 @@ if ! command -v shutdown &> /dev/null; then
 fi
 
 if command -v nvim &> /dev/null; then
+  alias nu='nvim --headless "+Lazy! sync" +qa'
   alias vim=nvim
 fi
 
