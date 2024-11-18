@@ -1,6 +1,12 @@
 if [ -f ~/.profile ]; then . ~/.profile; fi
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
+# Launch tmux if interactice shell
+if [ -n "$PS1" ] && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; then
+  # Create session 'main' or attach to 'main' if already exists.
+  tmux new-session -A -s main
+fi
+
 set -o vi # use vi mode/keybindings
 
 # Dark theme
