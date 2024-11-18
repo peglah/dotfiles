@@ -28,3 +28,8 @@
 
 [alias]
     dif = "!git diff --name-only --relative --diff-filter=d | xargs -I {} bat --diff {}"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
