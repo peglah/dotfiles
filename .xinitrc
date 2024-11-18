@@ -14,6 +14,10 @@ if command -v unclutter &> /dev/null; then
   unclutter &
 fi
 
+if command -v dunst &> /dev/null; then
+  dunst &
+fi
+
 if command -v xbindkeys &> /dev/null; then
   xbindkeys &
 fi
@@ -26,6 +30,8 @@ elif command -v xsetroot &> /dev/null; then
     sleep 1
   done &
 fi
+
+/usr/lib/polkit-kde-authentication-agent-1 &
 
 setxkbmap se
 
