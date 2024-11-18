@@ -78,10 +78,19 @@ if command -v wtwitch &> /dev/null; then
   complete -F _wt_completions wt
 fi
 
-if command -v pacman &> /dev/null; then
+if command -v pacman &> /dev/null && command -v fzf &> /dev/null; then
+  # Search and install packages using pacman
   alias fdz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-elif command -v apt &> /dev/null; then
-  alias fdz='apt-cache pkgnames | fzf --multi --cycle --reverse --preview "apt-cache show {1}" --preview-window=:57%:wrap:hidden --bind=space:toggle-preview | xargs -ro sudo apt install'
+
+  # Search and remove packages with dependencies using pacman
+  alias fdx='pacman -Qq | fzf --multi --preview '\''pacman -Qi {1}'\'' | xargs -ro sudo pacman -Rns'
+
+elif command -v apt &> /dev/null && command -v fzf &> /dev/null; then
+  # Search and install packages using apt
+  alias fdz='apt-cache pkgnames | fzf --multi --preview "apt-cache show {1}" | xargs -ro sudo apt install'
+
+  # Search and purge packages with configuration files using apt
+  alias fdx='dpkg-query -W -f="\${Package}\n" | fzf --multi --preview "apt show {1}" | xargs -ro sudo apt purge && sudo apt autoremove'
 fi
 
 alias curll='curl -L -O'
