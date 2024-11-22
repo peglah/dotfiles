@@ -18,11 +18,9 @@ if command -v dunst &> /dev/null; then
   dunst &
 fi
 
-if command -v xbindkeys &> /dev/null; then
-  xbindkeys &
-fi
-
-if command -v slstatus &> /dev/null; then
+if command -v dwmblocks &> /dev/null; then
+  dwmblocks &
+elif command -v slstatus &> /dev/null; then
   slstatus &
 elif command -v xsetroot &> /dev/null; then
   while xsetroot -name "`date +"%F %R"` `uptime | sed 's/.*,//'`"
@@ -31,7 +29,9 @@ elif command -v xsetroot &> /dev/null; then
   done &
 fi
 
-/usr/lib/polkit-kde-authentication-agent-1 &
+if [ -f /usr/lib/polkit-kde-authentication-agent-1 ]; then
+    /usr/lib/polkit-kde-authentication-agent-1 &
+fi
 
 setxkbmap se
 

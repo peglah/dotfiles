@@ -1,13 +1,25 @@
 if [ -f ~/.profile ]; then . ~/.profile; fi
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
-# Launch tmux if interactice shell
+# Launch tmux if interactive shell
 if [ -n "$PS1" ] && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; then
-  # Create session 'main' or attach to 'main' if already exists.
-  tmux new-session -A -s main
+  # Check if the 'main' session exists
+  if tmux has-session -t main 2>/dev/null; then
+    # Check if the 'main' session has attached clients
+    if [ "$(tmux list-panes -t main -F '#{session_attached}' | grep -c 1)" -eq 0 ]; then
+      tmux attach-session -t main
+    #else
+    #  echo "The 'main' session is already attached. Use 'tmux attach' manually if needed."
+    fi
+  else
+    # Create the 'main' session if it doesn't exist
+    tmux new-session -s main
+  fi
 fi
 
 set -o vi # use vi mode/keybindings
+
+export PATH=$PATH:/home/peglah/.config/statusbar
 
 # Dark theme
 export GTK_THEME=Adwaita:dark
@@ -25,6 +37,10 @@ fi
 if command -v nvim &> /dev/null; then
   export EDITOR=nvim
   export MANPAGER="nvim +Man! -c 'set laststatus=0'"
+fi
+
+if command -v alacritty &> /dev/null; then
+  export TERMINAL=alacritty
 fi
 
 if command -v batcat &> /dev/null || command -v bat &> /dev/null; then
