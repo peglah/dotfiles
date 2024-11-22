@@ -17,6 +17,6 @@ grep -v -e 'Livechannels' -e 'Settings' | \
 # Removes any ANSI escape sequences, which are often used to colorize terminal output.
 sed 's/\x1b\[[0-9;]*m//g' | \
 # Passes the processed list of streamer names to dmenu.
-dmenu -fn 'FiraCode Nerd Font Mono:style=Retina,Regular:pixelsize=16:antialias=true:autohint=true' -l 6 -g 3 -bw 2 -c | \
+dmenu -fn 'FiraCode Nerd Font Mono:style=Retina,Regular:pixelsize=16:antialias=true:autohint=true' -l 6 -bw 2 -c | \
 # Takes the streamer name chosen in dmenu and passes it to `wtwitch w`.
 xargs -r wtwitch w
