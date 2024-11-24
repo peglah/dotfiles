@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# average load
+load=$(uptime | awk -F'load average: ' '{print $2}')
+
+case $BLOCK_BUTTON in
+	  1) setsid -f "$TERMINAL" -e btop -p 1 ;;
+    3) notify-send " Load module" "\- Shows average load 󰝲." ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo " ${load}"
