@@ -1,8 +1,0 @@
-*.o
-/*.pkg.tar.xz
-/dmenu-*.tar.zst
-/pkg/
-/src/
-config.h
-dmenu
-stest

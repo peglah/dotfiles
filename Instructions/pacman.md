@@ -7,6 +7,7 @@ eza \
 feh \
 ffmpegthumbnailer \
 firefox \
+flameshot \
 git \
 highlight \
 inetutils \

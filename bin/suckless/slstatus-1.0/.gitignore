@@ -1,8 +1,0 @@
-*.o
-/*.pkg.tar.xz
-/slstatus-*.tar.zst
-/pkg/
-/src/
-config.h
-slstatus
-stest

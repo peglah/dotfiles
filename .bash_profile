@@ -19,7 +19,7 @@ fi
 
 set -o vi # use vi mode/keybindings
 
-export PATH=$PATH:/home/peglah/.config/statusbar
+export PATH=$PATH:/home/peglah/.local/bin:/home/peglah/.local/bin/statusbar
 
 # Dark theme
 export GTK_THEME=Adwaita:dark

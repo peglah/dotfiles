@@ -8,6 +8,7 @@ rm ~/.bash_profile
 
 cd ~/git/Peglah/dotfiles
 stow . -t $HOME
+ln -s $HOME/git/Peglah/dotfiles/.local/bin/ $HOME/.local/bin
 ```
 
 # Windows

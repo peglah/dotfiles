@@ -1,7 +1,0 @@
-*.o
-/*.pkg.tar.xz
-/slock-*.tar.zst
-/pkg/
-/src/
-config.h
-slock

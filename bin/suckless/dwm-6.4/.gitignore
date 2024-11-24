@@ -1,8 +1,0 @@
-*.o
-/*.pkg.tar.xz
-/dwm-*.tar.zst
-/pkg/
-/src/
-config.h
-dwm
-stest
