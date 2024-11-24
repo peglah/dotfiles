@@ -56,3 +56,12 @@ make
 sudo make install
 ```
 
+# dwmblocks-async
+```bash
+git clone https://github.com/Peglah/dwmblocks-async ~/git/Peglah/dwmblocks-async
+cd ~/git/Peglah/dwmblocks-async
+git checkout custom
+make
+sudo make install
+```
+
