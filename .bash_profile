@@ -1,4 +1,4 @@
-if [ -f ~/.profile ]; then . ~/.profile; fi
+#if [ -f ~/.profile ]; then . ~/.profile; fi
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
 # Launch tmux if interactive shell

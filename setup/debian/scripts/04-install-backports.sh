@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-BACKPORT_FILE="$(dirname "$(realpath "$0")")/backports.txt"
+BACKPORT_FILE="$(dirname "$(realpath "$0")")/../backports.txt"
 
 # Ensure the package list exists
 if [[ ! -f "$BACKPORT_FILE" ]]; then

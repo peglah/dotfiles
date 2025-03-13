@@ -1,5 +1,7 @@
+alacritty
 bat
 btop
+dunst
 fd-find
 ffmpegthumbnailer
 fzf

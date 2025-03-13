@@ -19,4 +19,5 @@ stow . -t $HOME
 ln -s $HOME/git/Peglah/dotfiles/.local/bin/ $HOME/.local/bin
 cd -
 
-source $HOME/.bash_profile
+mv $HOME/.bash_profile $HOME/.bashrc
+source $HOME/.bashrc

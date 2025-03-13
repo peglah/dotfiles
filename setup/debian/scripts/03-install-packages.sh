@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-PACKAGE_FILE="$(dirname "$(realpath "$0")")/packages.txt"
+PACKAGE_FILE="$(dirname "$(realpath "$0")")/../packages.txt"
 
 # Ensure the package list exists
 if [[ ! -f "$PACKAGE_FILE" ]]; then

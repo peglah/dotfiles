@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-FLATPAK_FILE="$(dirname "$(realpath "$0")")/flatpaks.txt"
+FLATPAK_FILE="$(dirname "$(realpath "$0")")/../flatpaks.txt"
 
 # Ensure the flatpak list exists
 if [[ ! -f "$FLATPAK_FILE" ]]; then

@@ -53,4 +53,4 @@ make
 sudo make install
 cd -
 
-sudo cp scripts/build/dwm.session /usr/share/xsessions
+sudo cp $HOME/git/Peglah/dotfiles/setup/debian/scripts/build/dwm.desktop /usr/share/xsessions/
