@@ -1,17 +1,22 @@
 #!/bin/bash
 
-sudo nala install git stow
+sudo nala install -y stow
 
+shopt -s dotglob
 mv $HOME/.config/* $HOME/git/Peglah/.config/
-mv $HOME/.config/.* $HOME/git/Peglah/.config/
 rmdir $HOME/.config
 
-rm ~/.bashrc
-rm ~/.bash_profile
+if [ -f "$HOME/.bashrc" ]; then
+    rm $HOME/.bashrc
+fi
 
-cd ~/git/Peglah/dotfiles
+if [ -f "$HOME/.bash_profile" ]; then
+    rm $HOME/.bash_profile
+fi
+
+cd $HOME/git/Peglah/dotfiles
 stow . -t $HOME
 ln -s $HOME/git/Peglah/dotfiles/.local/bin/ $HOME/.local/bin
 cd -
 
-source ~/.bash_profile
+source $HOME/.bash_profile
