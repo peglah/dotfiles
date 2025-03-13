@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SCRIPTS_DIR="$(dirname "$(realpath "$0")")/scripts"
+SCRIPTS_DIR="$HOME/git/Peglah/dotfiles/setup/debian/scripts"
 USER_NAME="$(whoami)"
 
 # Prevent running as root
@@ -22,6 +22,11 @@ fi
 
 echo "User '$USER_NAME' has sudo access."
 
+sudo apt update
+sudo apt install git
+mkdir -p ~/git/Peglah
+git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+
 # Ensure the scripts directory exists
 if [[ ! -d "$SCRIPTS_DIR" ]]; then
     echo "Error: Directory $SCRIPTS_DIR does not exist."
@@ -29,6 +34,7 @@ if [[ ! -d "$SCRIPTS_DIR" ]]; then
 fi
 
 # Find and execute scripts in order
+cd $SCRIPTS_DIR
 SCRIPTS=($(find "$SCRIPTS_DIR" -maxdepth 1 -type f -executable | sort))
 
 if [[ ${#SCRIPTS[@]} -eq 0 ]]; then
