@@ -1,0 +1,13 @@
+bat
+btop
+eza
+ffmpegthumbnailer
+fzf
+highlight
+mpv
+network-manager
+newsboat
+pm-utils
+rust-fd-find
+tmux
+zathura

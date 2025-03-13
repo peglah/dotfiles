@@ -1,0 +1,8 @@
+# Browsers
+org.mozilla.firefox
+
+# Communication
+org.signal.Signal
+
+# Development
+io.neovim.nvim
