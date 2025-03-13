@@ -19,6 +19,7 @@ if command -v dunst &> /dev/null; then
 fi
 
 if command -v dwmblocks &> /dev/null; then
+  export PATH=$PATH:/home/peglah/.local/bin:/home/peglah/.local/bin/statusbar
   dwmblocks &
 elif command -v slstatus &> /dev/null; then
   slstatus &

@@ -19,8 +19,6 @@ fi
 
 set -o vi # use vi mode/keybindings
 
-export PATH=$PATH:/home/peglah/.local/bin:/home/peglah/.local/bin/statusbar
-
 # Dark theme
 export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
