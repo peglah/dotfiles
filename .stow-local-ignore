@@ -26,4 +26,5 @@ Instructions
 ansible
 bin
 pictures
+setup
 .*\.md.*
