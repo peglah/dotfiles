@@ -20,6 +20,33 @@ if [[ ${#PACKAGES[@]} -eq 0 ]]; then
     exit 0
 fi
 
+local srclist="/etc/apt/sources.list"
+if ! grep -q contrib "${srclist}"; then
+  echo "Enabling contrib repos."
+  sudo sed -i \
+    '/deb/{/ contrib\(\ \|$\)/! s/$/ contrib/}' "${srclist}"
+    else
+      echo "contrib already enabled."
+fi
+
+local srclist="/etc/apt/sources.list"
+if ! grep -q non-free-firmware "${srclist}"; then
+  echo "Enabling non-free-firmware repos."
+  sudo sed -i \
+    '/deb/{/ non-free-firmware\(\ \|$\)/! s/$/ non-free-firmware/}' "${srclist}"
+    else
+      echo "non-free-firmware already enabled."
+fi
+
+local srclist="/etc/apt/sources.list"
+if ! grep -q 'non-free\( \|$\)' "${srclist}"; then
+  echo "Enabling non-free repos."
+  sudo sed -i \
+    '/deb/{/ non-free\(\ \|$\)/! s/$/ non-free/}' "${srclist}"
+    else
+      echo "non-free already enabled."
+fi
+
 echo "Installing: ${PACKAGES[*]}"
 sudo nala update
 sudo nala install -y "${PACKAGES[@]}"
