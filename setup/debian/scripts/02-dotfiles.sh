@@ -1,8 +1,10 @@
 #!/bin/bash
 
 sudo nala install git stow
-mkdir -p ~/git/Peglah
-git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+
+mv $HOME/.config/* $HOME/git/Peglah/.config/
+mv $HOME/.config/.* $HOME/git/Peglah/.config/
+rmdir $HOME/.config
 
 rm ~/.bashrc
 rm ~/.bash_profile
