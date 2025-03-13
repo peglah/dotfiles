@@ -9,12 +9,12 @@ sudo systemctl mask hybrid-sleep.target
 
 # Customize sudo to insult incorrect password attempts
 if ! sudo grep -q "^Defaults\s\+insults" /etc/sudoers; then
-  show_info "Enabling sudo insults."
+  echo "Enabling sudo insults."
   sudo sh -c \
     'sed -e "/^Defaults\tsecure_path/a Defaults\tinsults" /etc/sudoers |
     EDITOR="tee -p" visudo > /dev/null'
     else
-      show_info "Insults already enabled, you masochist."
+      echo "Insults already enabled, you masochist."
 fi
 
 echo "System configured."
