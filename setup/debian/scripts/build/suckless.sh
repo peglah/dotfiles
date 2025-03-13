@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Dependencies
-sudo nala install \
+sudo nala install -y \
 feh \
 libimlib2-dev \
 libx11-dev \
+libxcb-util-dev \
 libxft-dev \
 libxinerama-dev \
 libxrandr-dev \
@@ -52,4 +53,4 @@ make
 sudo make install
 cd -
 
-cp scripts/build/dwm.desktop /usr/share/xsessions
+sudo cp scripts/build/dwm.session /usr/share/xsessions

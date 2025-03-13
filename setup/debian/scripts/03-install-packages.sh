@@ -20,10 +20,6 @@ if [[ ${#PACKAGES[@]} -eq 0 ]]; then
     exit 0
 fi
 
-if [ ! -f "/etc/apt/sources.list.d/bookworm-backports.list" ]; then
-    echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware" | sudo tee "$FILE"
-fi
-
 echo "Installing: ${PACKAGES[*]}"
 sudo nala update
 sudo nala install -y "${PACKAGES[@]}"

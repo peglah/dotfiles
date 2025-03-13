@@ -23,7 +23,7 @@ fi
 echo "User '$USER_NAME' has sudo access."
 
 sudo apt update
-sudo apt install git
+sudo apt install -y git
 mkdir -p ~/git/Peglah
 git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
 

@@ -21,7 +21,7 @@ if [[ ${#BACKPORTS[@]} -eq 0 ]]; then
 fi
 
 if [ ! -f "/etc/apt/sources.list.d/bookworm-backports.list" ]; then
-    echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware" | sudo tee "$FILE"
+    echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware" | sudo tee "/etc/apt/sources.list.d/bookworm-backports.list"
 fi
 
 echo "Installing: ${BACKPORTS[*]}"

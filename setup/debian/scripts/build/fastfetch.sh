@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo nala install -y cmake pkg-config
+sudo nala install -y cmake g++ pkg-config
 
 git clone https://github.com/fastfetch-cli/fastfetch /tmp/fastfetch
 mkdir -p /tmp/fastfetch/build
