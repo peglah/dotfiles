@@ -23,7 +23,7 @@ fi
 if ! command -v flatpak &>/dev/null; then
     echo "Flatpak not found. Installing..."
     sudo nala update
-    sudo nala install -y flatpak
+    sudo nala install -y flatpak gnome-software-plugin-flatpak
 fi
 
 # Add Flathub if not already added
