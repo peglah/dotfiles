@@ -23,7 +23,12 @@ fi
 echo "User '$USER_NAME' has sudo access."
 
 sudo apt update
-sudo apt install -y git
+if [[ "$(systemd-detect-virt)" == "kvm" ]]; then
+    sudo apt install -y git nala qemu-guest-agent
+else
+    sudo apt install -y git nala
+fi
+
 mkdir -p ~/git/Peglah
 git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
 
