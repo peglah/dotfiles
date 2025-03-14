@@ -30,7 +30,7 @@ else
 fi
 
 mkdir -p ~/git/Peglah
-git clone https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+git clone --depth 1 https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
 
 # Ensure the scripts directory exists
 if [[ ! -d "$SCRIPTS_DIR" ]]; then

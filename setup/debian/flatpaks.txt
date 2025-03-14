@@ -1,8 +1,4 @@
-# Browsers
-org.mozilla.firefox
-
-# Communication
-org.signal.Signal
-
-# Development
 io.neovim.nvim
+org.gimp.GIMP
+org.mozilla.firefox
+org.signal.Signal

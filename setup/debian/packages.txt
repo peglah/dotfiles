@@ -1,4 +1,6 @@
 alacritty
+kdeconnect
+autorandr
 bat
 btop
 dunst
@@ -7,10 +9,14 @@ ffmpegthumbnailer
 fzf
 highlight
 mpv
-network-manager
+network-manager-openconnect-gnome
 newsboat
 pm-utils
+qemu-system-gui
+qemu-system-x86
+qemu-utils
 qutebrowser
 tealdeer
 w3m
+wireguard
 zathura
