@@ -10,4 +10,7 @@ mpv
 network-manager
 newsboat
 pm-utils
+qutebrowser
+tealdeer
+w3m
 zathura

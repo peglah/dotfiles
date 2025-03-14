@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Deps, Ueberzug++
+echo 'deb http://download.opensuse.org/repositories/home:/justkidding/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:justkidding.list
+curl -fsSL https://download.opensuse.org/repositories/home:justkidding/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_justkidding.gpg > /dev/null
+sudo nala update
+sudo nala install -y ueberzugpp
+
 cd /tmp
 
 # Get the latest release version tag using GitHub API
