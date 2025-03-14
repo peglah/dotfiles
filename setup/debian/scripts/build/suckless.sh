@@ -17,7 +17,7 @@ mkdir ~/.fonts
 cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
-mv Fira* ~/.fonts/
+cp Fira* ~/.fonts/
 cd -
 fc-cache -fv
 
