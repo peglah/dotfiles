@@ -26,6 +26,6 @@ fi
 
 echo "Installing: ${BACKPORTS[*]}"
 sudo nala update
-sudo apt install -y "${BACKPORTS[@]}"
+sudo \apt install -y "${BACKPORTS[@]}"
 
 echo "Backport installation complete."
