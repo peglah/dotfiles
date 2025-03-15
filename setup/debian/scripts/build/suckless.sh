@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Dependencies
 sudo nala install -y \
 feh \

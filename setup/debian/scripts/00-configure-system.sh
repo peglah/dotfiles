@@ -1,5 +1,7 @@
 #!/bin/bash
-set -e
+
+set -euo pipefail
+
 echo "Setting up system preferences..."
 
 sudo systemctl mask sleep.target

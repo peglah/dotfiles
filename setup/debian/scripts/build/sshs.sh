@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 cd /tmp
 
 # Get the latest release version tag using GitHub API

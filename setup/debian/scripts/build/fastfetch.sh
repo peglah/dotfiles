@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 sudo nala install -y cmake g++ pkg-config
 
 git clone --depth 1 https://github.com/fastfetch-cli/fastfetch /tmp/fastfetch

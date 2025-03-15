@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 sudo nala install -y stow
 
 shopt -s dotglob

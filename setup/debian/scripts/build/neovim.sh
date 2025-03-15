@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 sudo nala install -y cmake curl gcc gettext ninja-build npm ripgrep unzip
 
 git clone --depth 1 https://github.com/neovim/neovim /tmp/neovim
