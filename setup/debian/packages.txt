@@ -1,4 +1,5 @@
 alacritty
+curl
 kdeconnect
 autorandr
 bat
