@@ -30,7 +30,13 @@ else
 fi
 
 mkdir -p ~/git/Peglah
-git clone --depth 1 https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+
+if [[ -d ~/git/Peglah/dotfiles/.git ]]; then
+    echo "Repository already cloned. Pulling latest changes..."
+    cd ~/git/Peglah/dotfiles && git pull origin main
+else
+    git clone --depth 1 https://github.com/Peglah/dotfiles.git ~/git/Peglah/dotfiles
+fi
 
 # Ensure the scripts directory exists
 if [[ ! -d "$SCRIPTS_DIR" ]]; then
