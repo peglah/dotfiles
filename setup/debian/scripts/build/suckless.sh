@@ -24,7 +24,7 @@ cd -
 fc-cache -fv
 
 # dwm
-git clone --depth 1 https://github.com/Peglah/dwm ~/git/Peglah/dwm
+git clone https://github.com/Peglah/dwm ~/git/Peglah/dwm
 cd ~/git/Peglah/dwm
 git checkout custom
 make
@@ -32,7 +32,7 @@ sudo make install
 cd -
 
 # dmenu
-git clone --depth 1 https://github.com/Peglah/dmenu ~/git/Peglah/dmenu
+git clone https://github.com/Peglah/dmenu ~/git/Peglah/dmenu
 cd ~/git/Peglah/dmenu
 git checkout custom
 make
@@ -40,7 +40,7 @@ sudo make install
 cd -
 
 # slock
-git clone --depth 1 https://github.com/Peglah/slock ~/git/Peglah/slock
+git clone https://github.com/Peglah/slock ~/git/Peglah/slock
 cd ~/git/Peglah/slock
 git checkout custom
 make
@@ -48,7 +48,7 @@ sudo make install
 cd -
 
 # dwmblocks
-git clone --depth 1 https://github.com/Peglah/dwmblocks-async ~/git/Peglah/dwmblocks-async
+git clone https://github.com/Peglah/dwmblocks-async ~/git/Peglah/dwmblocks-async
 cd ~/git/Peglah/dwmblocks-async
 git checkout custom
 make
