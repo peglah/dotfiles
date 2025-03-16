@@ -20,5 +20,3 @@ ln -s "$HOME/git/Peglah/dotfiles/.local/bin/" "$HOME/.local/bin"
 cd -
 
 mv "$HOME/.bash_profile" "$HOME/.bashrc"
-
-source "$HOME/.profile"
