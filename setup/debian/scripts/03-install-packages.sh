@@ -28,4 +28,8 @@ echo "Installing: ${PACKAGES[*]}"
 sudo nala update
 sudo nala install -y "${PACKAGES[@]}"
 
+if command -v tldr &> /dev/null; then
+  tldr --update
+fi
+
 echo "Package installation complete."
