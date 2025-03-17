@@ -13,4 +13,5 @@ deb_url="https://github.com/quantumsheep/sshs/releases/download/$latest_version/
 # Output the URL
 wget $deb_url
 sudo nala install -y ./sshs-linux-amd64.deb
+rm sshs-linux-amd64.deb
 cd -

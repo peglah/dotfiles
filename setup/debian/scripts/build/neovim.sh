@@ -9,5 +9,6 @@ cd /tmp/neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
+rm -rf /tmp/neovim/
 cd -
 nvim --headless "+Lazy! sync" +qa

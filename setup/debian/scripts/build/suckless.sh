@@ -20,36 +20,61 @@ cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 cp Fira* ~/.fonts/
+rm /tmp/FiraCode*
 cd -
 fc-cache -fv
 
 # dwm
-git clone https://github.com/Peglah/dwm ~/git/Peglah/dwm
-cd ~/git/Peglah/dwm
+if [[ -d ~/git/Peglah/dwm/.git ]]; then
+    echo "Repository already cloned. Pulling latest changes..."
+    cd ~/git/Peglah/dwm && git pull origin main
+else
+    git clone https://github.com/Peglah/dwm ~/git/Peglah/dwm
+    cd ~/git/Peglah/dwm
+fi
+
 git checkout custom
 make
 sudo make install
 cd -
 
 # dmenu
-git clone https://github.com/Peglah/dmenu ~/git/Peglah/dmenu
-cd ~/git/Peglah/dmenu
+if [[ -d ~/git/Peglah/dmenu/.git ]]; then
+    echo "Repository already cloned. Pulling latest changes..."
+    cd ~/git/Peglah/dmenu && git pull origin main
+else
+    git clone https://github.com/Peglah/dmenu ~/git/Peglah/dmenu
+    cd ~/git/Peglah/dmenu
+fi
+
 git checkout custom
 make
 sudo make install
 cd -
 
 # slock
-git clone https://github.com/Peglah/slock ~/git/Peglah/slock
-cd ~/git/Peglah/slock
+if [[ -d ~/git/Peglah/slock/.git ]]; then
+    echo "Repository already cloned. Pulling latest changes..."
+    cd ~/git/Peglah/slock && git pull origin main
+else
+    git clone https://github.com/Peglah/slock ~/git/Peglah/slock
+    cd ~/git/Peglah/slock
+fi
+
 git checkout custom
 make
 sudo make install
 cd -
 
 # dwmblocks
-git clone https://github.com/Peglah/dwmblocks-async ~/git/Peglah/dwmblocks-async
-cd ~/git/Peglah/dwmblocks-async
+if [[ -d ~/git/Peglah/dwmblocks-async/.git ]]; then
+    echo "Repository already cloned. Pulling latest changes..."
+    cd ~/git/Peglah/dwmblocks-async && git pull origin main
+else
+    git clone https://github.com/Peglah/dwmblocks-async ~/git/Peglah/dwmblocks-async
+    cd ~/git/Peglah/dwmblocks-async
+fi
+
 git checkout custom
 make
 sudo make install

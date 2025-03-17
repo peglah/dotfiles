@@ -10,4 +10,5 @@ cd /tmp/fastfetch/build
 cmake ..
 cmake --build . --target fastfetch
 sudo cp fastfetch /usr/local/bin/
+rm -rf /tmp/fastfetch/
 cd -

@@ -15,4 +15,5 @@ wget $tar_url
 mkdir -p /tmp/gitmux
 tar -xvzf gitmux_${latest_version}_linux_amd64.tar.gz -C /tmp/gitmux
 sudo cp /tmp/gitmux/gitmux /usr/local/bin/
+rm -rf /tmp/gitmux*
 cd -
