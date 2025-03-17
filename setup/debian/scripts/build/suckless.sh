@@ -15,7 +15,7 @@ unclutter-xfixes \
 xinit
 
 # Fonts
-mkdir ~/.fonts
+mkdir -p ~/.fonts
 cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
