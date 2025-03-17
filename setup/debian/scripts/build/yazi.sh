@@ -22,5 +22,6 @@ wget $deb_url
 unzip yazi-x86_64-unknown-linux-musl.zip
 sudo cp yazi-x86_64-unknown-linux-musl/yazi /usr/local/bin/
 sudo cp yazi-x86_64-unknown-linux-musl/completions/yazi.bash /etc/bash_completion.d/
+rm -rf yazi-x86_64-unknown-linux-musl*
 
 cd -

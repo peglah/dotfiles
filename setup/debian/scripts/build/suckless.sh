@@ -20,14 +20,14 @@ cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 cp Fira* ~/.fonts/
-rm /tmp/FiraCode*
+rm /tmp/FiraCode* LICENSE README.md
 cd -
 fc-cache -fv
 
 # dwm
 if [[ -d ~/git/Peglah/dwm/.git ]]; then
     echo "Repository already cloned. Pulling latest changes..."
-    cd ~/git/Peglah/dwm && git pull origin main
+    cd ~/git/Peglah/dwm && git pull origin master
 else
     git clone https://github.com/Peglah/dwm ~/git/Peglah/dwm
     cd ~/git/Peglah/dwm
@@ -41,7 +41,7 @@ cd -
 # dmenu
 if [[ -d ~/git/Peglah/dmenu/.git ]]; then
     echo "Repository already cloned. Pulling latest changes..."
-    cd ~/git/Peglah/dmenu && git pull origin main
+    cd ~/git/Peglah/dmenu && git pull origin master
 else
     git clone https://github.com/Peglah/dmenu ~/git/Peglah/dmenu
     cd ~/git/Peglah/dmenu
@@ -55,7 +55,7 @@ cd -
 # slock
 if [[ -d ~/git/Peglah/slock/.git ]]; then
     echo "Repository already cloned. Pulling latest changes..."
-    cd ~/git/Peglah/slock && git pull origin main
+    cd ~/git/Peglah/slock && git pull origin master
 else
     git clone https://github.com/Peglah/slock ~/git/Peglah/slock
     cd ~/git/Peglah/slock
