@@ -28,10 +28,4 @@ echo "Installing: ${PACKAGES[*]}"
 sudo nala update
 sudo nala install -y "${PACKAGES[@]}"
 
-if lspci | grep -i nvidia &>/dev/null; then
-    echo "NVIDIA GPU detected. Installing drivers..."
-    # Install the recommended NVIDIA driver
-    sudo nala install -y nvidia-driver
-fi
-
 echo "Package installation complete."
