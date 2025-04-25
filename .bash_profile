@@ -8,16 +8,16 @@ if [ -n "$PS1" ] && [ -z "$TMUX" ] && [ "$TERM" = "alacritty" ]; then
     # Check if the 'main' session has attached clients
     if [ "$(tmux list-panes -t main -F '#{session_attached}' | grep -c 1)" -eq 0 ]; then
       tmux attach-session -t main
-    #else
-    #  echo "The 'main' session is already attached. Use 'tmux attach' manually if needed."
+      #else
+      #  echo "The 'main' session is already attached. Use 'tmux attach' manually if needed."
+      fi
+    else
+      # Create the 'main' session if it doesn't exist
+      tmux new-session -s main
+      fi
     fi
-  else
-    # Create the 'main' session if it doesn't exist
-    tmux new-session -s main
-  fi
-fi
 
-set -o vi # use vi mode/keybindings
+    set -o vi # use vi mode/keybindings
 
 # Dark theme
 export GTK_THEME=Adwaita:dark
@@ -29,7 +29,7 @@ export XDG_SCREENSHOTS_DIR=$HOME/pictures/screenshots/
 
 # Local display on laptop
 if [[ $(hostname) == "tatyana" && -n "$TMUX" ]]; then
-    export DISPLAY=:0
+  export DISPLAY=:0
 fi
 
 if command -v nvim &> /dev/null; then
@@ -84,4 +84,13 @@ if command -v fastfetch &> /dev/null; then
   fastfetch --structure Title:OS:Host:LocalIp:Memory:Colors --logo-type small
 elif command -v afetch &> /dev/null; then
   afetch
+fi
+
+# enable bash completion in interactive shells
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi

@@ -102,3 +102,4 @@ alias la='ls -lah'
 alias ll='ls -lh'
 alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias v=edit_file
+alias wp='feh --bg-fill ~/git/Peglah/dotfiles/pictures/wallapper/CjByCrG.png'
